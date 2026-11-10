@@ -1,0 +1,13 @@
+{
+  "title": "Post hoc scene QA check for GLORIA high-NIR cases",
+  "date": "2026-11-10",
+  "status": "Exploratory after field-satellite comparison; not blinded or externally preregistered",
+  "prior_exposure": "The eight high-NIR primary field pairs and their field mismatch were known. Before writing this file, one Landsat 8 Lake Kummerow point showed the cloud bit in USGS QA_PIXEL; at Lake Maggiore one high point was classified vegetation and a same-scene lower-NIR point water by Sentinel-2 L2A SCL; the Hou Lake point was found outside the bounding box of its AquaCorr-listed Sentinel-2 tile.",
+  "case_selection": "Audit all primary-eligible GLORIA matchups with AquaCorr native NIR >0.30 sr^-1; do not select solely by the largest differences.",
+  "control_selection": "For Landsat 8, choose one primary-eligible GLORIA matchup with AquaCorr NIR <=0.03 sr^-1 from the same Site_name and a different acquisition, nearest by date; if no such record exists, no Landsat control. For Sentinel-2 Maggiore, use the lower-NIR GLORIA GID_859 in both same-date tiles.",
+  "qa_sources": {
+    "landsat": "USGS Collection 2 QA_PIXEL carried into Planetary Computer's same-acquisition Landsat Level-2 scene; Level-1 product ID is cross-checked in the USGS STAC catalog. Level-2 optical bands are not equivalent to AquaCorr aquatic Rrs.",
+    "sentinel_2": "Sentinel-2 L2A Scene Classification Layer (SCL) sampled at field coordinate and matched to the Level-1C tile/time. SCL is algorithmic evidence, not a manual truth label."
+  },
+  "outputs": "Per-point QA codes, cloud/water/vegetation indicators, item identity, whether the field coordinate is inside the named Level-1C tile, and all failures/unknowns. No pixel-error rate or atmospheric-correction diagnosis is inferred from this convenience sample."
+}

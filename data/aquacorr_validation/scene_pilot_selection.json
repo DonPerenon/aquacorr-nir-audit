@@ -1,0 +1,872 @@
+{
+  "protocol": {
+    "title": "Deterministic same-scene QA pilot outside GLORIA",
+    "date": "2026-11-10",
+    "status": "Locally fixed before identifying pilot rows or querying their QA; post hoc relative to the prior global NIR audit and the GLORIA scene findings",
+    "prior_exposure": "The full-archive high-NIR prevalence and GLORIA field/scene QA findings were already known. No records or QA results in this non-GLORIA pilot had been selected or inspected when this protocol was written.",
+    "population": "AquaCorr-Global v1 rows with passed_qc=True, exact source other than GLORIA, finite sensor-native NIR Rrs and valid coordinates, excluding coord_centroid=1.",
+    "strata": "Each of the six sensors separately. A case has native NIR >0.30 sr^-1; a control has native NIR between 0 and 0.03 sr^-1 inclusive. Case and control must share exact scene_id and source label.",
+    "sample": "Choose five case-control scene pairs per sensor. Order high candidates by SHA-256 of pilot seed plus matchup_id; keep the first eligible high row per scene and site among candidates with an available same-scene/source low row. Select the control with the lowest deterministic hash. No QA result enters selection. Preserve missing/failed scene lookups.",
+    "qa_interpretation": "For Landsat use same-acquisition USGS Collection 2 QA_PIXEL sampled through Planetary Computer L2: cloud bit 3 and water bit 7; Level-1 QA_PIXEL is carried unchanged into Level-2. Do not use the known problematic Landsat 4-7 clear bit as a decisive water indicator. For Sentinel-2 use L2A SCL, with 6=water, 4=vegetation, and document all other codes. Confirm original scene or tile ID and point containment. QA is algorithmic evidence, not manually adjudicated truth.",
+    "outcomes": "Descriptive counts of QA cloud/water/vegetation and tile mismatch among sampled high and low points, by sensor and overall. No sensitivity/specificity, causal processing diagnosis or population-wide error rate is estimated from this small stratified extreme-tail pilot.",
+    "source": "https://doi.org/10.5281/zenodo.21927415"
+  },
+  "source_sha256": "ea44b8632ee57b6b214410282fa0ab5b6cc16b5b32477f842349552f1d82877c",
+  "seed": "aquacorr-scene-pilot-20261110",
+  "selection_flow": {
+    "high_eligible_L5": 49345,
+    "high_eligible_L7": 66704,
+    "high_eligible_L8": 44154,
+    "high_eligible_S2B": 68314,
+    "high_eligible_S2A": 78487,
+    "high_eligible_L9": 6549,
+    "pairs_selected_L5": 5,
+    "pairs_selected_L7": 5,
+    "pairs_selected_L8": 5,
+    "pairs_selected_L9": 5,
+    "pairs_selected_S2A": 5,
+    "pairs_selected_S2B": 5
+  },
+  "pairs": [
+    {
+      "sensor": "L5",
+      "high": {
+        "matchup_id": "531355",
+        "site_id": "11NPSWRD_WQX-SACN_APLE_0.5",
+        "source": "AquaMatch",
+        "sensor": "L5",
+        "scene_id": "L5_TM_2009_10_07_16_49_02_027029_L2R",
+        "lat": "45.1468119",
+        "lon": "-92.7328524",
+        "date_satellite": "2009-10-07",
+        "overpass_utc": "2009-10-07 16:49:02+00:00",
+        "native_nir": 0.37210813164711
+      },
+      "low": {
+        "matchup_id": "531328",
+        "site_id": "MNPCA-27-0133-14-204",
+        "source": "AquaMatch",
+        "sensor": "L5",
+        "scene_id": "L5_TM_2009_10_07_16_49_02_027029_L2R",
+        "lat": "44.941472",
+        "lon": "-93.650477",
+        "date_satellite": "2009-10-07",
+        "overpass_utc": "2009-10-07 16:49:02+00:00",
+        "native_nir": 0.022883297875523567
+      },
+      "selection_priority": 1021280438193645
+    },
+    {
+      "sensor": "L5",
+      "high": {
+        "matchup_id": "244034",
+        "site_id": "AQSAT_1VTDECWQ-503875",
+        "source": "AquaSat_v1",
+        "sensor": "L5",
+        "scene_id": "L5_TM_2011_07_07_15_21_41_013029_L2R",
+        "lat": "44.30865870439483",
+        "lon": "-72.44394950319358",
+        "date_satellite": "2011-07-07",
+        "overpass_utc": "2011-07-07 15:21:41+00:00",
+        "native_nir": 0.6271979212760925
+      },
+      "low": {
+        "matchup_id": "244039",
+        "site_id": "AQSAT_1VTDECWQ-503506",
+        "source": "AquaSat_v1",
+        "sensor": "L5",
+        "scene_id": "L5_TM_2011_07_07_15_21_41_013029_L2R",
+        "lat": "44.42584996083353",
+        "lon": "-73.23147127438646",
+        "date_satellite": "2011-07-07",
+        "overpass_utc": "2011-07-07 15:21:41+00:00",
+        "native_nir": 0.02182037942111492
+      },
+      "selection_priority": 5321571171609127
+    },
+    {
+      "sensor": "L5",
+      "high": {
+        "matchup_id": "27134",
+        "site_id": "21FLSJWM-IRLTBC",
+        "source": "AquaMatch",
+        "sensor": "L5",
+        "scene_id": "L5_TM_2003_09_08_15_32_48_016040_L2R",
+        "lat": "28.8205556",
+        "lon": "-80.8613889",
+        "date_satellite": "2003-09-08",
+        "overpass_utc": "2003-09-08 15:32:48+00:00",
+        "native_nir": 0.6295474171638489
+      },
+      "low": {
+        "matchup_id": "27108",
+        "site_id": "21FLSJWM-LPC",
+        "source": "AquaMatch",
+        "sensor": "L5",
+        "scene_id": "L5_TM_2003_09_08_15_32_48_016040_L2R",
+        "lat": "28.3402778",
+        "lon": "-80.8333333",
+        "date_satellite": "2003-09-08",
+        "overpass_utc": "2003-09-08 15:32:48+00:00",
+        "native_nir": 0.028242692351341248
+      },
+      "selection_priority": 5333318688086189
+    },
+    {
+      "sensor": "L5",
+      "high": {
+        "matchup_id": "557158",
+        "site_id": "MNPCA-21-0051-00-202",
+        "source": "AquaMatch",
+        "sensor": "L5",
+        "scene_id": "L5_TM_2010_07_20_17_01_27_029028_L2R",
+        "lat": "45.902367",
+        "lon": "-95.377068",
+        "date_satellite": "2010-07-20",
+        "overpass_utc": "2010-07-20 17:01:27+00:00",
+        "native_nir": 0.6462539434432983
+      },
+      "low": {
+        "matchup_id": "557170",
+        "site_id": "MNPCA-21-0057-00-102",
+        "source": "AquaMatch",
+        "sensor": "L5",
+        "scene_id": "L5_TM_2010_07_20_17_01_27_029028_L2R",
+        "lat": "45.978743",
+        "lon": "-95.356839",
+        "date_satellite": "2010-07-20",
+        "overpass_utc": "2010-07-20 17:01:27+00:00",
+        "native_nir": 0.025132063776254654
+      },
+      "selection_priority": 8070161234420416
+    },
+    {
+      "sensor": "L5",
+      "high": {
+        "matchup_id": "1223876",
+        "site_id": "21FLKWAT-VOL-BERESFORD-1",
+        "source": "AquaMatch",
+        "sensor": "L5",
+        "scene_id": "L5_TM_1995_06_14_15_01_38_016040_L2R",
+        "lat": "28.9861111",
+        "lon": "-81.3427777",
+        "date_satellite": "1995-06-14",
+        "overpass_utc": "1995-06-14 15:01:38+00:00",
+        "native_nir": 0.4721148610115051
+      },
+      "low": {
+        "matchup_id": "1223863",
+        "site_id": "21FLORL-RED",
+        "source": "AquaMatch",
+        "sensor": "L5",
+        "scene_id": "L5_TM_1995_06_14_15_01_38_016040_L2R",
+        "lat": "28.4058333",
+        "lon": "-81.2586111",
+        "date_satellite": "1995-06-14",
+        "overpass_utc": "1995-06-14 15:01:38+00:00",
+        "native_nir": 0.029008125886321068
+      },
+      "selection_priority": 8446049325252714
+    },
+    {
+      "sensor": "L7",
+      "high": {
+        "matchup_id": "811465",
+        "site_id": "21FLHILL_WQX-1512",
+        "source": "AquaMatch",
+        "sensor": "L7",
+        "scene_id": "L7_ETM_2019_01_15_15_50_35_016041_L2R",
+        "lat": "28.01808",
+        "lon": "-82.4647",
+        "date_satellite": "2019-01-15",
+        "overpass_utc": "2019-01-15 15:50:35+00:00",
+        "native_nir": 0.40387317538261414
+      },
+      "low": {
+        "matchup_id": "811474",
+        "site_id": "21FLMRC_WQX-NL-0531-01",
+        "source": "AquaMatch",
+        "sensor": "L7",
+        "scene_id": "L7_ETM_2019_01_15_15_50_35_016041_L2R",
+        "lat": "28.093933",
+        "lon": "-80.582483",
+        "date_satellite": "2019-01-15",
+        "overpass_utc": "2019-01-15 15:50:35+00:00",
+        "native_nir": 0.013281403109431267
+      },
+      "selection_priority": 469673362051201
+    },
+    {
+      "sensor": "L7",
+      "high": {
+        "matchup_id": "1644114",
+        "site_id": "wqms_23003389",
+        "source": "Caravan-Qual",
+        "sensor": "L7",
+        "scene_id": "L7_ETM_2002_07_16_10_58_29_204022_L2R",
+        "lat": "54.19825",
+        "lon": "-2.59069",
+        "date_satellite": "2002-07-16",
+        "overpass_utc": "2002-07-16 10:58:29+00:00",
+        "native_nir": 0.3585173785686493
+      },
+      "low": {
+        "matchup_id": "1644135",
+        "site_id": "wqms_23006704",
+        "source": "Caravan-Qual",
+        "sensor": "L7",
+        "scene_id": "L7_ETM_2002_07_16_10_58_29_204022_L2R",
+        "lat": "54.37041",
+        "lon": "-2.93505",
+        "date_satellite": "2002-07-16",
+        "overpass_utc": "2002-07-16 10:58:29+00:00",
+        "native_nir": 0.014280525036156178
+      },
+      "selection_priority": 1447190802367327
+    },
+    {
+      "sensor": "L7",
+      "high": {
+        "matchup_id": "380099",
+        "site_id": "AQSAT_21FLBRA-3082-A",
+        "source": "AquaSat_v1",
+        "sensor": "L7",
+        "scene_id": "L7_ETM_2006_06_20_15_45_23_016040_L2R",
+        "lat": "28.125379",
+        "lon": "-80.625325",
+        "date_satellite": "2006-06-20",
+        "overpass_utc": "2006-06-20 15:45:23+00:00",
+        "native_nir": 0.31481441855430603
+      },
+      "low": {
+        "matchup_id": "380103",
+        "site_id": "AQSAT_21FLSFWM-A03",
+        "source": "AquaSat_v1",
+        "sensor": "L7",
+        "scene_id": "L7_ETM_2006_06_20_15_45_23_016040_L2R",
+        "lat": "28.287088099999995",
+        "lon": "-81.3069758",
+        "date_satellite": "2006-06-20",
+        "overpass_utc": "2006-06-20 15:45:23+00:00",
+        "native_nir": 0.012483579106628895
+      },
+      "selection_priority": 1799322837020913
+    },
+    {
+      "sensor": "L7",
+      "high": {
+        "matchup_id": "1789332",
+        "site_id": "wqms_23001111",
+        "source": "Caravan-Qual",
+        "sensor": "L7",
+        "scene_id": "L7_ETM_2019_09_10_10_50_26_203023_L2R",
+        "lat": "53.27959",
+        "lon": "-0.9396",
+        "date_satellite": "2019-09-10",
+        "overpass_utc": "2019-09-10 10:50:26+00:00",
+        "native_nir": 0.5420607328414917
+      },
+      "low": {
+        "matchup_id": "1789368",
+        "site_id": "wqms_23003622",
+        "source": "Caravan-Qual",
+        "sensor": "L7",
+        "scene_id": "L7_ETM_2019_09_10_10_50_26_203023_L2R",
+        "lat": "53.31412",
+        "lon": "-2.75018",
+        "date_satellite": "2019-09-10",
+        "overpass_utc": "2019-09-10 10:50:26+00:00",
+        "native_nir": 0.027590889483690262
+      },
+      "selection_priority": 3475692334204016
+    },
+    {
+      "sensor": "L7",
+      "high": {
+        "matchup_id": "679010",
+        "site_id": "USGS-14206960",
+        "source": "ChemLotUS",
+        "sensor": "L7",
+        "scene_id": "L7_ETM_2007_03_05_18_46_33_046028_L2R",
+        "lat": "45.3859522",
+        "lon": "-122.7573183",
+        "date_satellite": "2007-03-05",
+        "overpass_utc": "2007-03-05 18:46:33+00:00",
+        "native_nir": 0.3224421739578247
+      },
+      "low": {
+        "matchup_id": "679019",
+        "site_id": "R10PORTLANDHARBOR-LW3-W029",
+        "source": "ChemLotUS",
+        "sensor": "L7",
+        "scene_id": "L7_ETM_2007_03_05_18_46_33_046028_L2R",
+        "lat": "45.5999348",
+        "lon": "-122.7826285",
+        "date_satellite": "2007-03-05",
+        "overpass_utc": "2007-03-05 18:46:33+00:00",
+        "native_nir": 0.027847357094287872
+      },
+      "selection_priority": 5259942193760403
+    },
+    {
+      "sensor": "L8",
+      "high": {
+        "matchup_id": "826770",
+        "site_id": "21FLCOLL_WQX-CORK@846",
+        "source": "AquaMatch",
+        "sensor": "L8",
+        "scene_id": "L8_OLI_2019_07_18_15_56_09_016042_L2R",
+        "lat": "26.277656",
+        "lon": "-81.601238",
+        "date_satellite": "2019-07-18",
+        "overpass_utc": "2019-07-18 15:56:09+00:00",
+        "native_nir": 0.43376779556274414
+      },
+      "low": {
+        "matchup_id": "826772",
+        "site_id": "21FLEECO_WQX-EB-RANDOMAE15815",
+        "source": "AquaMatch",
+        "sensor": "L8",
+        "scene_id": "L8_OLI_2019_07_18_15_56_09_016042_L2R",
+        "lat": "26.43081",
+        "lon": "-81.86085",
+        "date_satellite": "2019-07-18",
+        "overpass_utc": "2019-07-18 15:56:09+00:00",
+        "native_nir": 0.01800382323563099
+      },
+      "selection_priority": 1492366272652377
+    },
+    {
+      "sensor": "L8",
+      "high": {
+        "matchup_id": "1748090",
+        "site_id": "wqms_16500143",
+        "source": "Caravan-Qual",
+        "sensor": "L8",
+        "scene_id": "L8_OLI_2018_07_03_10_26_44_197024_L2R",
+        "lat": "52.13951",
+        "lon": "6.85022",
+        "date_satellite": "2018-07-03",
+        "overpass_utc": "2018-07-03 10:26:44+00:00",
+        "native_nir": 0.3191128075122833
+      },
+      "low": {
+        "matchup_id": "1748084",
+        "site_id": "wqms_16500041",
+        "source": "Caravan-Qual",
+        "sensor": "L8",
+        "scene_id": "L8_OLI_2018_07_03_10_26_44_197024_L2R",
+        "lat": "52.55401",
+        "lon": "5.92493",
+        "date_satellite": "2018-07-03",
+        "overpass_utc": "2018-07-03 10:26:44+00:00",
+        "native_nir": 0.013177352026104927
+      },
+      "selection_priority": 6683883309729910
+    },
+    {
+      "sensor": "L8",
+      "high": {
+        "matchup_id": "721560",
+        "site_id": "AQSAT_MNPCA-S004-471",
+        "source": "AquaSat_v1",
+        "sensor": "L8",
+        "scene_id": "L8_OLI_2015_09_06_16_58_28_027028_L2R",
+        "lat": "45.293929",
+        "lon": "-92.864693",
+        "date_satellite": "2015-09-06",
+        "overpass_utc": "2015-09-06 16:58:28+00:00",
+        "native_nir": 0.3484051525592804
+      },
+      "low": {
+        "matchup_id": "721567",
+        "site_id": "AQSAT_WIDNR_WQX-10042010",
+        "source": "AquaSat_v1",
+        "sensor": "L8",
+        "scene_id": "L8_OLI_2015_09_06_16_58_28_027028_L2R",
+        "lat": "46.08643399999999",
+        "lon": "-91.92977899999998",
+        "date_satellite": "2015-09-06",
+        "overpass_utc": "2015-09-06 16:58:28+00:00",
+        "native_nir": 0.016061846166849136
+      },
+      "selection_priority": 6733065506526258
+    },
+    {
+      "sensor": "L8",
+      "high": {
+        "matchup_id": "587417",
+        "site_id": "MNPCA-18-0034-00-201",
+        "source": "AquaMatch",
+        "sensor": "L8",
+        "scene_id": "L8_OLI_2017_09_18_17_04_56_028028_L2R",
+        "lat": "46.36516",
+        "lon": "-93.855859",
+        "date_satellite": "2017-09-18",
+        "overpass_utc": "2017-09-18 17:04:56+00:00",
+        "native_nir": 0.32505226135253906
+      },
+      "low": {
+        "matchup_id": "587452",
+        "site_id": "MNPCA-18-0212-00-101",
+        "source": "AquaMatch",
+        "sensor": "L8",
+        "scene_id": "L8_OLI_2017_09_18_17_04_56_028028_L2R",
+        "lat": "46.748917",
+        "lon": "-93.955363",
+        "date_satellite": "2017-09-18",
+        "overpass_utc": "2017-09-18 17:04:56+00:00",
+        "native_nir": 0.01089746318757534
+      },
+      "selection_priority": 12758188023816955
+    },
+    {
+      "sensor": "L8",
+      "high": {
+        "matchup_id": "677599",
+        "site_id": "WIDNR_WQX-033161",
+        "source": "AquaMatch",
+        "sensor": "L8",
+        "scene_id": "L8_OLI_2014_06_24_16_52_33_026029_L2R",
+        "lat": "45.389493",
+        "lon": "-92.076003",
+        "date_satellite": "2014-06-24",
+        "overpass_utc": "2014-06-24 16:52:33+00:00",
+        "native_nir": 0.8304838538169861
+      },
+      "low": {
+        "matchup_id": "677566",
+        "site_id": "MNPCA-62-0034-00-203",
+        "source": "AquaMatch",
+        "sensor": "L8",
+        "scene_id": "L8_OLI_2014_06_24_16_52_33_026029_L2R",
+        "lat": "45.068944",
+        "lon": "-93.020014",
+        "date_satellite": "2014-06-24",
+        "overpass_utc": "2014-06-24 16:52:33+00:00",
+        "native_nir": 0.021117545664310455
+      },
+      "selection_priority": 14978539401446405
+    },
+    {
+      "sensor": "L9",
+      "high": {
+        "matchup_id": "877916",
+        "site_id": "21FLEECO_WQX-PI-01",
+        "source": "AquaMatch",
+        "sensor": "L9",
+        "scene_id": "L9_OLI_2021_11_02_15_58_06_016041_L2R",
+        "lat": "26.50707",
+        "lon": "-82.01839",
+        "date_satellite": "2021-11-02",
+        "overpass_utc": "2021-11-02 15:58:06+00:00",
+        "native_nir": 0.6012232303619385
+      },
+      "low": {
+        "matchup_id": "877961",
+        "site_id": "21FLPOLK_WQX-TIGER1",
+        "source": "AquaMatch",
+        "sensor": "L9",
+        "scene_id": "L9_OLI_2021_11_02_15_58_06_016041_L2R",
+        "lat": "27.8918056",
+        "lon": "-81.3526944",
+        "date_satellite": "2021-11-02",
+        "overpass_utc": "2021-11-02 15:58:06+00:00",
+        "native_nir": 0.00834679789841175
+      },
+      "selection_priority": 11968172219120524
+    },
+    {
+      "sensor": "L9",
+      "high": {
+        "matchup_id": "926575",
+        "site_id": "MNPCA-21-0291-00-202",
+        "source": "AquaMatch",
+        "sensor": "L9",
+        "scene_id": "L9_OLI_2023_07_16_17_10_35_029028_L2R",
+        "lat": "45.867616",
+        "lon": "-95.717765",
+        "date_satellite": "2023-07-16",
+        "overpass_utc": "2023-07-16 17:10:35+00:00",
+        "native_nir": 0.46571701765060425
+      },
+      "low": {
+        "matchup_id": "926580",
+        "site_id": "MNPCA-21-0144-02-201",
+        "source": "AquaMatch",
+        "sensor": "L9",
+        "scene_id": "L9_OLI_2023_07_16_17_10_35_029028_L2R",
+        "lat": "45.881203",
+        "lon": "-95.529904",
+        "date_satellite": "2023-07-16",
+        "overpass_utc": "2023-07-16 17:10:35+00:00",
+        "native_nir": 0.02744714729487896
+      },
+      "selection_priority": 24565753265154196
+    },
+    {
+      "sensor": "L9",
+      "high": {
+        "matchup_id": "902556",
+        "site_id": "WIDNR_WQX-563058",
+        "source": "AquaMatch",
+        "sensor": "L9",
+        "scene_id": "L9_OLI_2022_08_16_16_59_13_027029_L2R",
+        "lat": "45.068886",
+        "lon": "-92.649453",
+        "date_satellite": "2022-08-16",
+        "overpass_utc": "2022-08-16 16:59:13+00:00",
+        "native_nir": 0.45526111125946045
+      },
+      "low": {
+        "matchup_id": "902514",
+        "site_id": "MNPCA-66-0014-00-204",
+        "source": "AquaMatch",
+        "sensor": "L9",
+        "scene_id": "L9_OLI_2022_08_16_16_59_13_027029_L2R",
+        "lat": "44.355715",
+        "lon": "-93.361037",
+        "date_satellite": "2022-08-16",
+        "overpass_utc": "2022-08-16 16:59:13+00:00",
+        "native_nir": 0.025355907157063484
+      },
+      "selection_priority": 51718519363654225
+    },
+    {
+      "sensor": "L9",
+      "high": {
+        "matchup_id": "1161125",
+        "site_id": "ASUERF-OCBD_PB",
+        "source": "ChemLotUS",
+        "sensor": "L9",
+        "scene_id": "L9_OLI_2022_08_27_16_43_06_024035_L2R",
+        "lat": "35.2964",
+        "lon": "-91.10313",
+        "date_satellite": "2022-08-27",
+        "overpass_utc": "2022-08-27 16:43:06+00:00",
+        "native_nir": 1.1025499105453491
+      },
+      "low": {
+        "matchup_id": "1161132",
+        "site_id": "ARDEQH2O_WQX-WHI0029",
+        "source": "ChemLotUS",
+        "sensor": "L9",
+        "scene_id": "L9_OLI_2022_08_27_16_43_06_024035_L2R",
+        "lat": "35.6433",
+        "lon": "-91.4617",
+        "date_satellite": "2022-08-27",
+        "overpass_utc": "2022-08-27 16:43:06+00:00",
+        "native_nir": 0.02442358061671257
+      },
+      "selection_priority": 52897299282672620
+    },
+    {
+      "sensor": "L9",
+      "high": {
+        "matchup_id": "1801492",
+        "site_id": "wqms_08700779",
+        "source": "Caravan-Qual",
+        "sensor": "L9",
+        "scene_id": "L9_OLI_2022_02_14_10_15_55_195025_L2R",
+        "lat": "50.38479",
+        "lon": "8.0119",
+        "date_satellite": "2022-02-14",
+        "overpass_utc": "2022-02-14 10:15:55+00:00",
+        "native_nir": 0.4431494176387787
+      },
+      "low": {
+        "matchup_id": "1801484",
+        "site_id": "wqms_08700671",
+        "source": "Caravan-Qual",
+        "sensor": "L9",
+        "scene_id": "L9_OLI_2022_02_14_10_15_55_195025_L2R",
+        "lat": "49.48278",
+        "lon": "8.45294",
+        "date_satellite": "2022-02-14",
+        "overpass_utc": "2022-02-14 10:15:55+00:00",
+        "native_nir": 0.009065264835953712
+      },
+      "selection_priority": 60994399391584068
+    },
+    {
+      "sensor": "S2A",
+      "high": {
+        "matchup_id": "1291949",
+        "site_id": "MNPCA-29-0250-00-201",
+        "source": "AquaMatch",
+        "sensor": "S2A",
+        "scene_id": "S2A_MSI_2017_09_17_17_20_52_T15TUM_L2R",
+        "lat": "46.961796",
+        "lon": "-95.10995",
+        "date_satellite": "2017-09-17",
+        "overpass_utc": "2017-09-17 17:20:52+00:00",
+        "native_nir": 0.5890134572982788
+      },
+      "low": {
+        "matchup_id": "1291933",
+        "site_id": "MNPCA-18-0366-00-201",
+        "source": "AquaMatch",
+        "sensor": "S2A",
+        "scene_id": "S2A_MSI_2017_09_17_17_20_52_T15TUM_L2R",
+        "lat": "46.715086",
+        "lon": "-94.217273",
+        "date_satellite": "2017-09-17",
+        "overpass_utc": "2017-09-17 17:20:52+00:00",
+        "native_nir": 0.008151333779096603
+      },
+      "selection_priority": 1313436424799922
+    },
+    {
+      "sensor": "S2A",
+      "high": {
+        "matchup_id": "1592951",
+        "site_id": "21FLKWAT_WQX-VOL-NORTHTAL-2",
+        "source": "AquaMatch",
+        "sensor": "S2A",
+        "scene_id": "S2A_MSI_2023_06_07_16_15_18_T17RMN_L2R",
+        "lat": "29.0456",
+        "lon": "-81.2656",
+        "date_satellite": "2023-06-07",
+        "overpass_utc": "2023-06-07 16:15:18+00:00",
+        "native_nir": 0.4705822169780731
+      },
+      "low": {
+        "matchup_id": "1592952",
+        "site_id": "21FLKWAT_WQX-VOL-NORTHTAL-1",
+        "source": "AquaMatch",
+        "sensor": "S2A",
+        "scene_id": "S2A_MSI_2023_06_07_16_15_18_T17RMN_L2R",
+        "lat": "29.0489",
+        "lon": "-81.2663",
+        "date_satellite": "2023-06-07",
+        "overpass_utc": "2023-06-07 16:15:18+00:00",
+        "native_nir": 0.025361038744449615
+      },
+      "selection_priority": 2126068345009811
+    },
+    {
+      "sensor": "S2A",
+      "high": {
+        "matchup_id": "1378683",
+        "site_id": "21FLHESD_WQX-TALIAFERRO EAST POND",
+        "source": "AquaMatch",
+        "sensor": "S2A",
+        "scene_id": "S2A_MSI_2019_06_18_16_15_50_T17RLL_L2R",
+        "lat": "28.066367",
+        "lon": "-82.453311",
+        "date_satellite": "2019-06-18",
+        "overpass_utc": "2019-06-18 16:15:50+00:00",
+        "native_nir": 0.5658218860626221
+      },
+      "low": {
+        "matchup_id": "1378638",
+        "site_id": "21FLMANA_WQX-532",
+        "source": "AquaMatch",
+        "sensor": "S2A",
+        "scene_id": "S2A_MSI_2019_06_18_16_15_50_T17RLL_L2R",
+        "lat": "27.5056944",
+        "lon": "-82.5420222",
+        "date_satellite": "2019-06-18",
+        "overpass_utc": "2019-06-18 16:15:50+00:00",
+        "native_nir": 0.024059375748038292
+      },
+      "selection_priority": 3202951637026980
+    },
+    {
+      "sensor": "S2A",
+      "high": {
+        "matchup_id": "1555863",
+        "site_id": "MNPCA-21-0051-00-202",
+        "source": "AquaMatch",
+        "sensor": "S2A",
+        "scene_id": "S2A_MSI_2022_08_22_17_21_08_T15TUM_L2R",
+        "lat": "45.902367",
+        "lon": "-95.377068",
+        "date_satellite": "2022-08-22",
+        "overpass_utc": "2022-08-22 17:21:08+00:00",
+        "native_nir": 0.3882671594619751
+      },
+      "low": {
+        "matchup_id": "1555867",
+        "site_id": "MNPCA-18-0374-00-201",
+        "source": "AquaMatch",
+        "sensor": "S2A",
+        "scene_id": "S2A_MSI_2022_08_22_17_21_08_T15TUM_L2R",
+        "lat": "46.51022",
+        "lon": "-94.263535",
+        "date_satellite": "2022-08-22",
+        "overpass_utc": "2022-08-22 17:21:08+00:00",
+        "native_nir": 0.017335159704089165
+      },
+      "selection_priority": 5113637135197813
+    },
+    {
+      "sensor": "S2A",
+      "high": {
+        "matchup_id": "1551867",
+        "site_id": "STORLVD_WQX-DUCK CR #6",
+        "source": "AquaMatch",
+        "sensor": "S2A",
+        "scene_id": "S2A_MSI_2022_07_27_17_00_54_T16TCS_L2R",
+        "lat": "46.2680091",
+        "lon": "-89.1747286",
+        "date_satellite": "2022-07-27",
+        "overpass_utc": "2022-07-27 17:00:54+00:00",
+        "native_nir": 0.8632834553718567
+      },
+      "low": {
+        "matchup_id": "1551865",
+        "site_id": "WIDNR_WQX-643145",
+        "source": "AquaMatch",
+        "sensor": "S2A",
+        "scene_id": "S2A_MSI_2022_07_27_17_00_54_T16TCS_L2R",
+        "lat": "45.972466",
+        "lon": "-89.39188",
+        "date_satellite": "2022-07-27",
+        "overpass_utc": "2022-07-27 17:00:54+00:00",
+        "native_nir": 0.02674298733472824
+      },
+      "selection_priority": 6379476130218802
+    },
+    {
+      "sensor": "S2B",
+      "high": {
+        "matchup_id": "1469173",
+        "site_id": "21FLSABR_WQX-BAY-WE-STBAY-2",
+        "source": "AquaMatch",
+        "sensor": "S2B",
+        "scene_id": "S2B_MSI_2021_03_30_16_35_03_T16RFU_L2R",
+        "lat": "30.268333",
+        "lon": "-85.808333",
+        "date_satellite": "2021-03-30",
+        "overpass_utc": "2021-03-30 16:35:03+00:00",
+        "native_nir": 0.6679213047027588
+      },
+      "low": {
+        "matchup_id": "1469182",
+        "site_id": "21FLTLHR_WQX-G2TLHR0043",
+        "source": "AquaMatch",
+        "sensor": "S2B",
+        "scene_id": "S2B_MSI_2021_03_30_16_35_03_T16RFU_L2R",
+        "lat": "30.44136",
+        "lon": "-84.9864",
+        "date_satellite": "2021-03-30",
+        "overpass_utc": "2021-03-30 16:35:03+00:00",
+        "native_nir": 0.024825362488627434
+      },
+      "selection_priority": 1531178212639050
+    },
+    {
+      "sensor": "S2B",
+      "high": {
+        "matchup_id": "1932033",
+        "site_id": "wqms_08700835",
+        "source": "Caravan-Qual",
+        "sensor": "S2B",
+        "scene_id": "S2B_MSI_2022_10_10_10_16_07_T33UVU_L2R",
+        "lat": "52.84316",
+        "lon": "14.12373",
+        "date_satellite": "2022-10-10",
+        "overpass_utc": "2022-10-10 10:16:07+00:00",
+        "native_nir": 0.4176056981086731
+      },
+      "low": {
+        "matchup_id": "1932037",
+        "site_id": "wqms_17902961",
+        "source": "Caravan-Qual",
+        "sensor": "S2B",
+        "scene_id": "S2B_MSI_2022_10_10_10_16_07_T33UVU_L2R",
+        "lat": "53.08181",
+        "lon": "14.3658",
+        "date_satellite": "2022-10-10",
+        "overpass_utc": "2022-10-10 10:16:07+00:00",
+        "native_nir": 0.01966332085430622
+      },
+      "selection_priority": 4469308757201555
+    },
+    {
+      "sensor": "S2B",
+      "high": {
+        "matchup_id": "1364308",
+        "site_id": "ARDEQH2O_WQX-OUA0030",
+        "source": "ChemLotUS",
+        "sensor": "S2B",
+        "scene_id": "S2B_MSI_2019_04_09_17_04_07_T15SWU_L2R",
+        "lat": "34.2378",
+        "lon": "-92.9589",
+        "date_satellite": "2019-04-09",
+        "overpass_utc": "2019-04-09 17:04:07+00:00",
+        "native_nir": 0.3685533404350281
+      },
+      "low": {
+        "matchup_id": "1364309",
+        "site_id": "ARDEQH2O_WQX-OUA0006",
+        "source": "ChemLotUS",
+        "sensor": "S2B",
+        "scene_id": "S2B_MSI_2019_04_09_17_04_07_T15SWU_L2R",
+        "lat": "34.3861",
+        "lon": "-92.8389",
+        "date_satellite": "2019-04-09",
+        "overpass_utc": "2019-04-09 17:04:07+00:00",
+        "native_nir": 0.018361534923315048
+      },
+      "selection_priority": 4469805804439566
+    },
+    {
+      "sensor": "S2B",
+      "high": {
+        "matchup_id": "1507931",
+        "site_id": "ARDEQH2O_WQX-ARK0048",
+        "source": "ChemLotUS",
+        "sensor": "S2B",
+        "scene_id": "S2B_MSI_2021_10_05_17_03_59_T15SXU_L2R",
+        "lat": "34.2488",
+        "lon": "-91.9061",
+        "date_satellite": "2021-10-05",
+        "overpass_utc": "2021-10-05 17:03:59+00:00",
+        "native_nir": 0.7975002527236938
+      },
+      "low": {
+        "matchup_id": "1507933",
+        "site_id": "ARDEQH2O_WQX-WHI0031",
+        "source": "ChemLotUS",
+        "sensor": "S2B",
+        "scene_id": "S2B_MSI_2021_10_05_17_03_59_T15SXU_L2R",
+        "lat": "34.7903",
+        "lon": "-91.4458",
+        "date_satellite": "2021-10-05",
+        "overpass_utc": "2021-10-05 17:03:59+00:00",
+        "native_nir": 0.029159491881728172
+      },
+      "selection_priority": 9529770889509426
+    },
+    {
+      "sensor": "S2B",
+      "high": {
+        "matchup_id": "1561843",
+        "site_id": "MNPCA-11-0201-02-207",
+        "source": "AquaMatch",
+        "sensor": "S2B",
+        "scene_id": "S2B_MSI_2022_09_26_17_20_41_T15TUN_L2R",
+        "lat": "46.941091",
+        "lon": "-94.256816",
+        "date_satellite": "2022-09-26",
+        "overpass_utc": "2022-09-26 17:20:41+00:00",
+        "native_nir": 0.4623812735080719
+      },
+      "low": {
+        "matchup_id": "1561846",
+        "site_id": "MNPCA-29-0101-01-202",
+        "source": "AquaMatch",
+        "sensor": "S2B",
+        "scene_id": "S2B_MSI_2022_09_26_17_20_41_T15TUN_L2R",
+        "lat": "47.025148",
+        "lon": "-94.823279",
+        "date_satellite": "2022-09-26",
+        "overpass_utc": "2022-09-26 17:20:41+00:00",
+        "native_nir": 0.011052299290895462
+      },
+      "selection_priority": 16219772774483182
+    }
+  ]
+}

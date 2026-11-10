@@ -1,0 +1,64 @@
+{
+  "claim_checks": [
+    {
+      "claim_id": "C001",
+      "verdict": "supported",
+      "rationale": "The accessed GLORIA abstract, S1a73ad4e564d, states that it 'includes 7,572 curated hyperspectral remote sensing reflectance measurements at 1 nm intervals within the 350 to 900 nm wavelength range'. This supports the spectral range and the absence of SWIR measurements. Suitability for each native NIR response is an analysis-specific inference that still depends on the response curves and coverage calculation."
+    },
+    {
+      "claim_id": "C002",
+      "verdict": "supported",
+      "rationale": "The accessed abstract of S180b7f4c2165 says, 'One of the biggest challenges is collecting high quality field measurements that are used to calibrate and validate the retrieval algorithms.' It also says the article highlights gaps in validation coverage. The manuscript's claim stays within this inland and coastal context."
+    },
+    {
+      "claim_id": "C003",
+      "verdict": "supported",
+      "rationale": "The accessed abstract of S7a5f3c1b00ee identifies 'differences due to mismatches in the location and timing of the measurement'. The source studies sea-surface salinity, and the manuscript explicitly presents the point as a methodological caution rather than an estimated effect in aquatic reflectance."
+    },
+    {
+      "claim_id": "C004",
+      "verdict": "supported",
+      "rationale": "The accessed GLORIA abstract, S1a73ad4e564d, states, 'Each measurement is documented with comprehensive methodological details, allowing users to evaluate fitness-for-purpose'. This supports the archive-level claim, but does not establish that every selected field measurement is fit for this particular comparison."
+    }
+  ],
+  "methods_results_consistent": true,
+  "concerns": [
+    {
+      "severity": "major",
+      "location": "Methods, first paragraph; protocol eligibility",
+      "evidence": "The manuscript says only 'a close field-to-overpass interval', 'coordinate agreement' and a response curve 'spanning the field spectrum'. The supplied protocol specifies same UTC day, at most three hours, at most 100 m, and a 99% spectral-response criterion. Its wording, 'response covering at least 99% of the GLORIA spectral range', is ambiguous for a narrow NIR band and appears to reverse the intended coverage ratio.",
+      "action": "State the exact thresholds, eligible sensors and band identifiers, response-curve sources, and the mathematical definition of spectral coverage in the manuscript. Clarify whether the criterion is the fraction of each band's integrated response within the available field wavelengths, and verify that the implementation used that definition."
+    },
+    {
+      "severity": "major",
+      "location": "Methods, first paragraph; Results, first paragraph",
+      "evidence": "The manuscript refers readers to a separate validation registry for all exclusions, while R001 reports only zero missing-value exclusions after eligibility. The packet does not give the number of source GLORIA-labelled records at each screening step or the distribution of unavailable NIR field spectra, although the protocol identifies that missingness as a selection concern.",
+      "action": "Add a source-to-analysis flow with counts and reasons at each screen, including unavailable field NIR spectra, and summarize how included versus excluded records differ on available relevant characteristics. Distinguish upstream screening losses from the zero post-eligibility missing-value exclusions in R001."
+    },
+    {
+      "severity": "major",
+      "location": "Results and Discussion; conditional bootstrap interpretation",
+      "evidence": "R001 gives a mean waterbody bias of 0.06405230314044422 sr^-1 and a median of 0.021819258931556406 sr^-1 across 37 named waterbodies. The packet does not show the waterbody estimates, their sample counts, or an influence assessment. The protocol itself notes possible dependence, heterogeneity and selection, and the local plan followed prior exposure to outcomes.",
+      "action": "Show the distribution of waterbody-level differences and pair counts, and assess whether a few waterbodies determine the equal-weight mean and percentile interval. Keep the interval explicitly conditional and descriptive, and avoid treating its exclusion of zero as confirmatory evidence."
+    },
+    {
+      "severity": "minor",
+      "location": "Introduction and data provenance in Methods",
+      "evidence": "The manuscript says that AquaCorr incorporated GLORIA records and describes a public source archive, but the supplied claim ledger cites only GLORIA and methodological articles for these passages. The protocol and result provenance name the AquaCorr and original GLORIA DOIs, whereas the manuscript does not identify their versions or persistent identifiers in its methods text.",
+      "action": "Cite the primary AquaCorr and GLORIA data records in the manuscript, give the archive version and persistent identifiers, and document the basis for the non-holdout statement."
+    },
+    {
+      "severity": "minor",
+      "location": "Methods, second paragraph; Limitations",
+      "evidence": "Same-acquisition scene quality checks are described as supplemental and the limitations discuss their algorithmic nature, but the supplied manuscript contains no scene-level QA observations, case identifiers, or table. The protocol calls these an exploratory case audit outside R001.",
+      "action": "Provide a clearly separate supplemental case table with scene identifiers, QA source and classifications if these checks are retained, or limit the manuscript to the registered signed-bias result without implying the QA audit supports a mechanism."
+    }
+  ],
+  "limitations": [
+    "This is a fresh-context AI working review for the accountable author, not journal peer review or an editorial decision. No target venue or venue-specific review policy was supplied.",
+    "Assessment was limited to the request packet. I did not inspect the underlying paired data, code, response curves, exclusion registry, original scene imagery, or full texts; exact reproduction is reported by the supplied validation record rather than independently performed here.",
+    "The cited literature support available in the packet consists of retrieved abstracts and metadata, not accessed full texts. Domain-specific claims about AquaCorr processing and the GLORIA join require checks against the primary archive documentation.",
+    "I cannot independently determine whether the named waterbodies are sufficiently independent or whether the selected archive subset represents the wider archive."
+  ],
+  "draft_ready_for_human": false
+}

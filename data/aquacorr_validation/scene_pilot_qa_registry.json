@@ -1,0 +1,2221 @@
+{
+  "protocol": {
+    "title": "Deterministic same-scene QA pilot outside GLORIA",
+    "date": "2026-11-10",
+    "status": "Locally fixed before identifying pilot rows or querying their QA; post hoc relative to the prior global NIR audit and the GLORIA scene findings",
+    "prior_exposure": "The full-archive high-NIR prevalence and GLORIA field/scene QA findings were already known. No records or QA results in this non-GLORIA pilot had been selected or inspected when this protocol was written.",
+    "population": "AquaCorr-Global v1 rows with passed_qc=True, exact source other than GLORIA, finite sensor-native NIR Rrs and valid coordinates, excluding coord_centroid=1.",
+    "strata": "Each of the six sensors separately. A case has native NIR >0.30 sr^-1; a control has native NIR between 0 and 0.03 sr^-1 inclusive. Case and control must share exact scene_id and source label.",
+    "sample": "Choose five case-control scene pairs per sensor. Order high candidates by SHA-256 of pilot seed plus matchup_id; keep the first eligible high row per scene and site among candidates with an available same-scene/source low row. Select the control with the lowest deterministic hash. No QA result enters selection. Preserve missing/failed scene lookups.",
+    "qa_interpretation": "For Landsat use same-acquisition USGS Collection 2 QA_PIXEL sampled through Planetary Computer L2: cloud bit 3 and water bit 7; Level-1 QA_PIXEL is carried unchanged into Level-2. Do not use the known problematic Landsat 4-7 clear bit as a decisive water indicator. For Sentinel-2 use L2A SCL, with 6=water, 4=vegetation, and document all other codes. Confirm original scene or tile ID and point containment. QA is algorithmic evidence, not manually adjudicated truth.",
+    "outcomes": "Descriptive counts of QA cloud/water/vegetation and tile mismatch among sampled high and low points, by sensor and overall. No sensitivity/specificity, causal processing diagnosis or population-wide error rate is estimated from this small stratified extreme-tail pilot.",
+    "source": "https://doi.org/10.5281/zenodo.21927415"
+  },
+  "selection_file": "scene_pilot_selection.json",
+  "checks": [
+    {
+      "pair_index": 0,
+      "label": "high",
+      "matchup_id": "531355",
+      "sensor": "L5",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "L5_TM_2009_10_07_16_49_02_027029_L2R",
+        "longitude": -92.7328524,
+        "latitude": 45.1468119,
+        "native_nir_rrs": 0.37210813164711,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-92.7329524%2C45.1467119%2C-92.7327524%2C45.146911900000006&datetime=2009-10-07T00%3A00%3A00Z%2F2009-10-08T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LT05_L1TP_027029_20091007_20200825_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-92.7329524%2C45.1467119%2C-92.7327524%2C45.146911900000006&datetime=2009-10-07T00%3A00%3A00Z%2F2009-10-08T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LT05_L2SP_027029_20091007_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-92.7328524,45.1468119?collection=landsat-c2-l2&item=LT05_L2SP_027029_20091007_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 5896.0,
+          "nir08": 20931.0
+        },
+        "qa_pixel": 5896,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": true,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "pair_index": 0,
+      "label": "low",
+      "matchup_id": "531328",
+      "sensor": "L5",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "L5_TM_2009_10_07_16_49_02_027029_L2R",
+        "longitude": -93.650477,
+        "latitude": 44.941472,
+        "native_nir_rrs": 0.022883297875523567,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-93.650577%2C44.941371999999994%2C-93.65037699999999%2C44.941572&datetime=2009-10-07T00%3A00%3A00Z%2F2009-10-08T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LT05_L1TP_027029_20091007_20200825_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-93.650577%2C44.941371999999994%2C-93.65037699999999%2C44.941572&datetime=2009-10-07T00%3A00%3A00Z%2F2009-10-08T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LT05_L2SP_027029_20091007_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-93.650477,44.941472?collection=landsat-c2-l2&item=LT05_L2SP_027029_20091007_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 5504.0,
+          "nir08": 8211.0
+        },
+        "qa_pixel": 5504,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": false,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": true
+        }
+      }
+    },
+    {
+      "pair_index": 1,
+      "label": "high",
+      "matchup_id": "244034",
+      "sensor": "L5",
+      "source": "AquaSat_v1",
+      "scene_check": {
+        "scene_id": "L5_TM_2011_07_07_15_21_41_013029_L2R",
+        "longitude": -72.44394950319358,
+        "latitude": 44.30865870439483,
+        "native_nir_rrs": 0.6271979212760925,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-72.44404950319358%2C44.30855870439483%2C-72.44384950319358%2C44.30875870439483&datetime=2011-07-07T00%3A00%3A00Z%2F2011-07-08T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LT05_L1TP_013029_20110707_20200822_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-72.44404950319358%2C44.30855870439483%2C-72.44384950319358%2C44.30875870439483&datetime=2011-07-07T00%3A00%3A00Z%2F2011-07-08T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LT05_L2SP_013029_20110707_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-72.44394950319358,44.30865870439483?collection=landsat-c2-l2&item=LT05_L2SP_013029_20110707_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 5896.0,
+          "nir08": 32499.0
+        },
+        "qa_pixel": 5896,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": true,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "pair_index": 1,
+      "label": "low",
+      "matchup_id": "244039",
+      "sensor": "L5",
+      "source": "AquaSat_v1",
+      "scene_check": {
+        "scene_id": "L5_TM_2011_07_07_15_21_41_013029_L2R",
+        "longitude": -73.23147127438646,
+        "latitude": 44.42584996083353,
+        "native_nir_rrs": 0.02182037942111492,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-73.23157127438647%2C44.42574996083353%2C-73.23137127438646%2C44.425949960833535&datetime=2011-07-07T00%3A00%3A00Z%2F2011-07-08T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LT05_L1TP_013029_20110707_20200822_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-73.23157127438647%2C44.42574996083353%2C-73.23137127438646%2C44.425949960833535&datetime=2011-07-07T00%3A00%3A00Z%2F2011-07-08T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LT05_L2SP_013029_20110707_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-73.23147127438646,44.42584996083353?collection=landsat-c2-l2&item=LT05_L2SP_013029_20110707_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 5504.0,
+          "nir08": 8124.0
+        },
+        "qa_pixel": 5504,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": false,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": true
+        }
+      }
+    },
+    {
+      "pair_index": 2,
+      "label": "high",
+      "matchup_id": "27134",
+      "sensor": "L5",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "L5_TM_2003_09_08_15_32_48_016040_L2R",
+        "longitude": -80.8613889,
+        "latitude": 28.8205556,
+        "native_nir_rrs": 0.6295474171638489,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-80.8614889%2C28.8204556%2C-80.86128889999999%2C28.8206556&datetime=2003-09-08T00%3A00%3A00Z%2F2003-09-09T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LT05_L1TP_016040_20030908_20200904_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-80.8614889%2C28.8204556%2C-80.86128889999999%2C28.8206556&datetime=2003-09-08T00%3A00%3A00Z%2F2003-09-09T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LT05_L2SP_016040_20030908_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-80.8613889,28.8205556?collection=landsat-c2-l2&item=LT05_L2SP_016040_20030908_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 5896.0,
+          "nir08": 30141.0
+        },
+        "qa_pixel": 5896,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": true,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "pair_index": 2,
+      "label": "low",
+      "matchup_id": "27108",
+      "sensor": "L5",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "L5_TM_2003_09_08_15_32_48_016040_L2R",
+        "longitude": -80.8333333,
+        "latitude": 28.3402778,
+        "native_nir_rrs": 0.028242692351341248,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-80.83343330000001%2C28.3401778%2C-80.8332333%2C28.3403778&datetime=2003-09-08T00%3A00%3A00Z%2F2003-09-09T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LT05_L1TP_016040_20030908_20200904_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-80.83343330000001%2C28.3401778%2C-80.8332333%2C28.3403778&datetime=2003-09-08T00%3A00%3A00Z%2F2003-09-09T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LT05_L2SP_016040_20030908_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-80.8333333,28.3402778?collection=landsat-c2-l2&item=LT05_L2SP_016040_20030908_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 5504.0,
+          "nir08": 9053.0
+        },
+        "qa_pixel": 5504,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": false,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": true
+        }
+      }
+    },
+    {
+      "pair_index": 3,
+      "label": "high",
+      "matchup_id": "557158",
+      "sensor": "L5",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "L5_TM_2010_07_20_17_01_27_029028_L2R",
+        "longitude": -95.377068,
+        "latitude": 45.902367,
+        "native_nir_rrs": 0.6462539434432983,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-95.377168%2C45.902266999999995%2C-95.37696799999999%2C45.902467&datetime=2010-07-20T00%3A00%3A00Z%2F2010-07-21T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LT05_L1TP_029028_20100720_20200823_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-95.377168%2C45.902266999999995%2C-95.37696799999999%2C45.902467&datetime=2010-07-20T00%3A00%3A00Z%2F2010-07-21T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LT05_L2SP_029028_20100720_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-95.377068,45.902367?collection=landsat-c2-l2&item=LT05_L2SP_029028_20100720_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 5896.0,
+          "nir08": 31464.0
+        },
+        "qa_pixel": 5896,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": true,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "pair_index": 3,
+      "label": "low",
+      "matchup_id": "557170",
+      "sensor": "L5",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "L5_TM_2010_07_20_17_01_27_029028_L2R",
+        "longitude": -95.356839,
+        "latitude": 45.978743,
+        "native_nir_rrs": 0.025132063776254654,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-95.356939%2C45.978643%2C-95.35673899999999%2C45.978843000000005&datetime=2010-07-20T00%3A00%3A00Z%2F2010-07-21T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LT05_L1TP_029028_20100720_20200823_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-95.356939%2C45.978643%2C-95.35673899999999%2C45.978843000000005&datetime=2010-07-20T00%3A00%3A00Z%2F2010-07-21T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LT05_L2SP_029028_20100720_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-95.356839,45.978743?collection=landsat-c2-l2&item=LT05_L2SP_029028_20100720_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 5504.0,
+          "nir08": 8028.0
+        },
+        "qa_pixel": 5504,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": false,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": true
+        }
+      }
+    },
+    {
+      "pair_index": 4,
+      "label": "high",
+      "matchup_id": "1223876",
+      "sensor": "L5",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "L5_TM_1995_06_14_15_01_38_016040_L2R",
+        "longitude": -81.3427777,
+        "latitude": 28.9861111,
+        "native_nir_rrs": 0.4721148610115051,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-81.3428777%2C28.9860111%2C-81.3426777%2C28.9862111&datetime=1995-06-14T00%3A00%3A00Z%2F1995-06-15T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LT05_L1TP_016040_19950614_20200913_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-81.3428777%2C28.9860111%2C-81.3426777%2C28.9862111&datetime=1995-06-14T00%3A00%3A00Z%2F1995-06-15T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LT05_L2SP_016040_19950614_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-81.3427777,28.9861111?collection=landsat-c2-l2&item=LT05_L2SP_016040_19950614_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 5896.0,
+          "nir08": 24099.0
+        },
+        "qa_pixel": 5896,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": true,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "pair_index": 4,
+      "label": "low",
+      "matchup_id": "1223863",
+      "sensor": "L5",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "L5_TM_1995_06_14_15_01_38_016040_L2R",
+        "longitude": -81.2586111,
+        "latitude": 28.4058333,
+        "native_nir_rrs": 0.029008125886321068,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-81.2587111%2C28.4057333%2C-81.25851109999999%2C28.4059333&datetime=1995-06-14T00%3A00%3A00Z%2F1995-06-15T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LT05_L1TP_016040_19950614_20200913_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-81.2587111%2C28.4057333%2C-81.25851109999999%2C28.4059333&datetime=1995-06-14T00%3A00%3A00Z%2F1995-06-15T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LT05_L2SP_016040_19950614_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-81.2586111,28.4058333?collection=landsat-c2-l2&item=LT05_L2SP_016040_19950614_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 5504.0,
+          "nir08": 8308.0
+        },
+        "qa_pixel": 5504,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": false,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": true
+        }
+      }
+    },
+    {
+      "pair_index": 5,
+      "label": "high",
+      "matchup_id": "811465",
+      "sensor": "L7",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "L7_ETM_2019_01_15_15_50_35_016041_L2R",
+        "longitude": -82.4647,
+        "latitude": 28.01808,
+        "native_nir_rrs": 0.40387317538261414,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-82.4648%2C28.01798%2C-82.46459999999999%2C28.01818&datetime=2019-01-15T00%3A00%3A00Z%2F2019-01-16T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LE07_L1TP_016041_20190115_20200827_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-82.4648%2C28.01798%2C-82.46459999999999%2C28.01818&datetime=2019-01-15T00%3A00%3A00Z%2F2019-01-16T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LE07_L2SP_016041_20190115_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-82.4647,28.01808?collection=landsat-c2-l2&item=LE07_L2SP_016041_20190115_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 5896.0,
+          "nir08": 22817.0
+        },
+        "qa_pixel": 5896,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": true,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "pair_index": 5,
+      "label": "low",
+      "matchup_id": "811474",
+      "sensor": "L7",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "L7_ETM_2019_01_15_15_50_35_016041_L2R",
+        "longitude": -80.582483,
+        "latitude": 28.093933,
+        "native_nir_rrs": 0.013281403109431267,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-80.582583%2C28.093833%2C-80.582383%2C28.094033&datetime=2019-01-15T00%3A00%3A00Z%2F2019-01-16T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LE07_L1TP_016041_20190115_20200827_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-80.582583%2C28.093833%2C-80.582383%2C28.094033&datetime=2019-01-15T00%3A00%3A00Z%2F2019-01-16T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LE07_L2SP_016041_20190115_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-80.582483,28.093933?collection=landsat-c2-l2&item=LE07_L2SP_016041_20190115_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 5504.0,
+          "nir08": 7821.0
+        },
+        "qa_pixel": 5504,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": false,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": true
+        }
+      }
+    },
+    {
+      "pair_index": 6,
+      "label": "high",
+      "matchup_id": "1644114",
+      "sensor": "L7",
+      "source": "Caravan-Qual",
+      "scene_check": {
+        "scene_id": "L7_ETM_2002_07_16_10_58_29_204022_L2R",
+        "longitude": -2.59069,
+        "latitude": 54.19825,
+        "native_nir_rrs": 0.3585173785686493,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-2.59079%2C54.19815%2C-2.5905899999999997%2C54.198350000000005&datetime=2002-07-16T00%3A00%3A00Z%2F2002-07-17T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LE07_L1TP_204022_20020716_20200916_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-2.59079%2C54.19815%2C-2.5905899999999997%2C54.198350000000005&datetime=2002-07-16T00%3A00%3A00Z%2F2002-07-17T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LE07_L2SP_204022_20020716_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-2.59069,54.19825?collection=landsat-c2-l2&item=LE07_L2SP_204022_20020716_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 7442.0,
+          "nir08": 20709.0
+        },
+        "qa_pixel": 7442,
+        "qa_bits": {
+          "dilated_cloud": true,
+          "cloud": false,
+          "cloud_shadow": true,
+          "snow": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "pair_index": 6,
+      "label": "low",
+      "matchup_id": "1644135",
+      "sensor": "L7",
+      "source": "Caravan-Qual",
+      "scene_check": {
+        "scene_id": "L7_ETM_2002_07_16_10_58_29_204022_L2R",
+        "longitude": -2.93505,
+        "latitude": 54.37041,
+        "native_nir_rrs": 0.014280525036156178,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-2.93515%2C54.370309999999996%2C-2.9349499999999997%2C54.37051&datetime=2002-07-16T00%3A00%3A00Z%2F2002-07-17T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LE07_L1TP_204022_20020716_20200916_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-2.93515%2C54.370309999999996%2C-2.9349499999999997%2C54.37051&datetime=2002-07-16T00%3A00%3A00Z%2F2002-07-17T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LE07_L2SP_204022_20020716_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-2.93505,54.37041?collection=landsat-c2-l2&item=LE07_L2SP_204022_20020716_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 5504.0,
+          "nir08": 7708.0
+        },
+        "qa_pixel": 5504,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": false,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": true
+        }
+      }
+    },
+    {
+      "pair_index": 7,
+      "label": "high",
+      "matchup_id": "380099",
+      "sensor": "L7",
+      "source": "AquaSat_v1",
+      "scene_check": {
+        "scene_id": "L7_ETM_2006_06_20_15_45_23_016040_L2R",
+        "longitude": -80.625325,
+        "latitude": 28.125379,
+        "native_nir_rrs": 0.31481441855430603,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-80.625425%2C28.125279%2C-80.625225%2C28.125479&datetime=2006-06-20T00%3A00%3A00Z%2F2006-06-21T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LE07_L1TP_016040_20060620_20200914_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-80.625425%2C28.125279%2C-80.625225%2C28.125479&datetime=2006-06-20T00%3A00%3A00Z%2F2006-06-21T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LE07_L2SP_016040_20060620_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-80.625325,28.125379?collection=landsat-c2-l2&item=LE07_L2SP_016040_20060620_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 5440.0,
+          "nir08": 14487.0
+        },
+        "qa_pixel": 5440,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": false,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "pair_index": 7,
+      "label": "low",
+      "matchup_id": "380103",
+      "sensor": "L7",
+      "source": "AquaSat_v1",
+      "scene_check": {
+        "scene_id": "L7_ETM_2006_06_20_15_45_23_016040_L2R",
+        "longitude": -81.3069758,
+        "latitude": 28.287088099999995,
+        "native_nir_rrs": 0.012483579106628895,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-81.3070758%2C28.286988099999995%2C-81.3068758%2C28.287188099999995&datetime=2006-06-20T00%3A00%3A00Z%2F2006-06-21T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LE07_L1TP_016040_20060620_20200914_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-81.3070758%2C28.286988099999995%2C-81.3068758%2C28.287188099999995&datetime=2006-06-20T00%3A00%3A00Z%2F2006-06-21T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LE07_L2SP_016040_20060620_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-81.3069758,28.287088099999995?collection=landsat-c2-l2&item=LE07_L2SP_016040_20060620_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 5504.0,
+          "nir08": 7868.0
+        },
+        "qa_pixel": 5504,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": false,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": true
+        }
+      }
+    },
+    {
+      "pair_index": 8,
+      "label": "high",
+      "matchup_id": "1789332",
+      "sensor": "L7",
+      "source": "Caravan-Qual",
+      "scene_check": {
+        "scene_id": "L7_ETM_2019_09_10_10_50_26_203023_L2R",
+        "longitude": -0.9396,
+        "latitude": 53.27959,
+        "native_nir_rrs": 0.5420607328414917,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-0.9397%2C53.279489999999996%2C-0.9395%2C53.27969&datetime=2019-09-10T00%3A00%3A00Z%2F2019-09-11T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LE07_L1TP_203023_20190910_20200824_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-0.9397%2C53.279489999999996%2C-0.9395%2C53.27969&datetime=2019-09-10T00%3A00%3A00Z%2F2019-09-11T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LE07_L2SP_203023_20190910_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-0.9396,53.27959?collection=landsat-c2-l2&item=LE07_L2SP_203023_20190910_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 5896.0,
+          "nir08": 28231.0
+        },
+        "qa_pixel": 5896,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": true,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "pair_index": 8,
+      "label": "low",
+      "matchup_id": "1789368",
+      "sensor": "L7",
+      "source": "Caravan-Qual",
+      "scene_check": {
+        "scene_id": "L7_ETM_2019_09_10_10_50_26_203023_L2R",
+        "longitude": -2.75018,
+        "latitude": 53.31412,
+        "native_nir_rrs": 0.027590889483690262,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-2.75028%2C53.31402%2C-2.7500799999999996%2C53.314220000000006&datetime=2019-09-10T00%3A00%3A00Z%2F2019-09-11T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LE07_L1TP_203023_20190910_20200824_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-2.75028%2C53.31402%2C-2.7500799999999996%2C53.314220000000006&datetime=2019-09-10T00%3A00%3A00Z%2F2019-09-11T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LE07_L2SP_203023_20190910_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-2.75018,53.31412?collection=landsat-c2-l2&item=LE07_L2SP_203023_20190910_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 5504.0,
+          "nir08": 8127.0
+        },
+        "qa_pixel": 5504,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": false,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": true
+        }
+      }
+    },
+    {
+      "pair_index": 9,
+      "label": "high",
+      "matchup_id": "679010",
+      "sensor": "L7",
+      "source": "ChemLotUS",
+      "scene_check": {
+        "scene_id": "L7_ETM_2007_03_05_18_46_33_046028_L2R",
+        "longitude": -122.7573183,
+        "latitude": 45.3859522,
+        "native_nir_rrs": 0.3224421739578247,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-122.7574183%2C45.385852199999995%2C-122.75721829999999%2C45.3860522&datetime=2007-03-05T00%3A00%3A00Z%2F2007-03-06T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LE07_L1TP_046028_20070305_20200913_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-122.7574183%2C45.385852199999995%2C-122.75721829999999%2C45.3860522&datetime=2007-03-05T00%3A00%3A00Z%2F2007-03-06T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LE07_L2SP_046028_20070305_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-122.7573183,45.3859522?collection=landsat-c2-l2&item=LE07_L2SP_046028_20070305_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 5896.0,
+          "nir08": 19404.0
+        },
+        "qa_pixel": 5896,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": true,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "pair_index": 9,
+      "label": "low",
+      "matchup_id": "679019",
+      "sensor": "L7",
+      "source": "ChemLotUS",
+      "scene_check": {
+        "scene_id": "L7_ETM_2007_03_05_18_46_33_046028_L2R",
+        "longitude": -122.7826285,
+        "latitude": 45.5999348,
+        "native_nir_rrs": 0.027847357094287872,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-122.7827285%2C45.5998348%2C-122.7825285%2C45.6000348&datetime=2007-03-05T00%3A00%3A00Z%2F2007-03-06T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LE07_L1TP_046028_20070305_20200913_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-122.7827285%2C45.5998348%2C-122.7825285%2C45.6000348&datetime=2007-03-05T00%3A00%3A00Z%2F2007-03-06T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LE07_L2SP_046028_20070305_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-122.7826285,45.5999348?collection=landsat-c2-l2&item=LE07_L2SP_046028_20070305_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 7440.0,
+          "nir08": 8324.0
+        },
+        "qa_pixel": 7440,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": false,
+          "cloud_shadow": true,
+          "snow": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "pair_index": 10,
+      "label": "high",
+      "matchup_id": "826770",
+      "sensor": "L8",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "L8_OLI_2019_07_18_15_56_09_016042_L2R",
+        "longitude": -81.601238,
+        "latitude": 26.277656,
+        "native_nir_rrs": 0.43376779556274414,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-81.601338%2C26.277556%2C-81.60113799999999%2C26.277756&datetime=2019-07-18T00%3A00%3A00Z%2F2019-07-19T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LC08_L1TP_016042_20190718_20200827_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-81.601338%2C26.277556%2C-81.60113799999999%2C26.277756&datetime=2019-07-18T00%3A00%3A00Z%2F2019-07-19T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LC08_L2SP_016042_20190718_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-81.601238,26.277656?collection=landsat-c2-l2&item=LC08_L2SP_016042_20190718_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 22280.0,
+          "nir08": 21006.0
+        },
+        "qa_pixel": 22280,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": true,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "pair_index": 10,
+      "label": "low",
+      "matchup_id": "826772",
+      "sensor": "L8",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "L8_OLI_2019_07_18_15_56_09_016042_L2R",
+        "longitude": -81.86085,
+        "latitude": 26.43081,
+        "native_nir_rrs": 0.01800382323563099,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-81.86095%2C26.43071%2C-81.86075%2C26.43091&datetime=2019-07-18T00%3A00%3A00Z%2F2019-07-19T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LC08_L1TP_016042_20190718_20200827_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-81.86095%2C26.43071%2C-81.86075%2C26.43091&datetime=2019-07-18T00%3A00%3A00Z%2F2019-07-19T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LC08_L2SP_016042_20190718_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-81.86085,26.43081?collection=landsat-c2-l2&item=LC08_L2SP_016042_20190718_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 21952.0,
+          "nir08": 7680.0
+        },
+        "qa_pixel": 21952,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": false,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": true
+        }
+      }
+    },
+    {
+      "pair_index": 11,
+      "label": "high",
+      "matchup_id": "1748090",
+      "sensor": "L8",
+      "source": "Caravan-Qual",
+      "scene_check": {
+        "scene_id": "L8_OLI_2018_07_03_10_26_44_197024_L2R",
+        "longitude": 6.85022,
+        "latitude": 52.13951,
+        "native_nir_rrs": 0.3191128075122833,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=6.85012%2C52.13941%2C6.85032%2C52.139610000000005&datetime=2018-07-03T00%3A00%3A00Z%2F2018-07-04T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LC08_L1TP_197024_20180703_20200831_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=6.85012%2C52.13941%2C6.85032%2C52.139610000000005&datetime=2018-07-03T00%3A00%3A00Z%2F2018-07-04T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LC08_L2SP_197024_20180703_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/6.85022,52.13951?collection=landsat-c2-l2&item=LC08_L2SP_197024_20180703_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 21824.0,
+          "nir08": 18592.0
+        },
+        "qa_pixel": 21824,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": false,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "pair_index": 11,
+      "label": "low",
+      "matchup_id": "1748084",
+      "sensor": "L8",
+      "source": "Caravan-Qual",
+      "scene_check": {
+        "scene_id": "L8_OLI_2018_07_03_10_26_44_197024_L2R",
+        "longitude": 5.92493,
+        "latitude": 52.55401,
+        "native_nir_rrs": 0.013177352026104927,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=5.92483%2C52.553909999999995%2C5.92503%2C52.55411&datetime=2018-07-03T00%3A00%3A00Z%2F2018-07-04T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LC08_L1TP_197024_20180703_20200831_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=5.92483%2C52.553909999999995%2C5.92503%2C52.55411&datetime=2018-07-03T00%3A00%3A00Z%2F2018-07-04T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LC08_L2SP_197024_20180703_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/5.92493,52.55401?collection=landsat-c2-l2&item=LC08_L2SP_197024_20180703_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 21952.0,
+          "nir08": 7638.0
+        },
+        "qa_pixel": 21952,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": false,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": true
+        }
+      }
+    },
+    {
+      "pair_index": 12,
+      "label": "high",
+      "matchup_id": "721560",
+      "sensor": "L8",
+      "source": "AquaSat_v1",
+      "scene_check": {
+        "scene_id": "L8_OLI_2015_09_06_16_58_28_027028_L2R",
+        "longitude": -92.864693,
+        "latitude": 45.293929,
+        "native_nir_rrs": 0.3484051525592804,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-92.864793%2C45.293828999999995%2C-92.864593%2C45.294029&datetime=2015-09-06T00%3A00%3A00Z%2F2015-09-07T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LC08_L1TP_027028_20150906_20200908_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-92.864793%2C45.293828999999995%2C-92.864593%2C45.294029&datetime=2015-09-06T00%3A00%3A00Z%2F2015-09-07T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LC08_L2SP_027028_20150906_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-92.864693,45.293929?collection=landsat-c2-l2&item=LC08_L2SP_027028_20150906_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 21824.0,
+          "nir08": 19184.0
+        },
+        "qa_pixel": 21824,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": false,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "pair_index": 12,
+      "label": "low",
+      "matchup_id": "721567",
+      "sensor": "L8",
+      "source": "AquaSat_v1",
+      "scene_check": {
+        "scene_id": "L8_OLI_2015_09_06_16_58_28_027028_L2R",
+        "longitude": -91.92977899999998,
+        "latitude": 46.08643399999999,
+        "native_nir_rrs": 0.016061846166849136,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-91.92987899999999%2C46.08633399999999%2C-91.92967899999998%2C46.08653399999999&datetime=2015-09-06T00%3A00%3A00Z%2F2015-09-07T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LC08_L1TP_027028_20150906_20200908_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-91.92987899999999%2C46.08633399999999%2C-91.92967899999998%2C46.08653399999999&datetime=2015-09-06T00%3A00%3A00Z%2F2015-09-07T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LC08_L2SP_027028_20150906_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-91.92977899999998,46.08643399999999?collection=landsat-c2-l2&item=LC08_L2SP_027028_20150906_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 21952.0,
+          "nir08": 7928.0
+        },
+        "qa_pixel": 21952,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": false,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": true
+        }
+      }
+    },
+    {
+      "pair_index": 13,
+      "label": "high",
+      "matchup_id": "587417",
+      "sensor": "L8",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "L8_OLI_2017_09_18_17_04_56_028028_L2R",
+        "longitude": -93.855859,
+        "latitude": 46.36516,
+        "native_nir_rrs": 0.32505226135253906,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-93.855959%2C46.36506%2C-93.85575899999999%2C46.365260000000006&datetime=2017-09-18T00%3A00%3A00Z%2F2017-09-19T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LC08_L1TP_028028_20170918_20200903_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-93.855959%2C46.36506%2C-93.85575899999999%2C46.365260000000006&datetime=2017-09-18T00%3A00%3A00Z%2F2017-09-19T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LC08_L2SP_028028_20170918_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-93.855859,46.36516?collection=landsat-c2-l2&item=LC08_L2SP_028028_20170918_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 22280.0,
+          "nir08": 16815.0
+        },
+        "qa_pixel": 22280,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": true,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "pair_index": 13,
+      "label": "low",
+      "matchup_id": "587452",
+      "sensor": "L8",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "L8_OLI_2017_09_18_17_04_56_028028_L2R",
+        "longitude": -93.955363,
+        "latitude": 46.748917,
+        "native_nir_rrs": 0.01089746318757534,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-93.95546300000001%2C46.748816999999995%2C-93.955263%2C46.749017&datetime=2017-09-18T00%3A00%3A00Z%2F2017-09-19T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LC08_L1TP_028028_20170918_20200903_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-93.95546300000001%2C46.748816999999995%2C-93.955263%2C46.749017&datetime=2017-09-18T00%3A00%3A00Z%2F2017-09-19T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LC08_L2SP_028028_20170918_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-93.955363,46.748917?collection=landsat-c2-l2&item=LC08_L2SP_028028_20170918_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 23888.0,
+          "nir08": 7541.0
+        },
+        "qa_pixel": 23888,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": false,
+          "cloud_shadow": true,
+          "snow": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "pair_index": 14,
+      "label": "high",
+      "matchup_id": "677599",
+      "sensor": "L8",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "L8_OLI_2014_06_24_16_52_33_026029_L2R",
+        "longitude": -92.076003,
+        "latitude": 45.389493,
+        "native_nir_rrs": 0.8304838538169861,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-92.076103%2C45.389393%2C-92.075903%2C45.389593000000005&datetime=2014-06-24T00%3A00%3A00Z%2F2014-06-25T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LC08_L1TP_026029_20140624_20200911_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-92.076103%2C45.389393%2C-92.075903%2C45.389593000000005&datetime=2014-06-24T00%3A00%3A00Z%2F2014-06-25T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LC08_L2SP_026029_20140624_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-92.076003,45.389493?collection=landsat-c2-l2&item=LC08_L2SP_026029_20140624_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 22280.0,
+          "nir08": 37793.0
+        },
+        "qa_pixel": 22280,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": true,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "pair_index": 14,
+      "label": "low",
+      "matchup_id": "677566",
+      "sensor": "L8",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "L8_OLI_2014_06_24_16_52_33_026029_L2R",
+        "longitude": -93.020014,
+        "latitude": 45.068944,
+        "native_nir_rrs": 0.021117545664310455,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-93.020114%2C45.068844%2C-93.019914%2C45.069044000000005&datetime=2014-06-24T00%3A00%3A00Z%2F2014-06-25T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LC08_L1TP_026029_20140624_20200911_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-93.020114%2C45.068844%2C-93.019914%2C45.069044000000005&datetime=2014-06-24T00%3A00%3A00Z%2F2014-06-25T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LC08_L2SP_026029_20140624_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-93.020014,45.068944?collection=landsat-c2-l2&item=LC08_L2SP_026029_20140624_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 23888.0,
+          "nir08": 6776.0
+        },
+        "qa_pixel": 23888,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": false,
+          "cloud_shadow": true,
+          "snow": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "pair_index": 15,
+      "label": "high",
+      "matchup_id": "877916",
+      "sensor": "L9",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "L9_OLI_2021_11_02_15_58_06_016041_L2R",
+        "longitude": -82.01839,
+        "latitude": 26.50707,
+        "native_nir_rrs": 0.6012232303619385,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-82.01849%2C26.50697%2C-82.01829%2C26.50717&datetime=2021-11-02T00%3A00%3A00Z%2F2021-11-03T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-82.01849%2C26.50697%2C-82.01829%2C26.50717&datetime=2021-11-02T00%3A00%3A00Z%2F2021-11-03T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LC09_L2SP_016041_20211102_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-82.01839,26.50707?collection=landsat-c2-l2&item=LC09_L2SP_016041_20211102_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 55052.0,
+          "nir08": 27567.0
+        },
+        "qa_pixel": 55052,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": true,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "pair_index": 15,
+      "label": "low",
+      "matchup_id": "877961",
+      "sensor": "L9",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "L9_OLI_2021_11_02_15_58_06_016041_L2R",
+        "longitude": -81.3526944,
+        "latitude": 27.8918056,
+        "native_nir_rrs": 0.00834679789841175,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-81.35279440000001%2C27.8917056%2C-81.3525944%2C27.8919056&datetime=2021-11-02T00%3A00%3A00Z%2F2021-11-03T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-81.35279440000001%2C27.8917056%2C-81.3525944%2C27.8919056&datetime=2021-11-02T00%3A00%3A00Z%2F2021-11-03T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LC09_L2SP_016041_20211102_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-81.3526944,27.8918056?collection=landsat-c2-l2&item=LC09_L2SP_016041_20211102_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 21952.0,
+          "nir08": 7591.0
+        },
+        "qa_pixel": 21952,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": false,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": true
+        }
+      }
+    },
+    {
+      "pair_index": 16,
+      "label": "high",
+      "matchup_id": "926575",
+      "sensor": "L9",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "L9_OLI_2023_07_16_17_10_35_029028_L2R",
+        "longitude": -95.717765,
+        "latitude": 45.867616,
+        "native_nir_rrs": 0.46571701765060425,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-95.717865%2C45.867515999999995%2C-95.717665%2C45.867716&datetime=2023-07-16T00%3A00%3A00Z%2F2023-07-17T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LC09_L1TP_029028_20230716_20230716_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-95.717865%2C45.867515999999995%2C-95.717665%2C45.867716&datetime=2023-07-16T00%3A00%3A00Z%2F2023-07-17T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LC09_L2SP_029028_20230716_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-95.717765,45.867616?collection=landsat-c2-l2&item=LC09_L2SP_029028_20230716_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 22280.0,
+          "nir08": 22162.0
+        },
+        "qa_pixel": 22280,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": true,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "pair_index": 16,
+      "label": "low",
+      "matchup_id": "926580",
+      "sensor": "L9",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "L9_OLI_2023_07_16_17_10_35_029028_L2R",
+        "longitude": -95.529904,
+        "latitude": 45.881203,
+        "native_nir_rrs": 0.02744714729487896,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-95.530004%2C45.881102999999996%2C-95.529804%2C45.881303&datetime=2023-07-16T00%3A00%3A00Z%2F2023-07-17T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LC09_L1TP_029028_20230716_20230716_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-95.530004%2C45.881102999999996%2C-95.529804%2C45.881303&datetime=2023-07-16T00%3A00%3A00Z%2F2023-07-17T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LC09_L2SP_029028_20230716_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-95.529904,45.881203?collection=landsat-c2-l2&item=LC09_L2SP_029028_20230716_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 21762.0,
+          "nir08": 8965.0
+        },
+        "qa_pixel": 21762,
+        "qa_bits": {
+          "dilated_cloud": true,
+          "cloud": false,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "pair_index": 17,
+      "label": "high",
+      "matchup_id": "902556",
+      "sensor": "L9",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "L9_OLI_2022_08_16_16_59_13_027029_L2R",
+        "longitude": -92.649453,
+        "latitude": 45.068886,
+        "native_nir_rrs": 0.45526111125946045,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-92.649553%2C45.068785999999996%2C-92.64935299999999%2C45.068986&datetime=2022-08-16T00%3A00%3A00Z%2F2022-08-17T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LC09_L1TP_027029_20220816_20230402_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-92.649553%2C45.068785999999996%2C-92.64935299999999%2C45.068986&datetime=2022-08-16T00%3A00%3A00Z%2F2022-08-17T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LC09_L2SP_027029_20220816_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-92.649453,45.068886?collection=landsat-c2-l2&item=LC09_L2SP_027029_20220816_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 22280.0,
+          "nir08": 23023.0
+        },
+        "qa_pixel": 22280,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": true,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "pair_index": 17,
+      "label": "low",
+      "matchup_id": "902514",
+      "sensor": "L9",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "L9_OLI_2022_08_16_16_59_13_027029_L2R",
+        "longitude": -93.361037,
+        "latitude": 44.355715,
+        "native_nir_rrs": 0.025355907157063484,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-93.361137%2C44.35561499999999%2C-93.36093699999999%2C44.355815&datetime=2022-08-16T00%3A00%3A00Z%2F2022-08-17T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LC09_L1TP_027029_20220816_20230402_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-93.361137%2C44.35561499999999%2C-93.36093699999999%2C44.355815&datetime=2022-08-16T00%3A00%3A00Z%2F2022-08-17T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LC09_L2SP_027029_20220816_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-93.361037,44.355715?collection=landsat-c2-l2&item=LC09_L2SP_027029_20220816_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 21890.0,
+          "nir08": 7364.0
+        },
+        "qa_pixel": 21890,
+        "qa_bits": {
+          "dilated_cloud": true,
+          "cloud": false,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": true
+        }
+      }
+    },
+    {
+      "pair_index": 18,
+      "label": "high",
+      "matchup_id": "1161125",
+      "sensor": "L9",
+      "source": "ChemLotUS",
+      "scene_check": {
+        "scene_id": "L9_OLI_2022_08_27_16_43_06_024035_L2R",
+        "longitude": -91.10313,
+        "latitude": 35.2964,
+        "native_nir_rrs": 1.1025499105453491,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-91.10323%2C35.296299999999995%2C-91.10302999999999%2C35.2965&datetime=2022-08-27T00%3A00%3A00Z%2F2022-08-28T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LC09_L1TP_024035_20220827_20230331_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-91.10323%2C35.296299999999995%2C-91.10302999999999%2C35.2965&datetime=2022-08-27T00%3A00%3A00Z%2F2022-08-28T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LC09_L2SP_024035_20220827_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-91.10313,35.2964?collection=landsat-c2-l2&item=LC09_L2SP_024035_20220827_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 22280.0,
+          "nir08": 46224.0
+        },
+        "qa_pixel": 22280,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": true,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "pair_index": 18,
+      "label": "low",
+      "matchup_id": "1161132",
+      "sensor": "L9",
+      "source": "ChemLotUS",
+      "scene_check": {
+        "scene_id": "L9_OLI_2022_08_27_16_43_06_024035_L2R",
+        "longitude": -91.4617,
+        "latitude": 35.6433,
+        "native_nir_rrs": 0.02442358061671257,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=-91.4618%2C35.6432%2C-91.46159999999999%2C35.64340000000001&datetime=2022-08-27T00%3A00%3A00Z%2F2022-08-28T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LC09_L1TP_024035_20220827_20230331_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=-91.4618%2C35.6432%2C-91.46159999999999%2C35.64340000000001&datetime=2022-08-27T00%3A00%3A00Z%2F2022-08-28T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LC09_L2SP_024035_20220827_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-91.4617,35.6433?collection=landsat-c2-l2&item=LC09_L2SP_024035_20220827_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 21952.0,
+          "nir08": 7847.0
+        },
+        "qa_pixel": 21952,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": false,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": true
+        }
+      }
+    },
+    {
+      "pair_index": 19,
+      "label": "high",
+      "matchup_id": "1801492",
+      "sensor": "L9",
+      "source": "Caravan-Qual",
+      "scene_check": {
+        "scene_id": "L9_OLI_2022_02_14_10_15_55_195025_L2R",
+        "longitude": 8.0119,
+        "latitude": 50.38479,
+        "native_nir_rrs": 0.4431494176387787,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=8.011800000000001%2C50.38469%2C8.012%2C50.384890000000006&datetime=2022-02-14T00%3A00%3A00Z%2F2022-02-15T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LC09_L1TP_195025_20220214_20230427_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=8.011800000000001%2C50.38469%2C8.012%2C50.384890000000006&datetime=2022-02-14T00%3A00%3A00Z%2F2022-02-15T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LC09_L2SP_195025_20220214_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/8.0119,50.38479?collection=landsat-c2-l2&item=LC09_L2SP_195025_20220214_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 22018.0,
+          "nir08": 22023.0
+        },
+        "qa_pixel": 22018,
+        "qa_bits": {
+          "dilated_cloud": true,
+          "cloud": false,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "pair_index": 19,
+      "label": "low",
+      "matchup_id": "1801484",
+      "sensor": "L9",
+      "source": "Caravan-Qual",
+      "scene_check": {
+        "scene_id": "L9_OLI_2022_02_14_10_15_55_195025_L2R",
+        "longitude": 8.45294,
+        "latitude": 49.48278,
+        "native_nir_rrs": 0.009065264835953712,
+        "l1_search_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=8.45284%2C49.482679999999995%2C8.45304%2C49.48288&datetime=2022-02-14T00%3A00%3A00Z%2F2022-02-15T00%3A00%3A00Z&limit=30",
+        "l1_product_ids": [
+          "LC09_L1TP_195025_20220214_20230427_02_T1"
+        ],
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=8.45284%2C49.482679999999995%2C8.45304%2C49.48288&datetime=2022-02-14T00%3A00%3A00Z%2F2022-02-15T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "LC09_L2SP_195025_20220214_02_T1"
+        ],
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/8.45294,49.48278?collection=landsat-c2-l2&item=LC09_L2SP_195025_20220214_02_T1&assets=qa_pixel&assets=nir08",
+        "qa_values": {
+          "qa_pixel": 21952.0,
+          "nir08": 7286.0
+        },
+        "qa_pixel": 21952,
+        "qa_bits": {
+          "dilated_cloud": false,
+          "cloud": false,
+          "cloud_shadow": false,
+          "snow": false,
+          "water": true
+        }
+      }
+    },
+    {
+      "pair_index": 20,
+      "label": "high",
+      "matchup_id": "1291949",
+      "sensor": "S2A",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "S2A_MSI_2017_09_17_17_20_52_T15TUM_L2R",
+        "longitude": -95.10995,
+        "latitude": 46.961796,
+        "native_nir_rrs": 0.5890134572982788,
+        "claimed_tile": "15TUM",
+        "l1_item_id": "S2A_15TUM_20170917_0_L1C",
+        "l1_bbox": [
+          -95.60650532778786,
+          45.9364285112087,
+          -94.16405757393358,
+          46.94756452250617
+        ],
+        "field_coordinate_in_claimed_tile_bbox": false,
+        "l1_item_url": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l1c/items/S2A_15TUM_20170917_0_L1C",
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=sentinel-2-l2a&bbox=-95.11005%2C46.961695999999996%2C-95.10985%2C46.961896&datetime=2017-09-17T00%3A00%3A00Z%2F2017-09-18T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": []
+      }
+    },
+    {
+      "pair_index": 20,
+      "label": "low",
+      "matchup_id": "1291933",
+      "sensor": "S2A",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "S2A_MSI_2017_09_17_17_20_52_T15TUM_L2R",
+        "longitude": -94.217273,
+        "latitude": 46.715086,
+        "native_nir_rrs": 0.008151333779096603,
+        "claimed_tile": "15TUM",
+        "l1_item_id": "S2A_15TUM_20170917_0_L1C",
+        "l1_bbox": [
+          -95.60650532778786,
+          45.9364285112087,
+          -94.16405757393358,
+          46.94756452250617
+        ],
+        "field_coordinate_in_claimed_tile_bbox": true,
+        "l1_item_url": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l1c/items/S2A_15TUM_20170917_0_L1C",
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=sentinel-2-l2a&bbox=-94.21737300000001%2C46.714985999999996%2C-94.217173%2C46.715186&datetime=2017-09-17T00%3A00%3A00Z%2F2017-09-18T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "S2A_MSIL2A_20170917T170941_R112_T15TUM_20210202T044552"
+        ],
+        "qa_versions": [
+          {
+            "item_id": "S2A_MSIL2A_20170917T170941_R112_T15TUM_20210202T044552",
+            "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-94.217273,46.715086?collection=sentinel-2-l2a&item=S2A_MSIL2A_20170917T170941_R112_T15TUM_20210202T044552&assets=SCL&assets=B8A",
+            "qa_values": {
+              "SCL": 6.0,
+              "B8A": 41.0
+            },
+            "scl": 6
+          }
+        ],
+        "scl": 6
+      }
+    },
+    {
+      "pair_index": 21,
+      "label": "high",
+      "matchup_id": "1592951",
+      "sensor": "S2A",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "S2A_MSI_2023_06_07_16_15_18_T17RMN_L2R",
+        "longitude": -81.2656,
+        "latitude": 29.0456,
+        "native_nir_rrs": 0.4705822169780731,
+        "claimed_tile": "17RMN",
+        "l1_item_id": "S2A_17RMN_20230607_0_L1C",
+        "l1_bbox": [
+          -82.03540975927392,
+          28.835577255084814,
+          -80.89898693998708,
+          29.830419675881018
+        ],
+        "field_coordinate_in_claimed_tile_bbox": true,
+        "l1_item_url": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l1c/items/S2A_17RMN_20230607_0_L1C",
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=sentinel-2-l2a&bbox=-81.26570000000001%2C29.0455%2C-81.2655%2C29.0457&datetime=2023-06-07T00%3A00%3A00Z%2F2023-06-08T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "S2A_MSIL2A_20230607T155821_R097_T17RMN_20240909T074832",
+          "S2A_MSIL2A_20230607T155821_R097_T17RMN_20230608T021128"
+        ],
+        "qa_versions": [
+          {
+            "item_id": "S2A_MSIL2A_20230607T155821_R097_T17RMN_20240909T074832",
+            "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-81.2656,29.0456?collection=sentinel-2-l2a&item=S2A_MSIL2A_20230607T155821_R097_T17RMN_20240909T074832&assets=SCL&assets=B8A",
+            "qa_values": {
+              "SCL": 9.0,
+              "B8A": 5799.0
+            },
+            "scl": 9
+          },
+          {
+            "item_id": "S2A_MSIL2A_20230607T155821_R097_T17RMN_20230608T021128",
+            "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-81.2656,29.0456?collection=sentinel-2-l2a&item=S2A_MSIL2A_20230607T155821_R097_T17RMN_20230608T021128&assets=SCL&assets=B8A",
+            "qa_values": {
+              "SCL": 9.0,
+              "B8A": 5794.0
+            },
+            "scl": 9
+          }
+        ],
+        "scl": 9
+      }
+    },
+    {
+      "pair_index": 21,
+      "label": "low",
+      "matchup_id": "1592952",
+      "sensor": "S2A",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "S2A_MSI_2023_06_07_16_15_18_T17RMN_L2R",
+        "longitude": -81.2663,
+        "latitude": 29.0489,
+        "native_nir_rrs": 0.025361038744449615,
+        "claimed_tile": "17RMN",
+        "l1_item_id": "S2A_17RMN_20230607_0_L1C",
+        "l1_bbox": [
+          -82.03540975927392,
+          28.835577255084814,
+          -80.89898693998708,
+          29.830419675881018
+        ],
+        "field_coordinate_in_claimed_tile_bbox": true,
+        "l1_item_url": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l1c/items/S2A_17RMN_20230607_0_L1C",
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=sentinel-2-l2a&bbox=-81.2664%2C29.0488%2C-81.2662%2C29.049&datetime=2023-06-07T00%3A00%3A00Z%2F2023-06-08T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "S2A_MSIL2A_20230607T155821_R097_T17RMN_20240909T074832",
+          "S2A_MSIL2A_20230607T155821_R097_T17RMN_20230608T021128"
+        ],
+        "qa_versions": [
+          {
+            "item_id": "S2A_MSIL2A_20230607T155821_R097_T17RMN_20240909T074832",
+            "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-81.2663,29.0489?collection=sentinel-2-l2a&item=S2A_MSIL2A_20230607T155821_R097_T17RMN_20240909T074832&assets=SCL&assets=B8A",
+            "qa_values": {
+              "SCL": 6.0,
+              "B8A": 941.0
+            },
+            "scl": 6
+          },
+          {
+            "item_id": "S2A_MSIL2A_20230607T155821_R097_T17RMN_20230608T021128",
+            "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-81.2663,29.0489?collection=sentinel-2-l2a&item=S2A_MSIL2A_20230607T155821_R097_T17RMN_20230608T021128&assets=SCL&assets=B8A",
+            "qa_values": {
+              "SCL": 6.0,
+              "B8A": 968.0
+            },
+            "scl": 6
+          }
+        ],
+        "scl": 6
+      }
+    },
+    {
+      "pair_index": 22,
+      "label": "high",
+      "matchup_id": "1378683",
+      "sensor": "S2A",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "S2A_MSI_2019_06_18_16_15_50_T17RLL_L2R",
+        "longitude": -82.453311,
+        "latitude": 28.066367,
+        "native_nir_rrs": 0.5658218860626221,
+        "claimed_tile": "17RLL",
+        "l1_item_id": "S2A_17RLL_20190618_0_L1C",
+        "l1_bbox": [
+          -83.03406602155749,
+          27.01974475247142,
+          -81.90937396241397,
+          28.02236309819582
+        ],
+        "field_coordinate_in_claimed_tile_bbox": false,
+        "l1_item_url": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l1c/items/S2A_17RLL_20190618_0_L1C",
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=sentinel-2-l2a&bbox=-82.453411%2C28.066267%2C-82.453211%2C28.066467&datetime=2019-06-18T00%3A00%3A00Z%2F2019-06-19T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": []
+      }
+    },
+    {
+      "pair_index": 22,
+      "label": "low",
+      "matchup_id": "1378638",
+      "sensor": "S2A",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "S2A_MSI_2019_06_18_16_15_50_T17RLL_L2R",
+        "longitude": -82.5420222,
+        "latitude": 27.5056944,
+        "native_nir_rrs": 0.024059375748038292,
+        "claimed_tile": "17RLL",
+        "l1_item_id": "S2A_17RLL_20190618_0_L1C",
+        "l1_bbox": [
+          -83.03406602155749,
+          27.01974475247142,
+          -81.90937396241397,
+          28.02236309819582
+        ],
+        "field_coordinate_in_claimed_tile_bbox": true,
+        "l1_item_url": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l1c/items/S2A_17RLL_20190618_0_L1C",
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=sentinel-2-l2a&bbox=-82.54212220000001%2C27.5055944%2C-82.5419222%2C27.5057944&datetime=2019-06-18T00%3A00%3A00Z%2F2019-06-19T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "S2A_MSIL2A_20190618T155911_R097_T17RLL_20201006T034135"
+        ],
+        "qa_versions": [
+          {
+            "item_id": "S2A_MSIL2A_20190618T155911_R097_T17RLL_20201006T034135",
+            "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-82.5420222,27.5056944?collection=sentinel-2-l2a&item=S2A_MSIL2A_20190618T155911_R097_T17RLL_20201006T034135&assets=SCL&assets=B8A",
+            "qa_values": {
+              "SCL": 6.0,
+              "B8A": 237.0
+            },
+            "scl": 6
+          }
+        ],
+        "scl": 6
+      }
+    },
+    {
+      "pair_index": 23,
+      "label": "high",
+      "matchup_id": "1555863",
+      "sensor": "S2A",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "S2A_MSI_2022_08_22_17_21_08_T15TUM_L2R",
+        "longitude": -95.377068,
+        "latitude": 45.902367,
+        "native_nir_rrs": 0.3882671594619751,
+        "claimed_tile": "15TUM",
+        "l1_item_id": "S2A_15TUM_20220822_0_L1C",
+        "l1_bbox": [
+          -95.60685648773772,
+          45.9364285112087,
+          -94.16405757393358,
+          46.94756452250617
+        ],
+        "field_coordinate_in_claimed_tile_bbox": false,
+        "l1_item_url": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l1c/items/S2A_15TUM_20220822_0_L1C",
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=sentinel-2-l2a&bbox=-95.377168%2C45.902266999999995%2C-95.37696799999999%2C45.902467&datetime=2022-08-22T00%3A00%3A00Z%2F2022-08-23T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": []
+      }
+    },
+    {
+      "pair_index": 23,
+      "label": "low",
+      "matchup_id": "1555867",
+      "sensor": "S2A",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "S2A_MSI_2022_08_22_17_21_08_T15TUM_L2R",
+        "longitude": -94.263535,
+        "latitude": 46.51022,
+        "native_nir_rrs": 0.017335159704089165,
+        "claimed_tile": "15TUM",
+        "l1_item_id": "S2A_15TUM_20220822_0_L1C",
+        "l1_bbox": [
+          -95.60685648773772,
+          45.9364285112087,
+          -94.16405757393358,
+          46.94756452250617
+        ],
+        "field_coordinate_in_claimed_tile_bbox": true,
+        "l1_item_url": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l1c/items/S2A_15TUM_20220822_0_L1C",
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=sentinel-2-l2a&bbox=-94.26363500000001%2C46.51011999999999%2C-94.263435%2C46.51032&datetime=2022-08-22T00%3A00%3A00Z%2F2022-08-23T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "S2A_MSIL2A_20220822T170901_R112_T15TUM_20220823T202240"
+        ],
+        "qa_versions": [
+          {
+            "item_id": "S2A_MSIL2A_20220822T170901_R112_T15TUM_20220823T202240",
+            "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-94.263535,46.51022?collection=sentinel-2-l2a&item=S2A_MSIL2A_20220822T170901_R112_T15TUM_20220823T202240&assets=SCL&assets=B8A",
+            "qa_values": {
+              "SCL": 6.0,
+              "B8A": 1159.0
+            },
+            "scl": 6
+          }
+        ],
+        "scl": 6
+      }
+    },
+    {
+      "pair_index": 24,
+      "label": "high",
+      "matchup_id": "1551867",
+      "sensor": "S2A",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "S2A_MSI_2022_07_27_17_00_54_T16TCS_L2R",
+        "longitude": -89.1747286,
+        "latitude": 46.2680091,
+        "native_nir_rrs": 0.8632834553718567,
+        "claimed_tile": "16TCS",
+        "l1_item_id": "S2A_16TCS_20220727_0_L1C",
+        "l1_bbox": [
+          -89.62699663171668,
+          45.9364285112087,
+          -88.16405757393359,
+          46.94756452250617
+        ],
+        "field_coordinate_in_claimed_tile_bbox": true,
+        "l1_item_url": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l1c/items/S2A_16TCS_20220727_0_L1C",
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=sentinel-2-l2a&bbox=-89.1748286%2C46.2679091%2C-89.17462859999999%2C46.268109100000004&datetime=2022-07-27T00%3A00%3A00Z%2F2022-07-28T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "S2A_MSIL2A_20220727T164851_R026_T16TCS_20240716T165106",
+          "S2A_MSIL2A_20220727T164851_R026_T16TCS_20220729T071110"
+        ],
+        "qa_versions": [
+          {
+            "item_id": "S2A_MSIL2A_20220727T164851_R026_T16TCS_20240716T165106",
+            "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-89.1747286,46.2680091?collection=sentinel-2-l2a&item=S2A_MSIL2A_20220727T164851_R026_T16TCS_20240716T165106&assets=SCL&assets=B8A",
+            "qa_values": {
+              "SCL": 9.0,
+              "B8A": 9677.0
+            },
+            "scl": 9
+          },
+          {
+            "item_id": "S2A_MSIL2A_20220727T164851_R026_T16TCS_20220729T071110",
+            "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-89.1747286,46.2680091?collection=sentinel-2-l2a&item=S2A_MSIL2A_20220727T164851_R026_T16TCS_20220729T071110&assets=SCL&assets=B8A",
+            "qa_values": {
+              "SCL": 9.0,
+              "B8A": 9724.0
+            },
+            "scl": 9
+          }
+        ],
+        "scl": 9
+      }
+    },
+    {
+      "pair_index": 24,
+      "label": "low",
+      "matchup_id": "1551865",
+      "sensor": "S2A",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "S2A_MSI_2022_07_27_17_00_54_T16TCS_L2R",
+        "longitude": -89.39188,
+        "latitude": 45.972466,
+        "native_nir_rrs": 0.02674298733472824,
+        "claimed_tile": "16TCS",
+        "l1_item_id": "S2A_16TCS_20220727_0_L1C",
+        "l1_bbox": [
+          -89.62699663171668,
+          45.9364285112087,
+          -88.16405757393359,
+          46.94756452250617
+        ],
+        "field_coordinate_in_claimed_tile_bbox": true,
+        "l1_item_url": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l1c/items/S2A_16TCS_20220727_0_L1C",
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=sentinel-2-l2a&bbox=-89.39198%2C45.972365999999994%2C-89.39178%2C45.972566&datetime=2022-07-27T00%3A00%3A00Z%2F2022-07-28T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "S2A_MSIL2A_20220727T164851_R026_T16TCS_20240716T165106",
+          "S2A_MSIL2A_20220727T164851_R026_T16TCS_20220729T071110"
+        ],
+        "qa_versions": [
+          {
+            "item_id": "S2A_MSIL2A_20220727T164851_R026_T16TCS_20240716T165106",
+            "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-89.39188,45.972466?collection=sentinel-2-l2a&item=S2A_MSIL2A_20220727T164851_R026_T16TCS_20240716T165106&assets=SCL&assets=B8A",
+            "qa_values": {
+              "SCL": 6.0,
+              "B8A": 1191.0
+            },
+            "scl": 6
+          },
+          {
+            "item_id": "S2A_MSIL2A_20220727T164851_R026_T16TCS_20220729T071110",
+            "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-89.39188,45.972466?collection=sentinel-2-l2a&item=S2A_MSIL2A_20220727T164851_R026_T16TCS_20220729T071110&assets=SCL&assets=B8A",
+            "qa_values": {
+              "SCL": 6.0,
+              "B8A": 1210.0
+            },
+            "scl": 6
+          }
+        ],
+        "scl": 6
+      }
+    },
+    {
+      "pair_index": 25,
+      "label": "high",
+      "matchup_id": "1469173",
+      "sensor": "S2B",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "S2B_MSI_2021_03_30_16_35_03_T16RFU_L2R",
+        "longitude": -85.808333,
+        "latitude": 30.268333,
+        "native_nir_rrs": 0.6679213047027588,
+        "claimed_tile": "16RFU",
+        "l1_item_id": "S2B_16RFU_20210330_0_L1C",
+        "l1_bbox": [
+          -85.96589073448149,
+          29.72443713317246,
+          -84.80912730881238,
+          30.728857773305315
+        ],
+        "field_coordinate_in_claimed_tile_bbox": true,
+        "l1_item_url": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l1c/items/S2B_16RFU_20210330_0_L1C",
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=sentinel-2-l2a&bbox=-85.80843300000001%2C30.268233%2C-85.808233%2C30.268432999999998&datetime=2021-03-30T00%3A00%3A00Z%2F2021-03-31T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "S2B_MSIL2A_20210330T161829_R040_T16RFU_20210331T075223"
+        ],
+        "qa_versions": [
+          {
+            "item_id": "S2B_MSIL2A_20210330T161829_R040_T16RFU_20210331T075223",
+            "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-85.808333,30.268333?collection=sentinel-2-l2a&item=S2B_MSIL2A_20210330T161829_R040_T16RFU_20210331T075223&assets=SCL&assets=B8A",
+            "qa_values": {
+              "SCL": 9.0,
+              "B8A": 7304.0
+            },
+            "scl": 9
+          }
+        ],
+        "scl": 9
+      }
+    },
+    {
+      "pair_index": 25,
+      "label": "low",
+      "matchup_id": "1469182",
+      "sensor": "S2B",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "S2B_MSI_2021_03_30_16_35_03_T16RFU_L2R",
+        "longitude": -84.9864,
+        "latitude": 30.44136,
+        "native_nir_rrs": 0.024825362488627434,
+        "claimed_tile": "16RFU",
+        "l1_item_id": "S2B_16RFU_20210330_0_L1C",
+        "l1_bbox": [
+          -85.96589073448149,
+          29.72443713317246,
+          -84.80912730881238,
+          30.728857773305315
+        ],
+        "field_coordinate_in_claimed_tile_bbox": true,
+        "l1_item_url": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l1c/items/S2B_16RFU_20210330_0_L1C",
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=sentinel-2-l2a&bbox=-84.9865%2C30.44126%2C-84.9863%2C30.44146&datetime=2021-03-30T00%3A00%3A00Z%2F2021-03-31T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "S2B_MSIL2A_20210330T161829_R040_T16RFU_20210331T075223"
+        ],
+        "qa_versions": [
+          {
+            "item_id": "S2B_MSIL2A_20210330T161829_R040_T16RFU_20210331T075223",
+            "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-84.9864,30.44136?collection=sentinel-2-l2a&item=S2B_MSIL2A_20210330T161829_R040_T16RFU_20210331T075223&assets=SCL&assets=B8A",
+            "qa_values": {
+              "SCL": 6.0,
+              "B8A": 240.0
+            },
+            "scl": 6
+          }
+        ],
+        "scl": 6
+      }
+    },
+    {
+      "pair_index": 26,
+      "label": "high",
+      "matchup_id": "1932033",
+      "sensor": "S2B",
+      "source": "Caravan-Qual",
+      "scene_check": {
+        "scene_id": "S2B_MSI_2022_10_10_10_16_07_T33UVU_L2R",
+        "longitude": 14.12373,
+        "latitude": 52.84316,
+        "native_nir_rrs": 0.4176056981086731,
+        "claimed_tile": "33UVU",
+        "l1_item_id": "S2B_33UVU_20221010_0_L1C",
+        "l1_bbox": [
+          13.500955705135615,
+          52.25345870414166,
+          15.14626185441387,
+          53.24952776351766
+        ],
+        "field_coordinate_in_claimed_tile_bbox": true,
+        "l1_item_url": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l1c/items/S2B_33UVU_20221010_0_L1C",
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=sentinel-2-l2a&bbox=14.12363%2C52.843059999999994%2C14.12383%2C52.84326&datetime=2022-10-10T00%3A00%3A00Z%2F2022-10-11T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "S2B_MSIL2A_20221010T100839_R022_T33UVU_20240801T023928",
+          "S2B_MSIL2A_20221010T100839_R022_T33UVU_20221010T205537"
+        ],
+        "qa_versions": [
+          {
+            "item_id": "S2B_MSIL2A_20221010T100839_R022_T33UVU_20240801T023928",
+            "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/14.12373,52.84316?collection=sentinel-2-l2a&item=S2B_MSIL2A_20221010T100839_R022_T33UVU_20240801T023928&assets=SCL&assets=B8A",
+            "qa_values": {
+              "SCL": 9.0,
+              "B8A": 5193.0
+            },
+            "scl": 9
+          },
+          {
+            "item_id": "S2B_MSIL2A_20221010T100839_R022_T33UVU_20221010T205537",
+            "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/14.12373,52.84316?collection=sentinel-2-l2a&item=S2B_MSIL2A_20221010T100839_R022_T33UVU_20221010T205537&assets=SCL&assets=B8A",
+            "qa_values": {
+              "SCL": 9.0,
+              "B8A": 5170.0
+            },
+            "scl": 9
+          }
+        ],
+        "scl": 9
+      }
+    },
+    {
+      "pair_index": 26,
+      "label": "low",
+      "matchup_id": "1932037",
+      "sensor": "S2B",
+      "source": "Caravan-Qual",
+      "scene_check": {
+        "scene_id": "S2B_MSI_2022_10_10_10_16_07_T33UVU_L2R",
+        "longitude": 14.3658,
+        "latitude": 53.08181,
+        "native_nir_rrs": 0.01966332085430622,
+        "claimed_tile": "33UVU",
+        "l1_item_id": "S2B_33UVU_20221010_0_L1C",
+        "l1_bbox": [
+          13.500955705135615,
+          52.25345870414166,
+          15.14626185441387,
+          53.24952776351766
+        ],
+        "field_coordinate_in_claimed_tile_bbox": true,
+        "l1_item_url": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l1c/items/S2B_33UVU_20221010_0_L1C",
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=sentinel-2-l2a&bbox=14.3657%2C53.081709999999994%2C14.3659%2C53.08191&datetime=2022-10-10T00%3A00%3A00Z%2F2022-10-11T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "S2B_MSIL2A_20221010T100839_R022_T33UVU_20240801T023928",
+          "S2B_MSIL2A_20221010T100839_R022_T33UVU_20221010T205537"
+        ],
+        "qa_versions": [
+          {
+            "item_id": "S2B_MSIL2A_20221010T100839_R022_T33UVU_20240801T023928",
+            "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/14.3658,53.08181?collection=sentinel-2-l2a&item=S2B_MSIL2A_20221010T100839_R022_T33UVU_20240801T023928&assets=SCL&assets=B8A",
+            "qa_values": {
+              "SCL": 6.0,
+              "B8A": 1183.0
+            },
+            "scl": 6
+          },
+          {
+            "item_id": "S2B_MSIL2A_20221010T100839_R022_T33UVU_20221010T205537",
+            "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/14.3658,53.08181?collection=sentinel-2-l2a&item=S2B_MSIL2A_20221010T100839_R022_T33UVU_20221010T205537&assets=SCL&assets=B8A",
+            "qa_values": {
+              "SCL": 6.0,
+              "B8A": 1194.0
+            },
+            "scl": 6
+          }
+        ],
+        "scl": 6
+      }
+    },
+    {
+      "pair_index": 27,
+      "label": "high",
+      "matchup_id": "1364308",
+      "sensor": "S2B",
+      "source": "ChemLotUS",
+      "scene_check": {
+        "scene_id": "S2B_MSI_2019_04_09_17_04_07_T15SWU_L2R",
+        "longitude": -92.9589,
+        "latitude": 34.2378,
+        "native_nir_rrs": 0.3685533404350281,
+        "claimed_tile": "15SWU",
+        "l1_item_id": "S2B_15SWU_20190409_0_L1C",
+        "l1_bbox": [
+          -93.00020883484079,
+          34.2471334986605,
+          -91.79350439604548,
+          35.24306869474469
+        ],
+        "field_coordinate_in_claimed_tile_bbox": false,
+        "l1_item_url": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l1c/items/S2B_15SWU_20190409_0_L1C",
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=sentinel-2-l2a&bbox=-92.959%2C34.2377%2C-92.9588%2C34.2379&datetime=2019-04-09T00%3A00%3A00Z%2F2019-04-10T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": []
+      }
+    },
+    {
+      "pair_index": 27,
+      "label": "low",
+      "matchup_id": "1364309",
+      "sensor": "S2B",
+      "source": "ChemLotUS",
+      "scene_check": {
+        "scene_id": "S2B_MSI_2019_04_09_17_04_07_T15SWU_L2R",
+        "longitude": -92.8389,
+        "latitude": 34.3861,
+        "native_nir_rrs": 0.018361534923315048,
+        "claimed_tile": "15SWU",
+        "l1_item_id": "S2B_15SWU_20190409_0_L1C",
+        "l1_bbox": [
+          -93.00020883484079,
+          34.2471334986605,
+          -91.79350439604548,
+          35.24306869474469
+        ],
+        "field_coordinate_in_claimed_tile_bbox": true,
+        "l1_item_url": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l1c/items/S2B_15SWU_20190409_0_L1C",
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=sentinel-2-l2a&bbox=-92.839%2C34.385999999999996%2C-92.83879999999999%2C34.3862&datetime=2019-04-09T00%3A00%3A00Z%2F2019-04-10T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "S2B_MSIL2A_20190409T164849_R026_T15SWU_20201007T001416"
+        ],
+        "qa_versions": [
+          {
+            "item_id": "S2B_MSIL2A_20190409T164849_R026_T15SWU_20201007T001416",
+            "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-92.8389,34.3861?collection=sentinel-2-l2a&item=S2B_MSIL2A_20190409T164849_R026_T15SWU_20201007T001416&assets=SCL&assets=B8A",
+            "qa_values": {
+              "SCL": 6.0,
+              "B8A": 103.0
+            },
+            "scl": 6
+          }
+        ],
+        "scl": 6
+      }
+    },
+    {
+      "pair_index": 28,
+      "label": "high",
+      "matchup_id": "1507931",
+      "sensor": "S2B",
+      "source": "ChemLotUS",
+      "scene_check": {
+        "scene_id": "S2B_MSI_2021_10_05_17_03_59_T15SXU_L2R",
+        "longitude": -91.9061,
+        "latitude": 34.2488,
+        "native_nir_rrs": 0.7975002527236938,
+        "claimed_tile": "15SXU",
+        "l1_item_id": "S2B_15SXU_20211005_0_L1C",
+        "l1_bbox": [
+          -91.91398290488065,
+          34.237270259316034,
+          -90.73036350094684,
+          35.238078420193936
+        ],
+        "field_coordinate_in_claimed_tile_bbox": true,
+        "l1_item_url": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l1c/items/S2B_15SXU_20211005_0_L1C",
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=sentinel-2-l2a&bbox=-91.9062%2C34.2487%2C-91.90599999999999%2C34.248900000000006&datetime=2021-10-05T00%3A00%3A00Z%2F2021-10-06T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "S2B_MSIL2A_20211005T165049_R026_T15SXU_20211006T055509"
+        ],
+        "qa_versions": [
+          {
+            "item_id": "S2B_MSIL2A_20211005T165049_R026_T15SXU_20211006T055509",
+            "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-91.9061,34.2488?collection=sentinel-2-l2a&item=S2B_MSIL2A_20211005T165049_R026_T15SXU_20211006T055509&assets=SCL&assets=B8A",
+            "qa_values": {
+              "SCL": 9.0,
+              "B8A": 8567.0
+            },
+            "scl": 9
+          }
+        ],
+        "scl": 9
+      }
+    },
+    {
+      "pair_index": 28,
+      "label": "low",
+      "matchup_id": "1507933",
+      "sensor": "S2B",
+      "source": "ChemLotUS",
+      "scene_check": {
+        "scene_id": "S2B_MSI_2021_10_05_17_03_59_T15SXU_L2R",
+        "longitude": -91.4458,
+        "latitude": 34.7903,
+        "native_nir_rrs": 0.029159491881728172,
+        "claimed_tile": "15SXU",
+        "l1_item_id": "S2B_15SXU_20211005_0_L1C",
+        "l1_bbox": [
+          -91.91398290488065,
+          34.237270259316034,
+          -90.73036350094684,
+          35.238078420193936
+        ],
+        "field_coordinate_in_claimed_tile_bbox": true,
+        "l1_item_url": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l1c/items/S2B_15SXU_20211005_0_L1C",
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=sentinel-2-l2a&bbox=-91.44590000000001%2C34.7902%2C-91.4457%2C34.790400000000005&datetime=2021-10-05T00%3A00%3A00Z%2F2021-10-06T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "S2B_MSIL2A_20211005T165049_R026_T15SXU_20211006T055509"
+        ],
+        "qa_versions": [
+          {
+            "item_id": "S2B_MSIL2A_20211005T165049_R026_T15SXU_20211006T055509",
+            "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-91.4458,34.7903?collection=sentinel-2-l2a&item=S2B_MSIL2A_20211005T165049_R026_T15SXU_20211006T055509&assets=SCL&assets=B8A",
+            "qa_values": {
+              "SCL": 6.0,
+              "B8A": 281.0
+            },
+            "scl": 6
+          }
+        ],
+        "scl": 6
+      }
+    },
+    {
+      "pair_index": 29,
+      "label": "high",
+      "matchup_id": "1561843",
+      "sensor": "S2B",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "S2B_MSI_2022_09_26_17_20_41_T15TUN_L2R",
+        "longitude": -94.256816,
+        "latitude": 46.941091,
+        "native_nir_rrs": 0.4623812735080719,
+        "claimed_tile": "15TUN",
+        "l1_item_id": "S2B_15TUN_20220926_0_L1C",
+        "l1_bbox": [
+          -95.47802071976906,
+          46.83887881551502,
+          -94.18336484711246,
+          47.84736201609269
+        ],
+        "field_coordinate_in_claimed_tile_bbox": true,
+        "l1_item_url": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l1c/items/S2B_15TUN_20220926_0_L1C",
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=sentinel-2-l2a&bbox=-94.256916%2C46.940991%2C-94.256716%2C46.941191&datetime=2022-09-26T00%3A00%3A00Z%2F2022-09-27T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "S2B_MSIL2A_20220926T171049_R112_T15TUN_20220927T121143"
+        ],
+        "qa_versions": [
+          {
+            "item_id": "S2B_MSIL2A_20220926T171049_R112_T15TUN_20220927T121143",
+            "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-94.256816,46.941091?collection=sentinel-2-l2a&item=S2B_MSIL2A_20220926T171049_R112_T15TUN_20220927T121143&assets=SCL&assets=B8A",
+            "qa_values": {
+              "SCL": 8.0,
+              "B8A": 4530.0
+            },
+            "scl": 8
+          }
+        ],
+        "scl": 8
+      }
+    },
+    {
+      "pair_index": 29,
+      "label": "low",
+      "matchup_id": "1561846",
+      "sensor": "S2B",
+      "source": "AquaMatch",
+      "scene_check": {
+        "scene_id": "S2B_MSI_2022_09_26_17_20_41_T15TUN_L2R",
+        "longitude": -94.823279,
+        "latitude": 47.025148,
+        "native_nir_rrs": 0.011052299290895462,
+        "claimed_tile": "15TUN",
+        "l1_item_id": "S2B_15TUN_20220926_0_L1C",
+        "l1_bbox": [
+          -95.47802071976906,
+          46.83887881551502,
+          -94.18336484711246,
+          47.84736201609269
+        ],
+        "field_coordinate_in_claimed_tile_bbox": true,
+        "l1_item_url": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l1c/items/S2B_15TUN_20220926_0_L1C",
+        "l2_search_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=sentinel-2-l2a&bbox=-94.823379%2C47.025048%2C-94.823179%2C47.025248000000005&datetime=2022-09-26T00%3A00%3A00Z%2F2022-09-27T00%3A00%3A00Z&limit=30",
+        "l2_product_ids": [
+          "S2B_MSIL2A_20220926T171049_R112_T15TUN_20220927T121143"
+        ],
+        "qa_versions": [
+          {
+            "item_id": "S2B_MSIL2A_20220926T171049_R112_T15TUN_20220927T121143",
+            "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/-94.823279,47.025148?collection=sentinel-2-l2a&item=S2B_MSIL2A_20220926T171049_R112_T15TUN_20220927T121143&assets=SCL&assets=B8A",
+            "qa_values": {
+              "SCL": 6.0,
+              "B8A": 1014.0
+            },
+            "scl": 6
+          }
+        ],
+        "scl": 6
+      }
+    }
+  ],
+  "counts": {
+    "L5:high": {
+      "selected": 5,
+      "qa_cloud": 5
+    },
+    "L5:low": {
+      "selected": 5,
+      "qa_water": 5
+    },
+    "L7:high": {
+      "selected": 5,
+      "qa_cloud": 3,
+      "qa_dilated_cloud": 1,
+      "qa_cloud_shadow": 1
+    },
+    "L7:low": {
+      "selected": 5,
+      "qa_water": 4,
+      "qa_cloud_shadow": 1
+    },
+    "L8:high": {
+      "selected": 5,
+      "qa_cloud": 3
+    },
+    "L8:low": {
+      "selected": 5,
+      "qa_water": 3,
+      "qa_cloud_shadow": 2
+    },
+    "L9:high": {
+      "selected": 5,
+      "l1_not_found_in_usgs_stac": 1,
+      "qa_cloud": 4,
+      "qa_dilated_cloud": 1
+    },
+    "L9:low": {
+      "selected": 5,
+      "l1_not_found_in_usgs_stac": 1,
+      "qa_water": 4,
+      "qa_dilated_cloud": 2
+    },
+    "S2A:high": {
+      "selected": 5,
+      "outside_claimed_tile_bbox": 3,
+      "missing_scl": 3,
+      "scl_9": 2
+    },
+    "S2A:low": {
+      "selected": 5,
+      "scl_6": 5
+    },
+    "S2B:high": {
+      "selected": 5,
+      "scl_9": 3,
+      "outside_claimed_tile_bbox": 1,
+      "missing_scl": 1,
+      "scl_8": 1
+    },
+    "S2B:low": {
+      "selected": 5,
+      "scl_6": 5
+    }
+  },
+  "interpretation_limit": "Extreme-tail convenience pilot with algorithmic QA; selected points are not a random sample of all waters, and low controls are not ground truth. No population error rate or causal diagnosis."
+}

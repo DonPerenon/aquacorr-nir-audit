@@ -1,0 +1,815 @@
+{
+  "protocol": "Post hoc field-spectrum check of the AquaCorr-Global v1 NIR upper tail",
+  "source_sha256": {
+    "aquacorr": "ea44b8632ee57b6b214410282fa0ab5b6cc16b5b32477f842349552f1d82877c",
+    "gloria": "f5ad5106d5fd74f0d874085a23e4189302e7409aed9f82d629ae6cdb47d21f14",
+    "s2_v4": "1a9edc27d692a570911a460d589f188da0fc3e27f0b0bd1ad322059c380519b0",
+    "s2_v5": "42be3ebd8bfcbde11c37caeb2e2fdda65fefa8d2b6f8329559b7806d02cdc9e2",
+    "l7": "cd376c112782d0de6fc77756780b866615f8a07605c3636567ffdaecadc7ec75",
+    "l8": "f3d3a9e38910bf8a83a3c11c223574aacd71d2c59babd88492b79402f372b66e",
+    "protocol": "64243cbb6ab4d3f7f4d825ba8adb3430830df6374edc1e41e9cb825eced5e78f"
+  },
+  "derived_csv_sha256": "de60cf6e6e0a722a0b33d9fcf67288514303b80296e7b0c4c6a40e9f030519b2",
+  "response_coverage_350_900": {
+    "L7": 0.993804672169815,
+    "L8": 1.0000000000219242,
+    "S2A": 1.0,
+    "S2B": 1.0
+  },
+  "s2_v5_minus_v4_field_bandpass": {
+    "median": -2.2624212428444253e-08,
+    "q1": -6.957688645614201e-08,
+    "q3": -4.8482512903435734e-09
+  },
+  "counts_and_results": {
+    "all_gloria": {
+      "ALL": {
+        "matchups": 1535,
+        "paired_values": 501,
+        "distinct_gloria_ids": 1119,
+        "distinct_scenes": 426,
+        "satellite_nir_gt_0_30": 12,
+        "high_distinct_gloria_ids": 11,
+        "high_distinct_scenes": 7,
+        "field_nir_gt_0_30": 0,
+        "high_satellite_and_high_field": 0,
+        "satellite_nir": {
+          "median": 0.0146262152120471,
+          "q1": 0.0070969886146485806,
+          "q3": 0.03076840378344059
+        },
+        "field_nir": {
+          "median": 0.0009047461931262489,
+          "q1": 0.00023810607753510548,
+          "q3": 0.0027998757496401536
+        },
+        "signed_error": {
+          "median": 0.012974027961723991,
+          "q1": 0.005860190437421764,
+          "q3": 0.027884217583814944
+        },
+        "absolute_error": {
+          "median": 0.012974027961723991,
+          "q1": 0.005860190437421764,
+          "q3": 0.027884217583814944
+        },
+        "high_satellite_field_nir": {
+          "median": 0.0007194309330507768,
+          "q1": 0.00010466631207423495,
+          "q3": 0.007247923238590234
+        },
+        "high_satellite_signed_error": {
+          "median": 0.5925750724168067,
+          "q1": 0.38829873275465415,
+          "q3": 0.7862735995427879
+        }
+      },
+      "L5": {
+        "matchups": 119,
+        "paired_values": 0,
+        "distinct_gloria_ids": 106,
+        "distinct_scenes": 36,
+        "satellite_nir_gt_0_30": 0,
+        "high_distinct_gloria_ids": 0,
+        "high_distinct_scenes": 0,
+        "field_nir_gt_0_30": 0,
+        "high_satellite_and_high_field": 0,
+        "satellite_nir": null,
+        "field_nir": null,
+        "signed_error": null,
+        "absolute_error": null,
+        "high_satellite_field_nir": null,
+        "high_satellite_signed_error": null
+      },
+      "L7": {
+        "matchups": 324,
+        "paired_values": 40,
+        "distinct_gloria_ids": 303,
+        "distinct_scenes": 101,
+        "satellite_nir_gt_0_30": 0,
+        "high_distinct_gloria_ids": 0,
+        "high_distinct_scenes": 0,
+        "field_nir_gt_0_30": 0,
+        "high_satellite_and_high_field": 0,
+        "satellite_nir": {
+          "median": 0.018324928358197212,
+          "q1": 0.008693537907674909,
+          "q3": 0.036879037506878376
+        },
+        "field_nir": {
+          "median": 0.0010577316800002036,
+          "q1": 0.0003125474952601769,
+          "q3": 0.004961479765515157
+        },
+        "signed_error": {
+          "median": 0.013264173945955558,
+          "q1": 0.007521049901960273,
+          "q3": 0.032924660017753134
+        },
+        "absolute_error": {
+          "median": 0.013264173945955558,
+          "q1": 0.007521049901960273,
+          "q3": 0.032924660017753134
+        },
+        "high_satellite_field_nir": null,
+        "high_satellite_signed_error": null
+      },
+      "L8": {
+        "matchups": 680,
+        "paired_values": 304,
+        "distinct_gloria_ids": 510,
+        "distinct_scenes": 157,
+        "satellite_nir_gt_0_30": 9,
+        "high_distinct_gloria_ids": 9,
+        "high_distinct_scenes": 4,
+        "field_nir_gt_0_30": 0,
+        "high_satellite_and_high_field": 0,
+        "satellite_nir": {
+          "median": 0.01613546907901764,
+          "q1": 0.007457173429429531,
+          "q3": 0.03542506508529186
+        },
+        "field_nir": {
+          "median": 0.0009246089020306426,
+          "q1": 0.00026020747587347483,
+          "q3": 0.0026938760971859828
+        },
+        "signed_error": {
+          "median": 0.014872526664975474,
+          "q1": 0.006571134747524708,
+          "q3": 0.03216777350546027
+        },
+        "absolute_error": {
+          "median": 0.014872526664975474,
+          "q1": 0.006571134747524708,
+          "q3": 0.03216777350546027
+        },
+        "high_satellite_field_nir": {
+          "median": 0.0003226433328798972,
+          "q1": 6.26207323131999e-05,
+          "q3": 0.009571731366361164
+        },
+        "high_satellite_signed_error": {
+          "median": 0.6664288041217675,
+          "q1": 0.4034531892278019,
+          "q3": 0.7918956517248096
+        }
+      },
+      "S2A": {
+        "matchups": 197,
+        "paired_values": 78,
+        "distinct_gloria_ids": 143,
+        "distinct_scenes": 70,
+        "satellite_nir_gt_0_30": 0,
+        "high_distinct_gloria_ids": 0,
+        "high_distinct_scenes": 0,
+        "field_nir_gt_0_30": 0,
+        "high_satellite_and_high_field": 0,
+        "satellite_nir": {
+          "median": 0.011858093086630106,
+          "q1": 0.006366726593114436,
+          "q3": 0.01859347615391016
+        },
+        "field_nir": {
+          "median": 0.0008549616216001984,
+          "q1": 0.0002027799847439808,
+          "q3": 0.0027499138947699037
+        },
+        "signed_error": {
+          "median": 0.009456359408813085,
+          "q1": 0.004335236246676951,
+          "q3": 0.015265020216643551
+        },
+        "absolute_error": {
+          "median": 0.009456359408813085,
+          "q1": 0.004335236246676951,
+          "q3": 0.015265020216643551
+        },
+        "high_satellite_field_nir": null,
+        "high_satellite_signed_error": null
+      },
+      "S2B": {
+        "matchups": 215,
+        "paired_values": 79,
+        "distinct_gloria_ids": 161,
+        "distinct_scenes": 62,
+        "satellite_nir_gt_0_30": 3,
+        "high_distinct_gloria_ids": 2,
+        "high_distinct_scenes": 3,
+        "field_nir_gt_0_30": 0,
+        "high_satellite_and_high_field": 0,
+        "satellite_nir": {
+          "median": 0.01397578977048397,
+          "q1": 0.004599087405949831,
+          "q3": 0.02488078735768795
+        },
+        "field_nir": {
+          "median": 0.0008142709059766975,
+          "q1": 0.0001285618803696481,
+          "q3": 0.002010897674282063
+        },
+        "signed_error": {
+          "median": 0.013034493923051789,
+          "q1": 0.00320443497428333,
+          "q3": 0.023409484054090705
+        },
+        "absolute_error": {
+          "median": 0.013034493923051789,
+          "q1": 0.0034030306418568277,
+          "q3": 0.023409484054090705
+        },
+        "high_satellite_field_nir": {
+          "median": 0.0007194309330507768,
+          "q1": 0.0007194309330507768,
+          "q3": 0.0035963757311920173
+        },
+        "high_satellite_signed_error": {
+          "median": 0.547203835954614,
+          "q1": 0.43505445584897,
+          "q3": 0.5507471234702542
+        }
+      }
+    },
+    "primary": {
+      "ALL": {
+        "matchups": 348,
+        "paired_values": 348,
+        "distinct_gloria_ids": 250,
+        "distinct_scenes": 103,
+        "satellite_nir_gt_0_30": 8,
+        "high_distinct_gloria_ids": 7,
+        "high_distinct_scenes": 6,
+        "field_nir_gt_0_30": 0,
+        "high_satellite_and_high_field": 0,
+        "satellite_nir": {
+          "median": 0.014389208983629942,
+          "q1": 0.007035848451778293,
+          "q3": 0.0285140429623425
+        },
+        "field_nir": {
+          "median": 0.0009393484066297318,
+          "q1": 0.00025934081998539864,
+          "q3": 0.002718211693258212
+        },
+        "signed_error": {
+          "median": 0.012564823820111024,
+          "q1": 0.005809728539991525,
+          "q3": 0.023924659443524433
+        },
+        "absolute_error": {
+          "median": 0.012564823820111024,
+          "q1": 0.005809728539991525,
+          "q3": 0.023924659443524433
+        },
+        "high_satellite_field_nir": {
+          "median": 0.00022066241910390528,
+          "q1": 5.584336275537297e-05,
+          "q3": 0.0007194309330507768
+        },
+        "high_satellite_signed_error": {
+          "median": 0.5925750724168067,
+          "q1": 0.4961117177997632,
+          "q3": 0.7862735995427879
+        }
+      },
+      "L7": {
+        "matchups": 22,
+        "paired_values": 22,
+        "distinct_gloria_ids": 20,
+        "distinct_scenes": 10,
+        "satellite_nir_gt_0_30": 0,
+        "high_distinct_gloria_ids": 0,
+        "high_distinct_scenes": 0,
+        "field_nir_gt_0_30": 0,
+        "high_satellite_and_high_field": 0,
+        "satellite_nir": {
+          "median": 0.03012027218937874,
+          "q1": 0.013527798233553767,
+          "q3": 0.04187565576285124
+        },
+        "field_nir": {
+          "median": 0.0029671079469617877,
+          "q1": 0.0004885871490665152,
+          "q3": 0.00526978441512451
+        },
+        "signed_error": {
+          "median": 0.028815824239346362,
+          "q1": 0.011930705392446655,
+          "q3": 0.035786672126963834
+        },
+        "absolute_error": {
+          "median": 0.028815824239346362,
+          "q1": 0.011930705392446655,
+          "q3": 0.035786672126963834
+        },
+        "high_satellite_field_nir": null,
+        "high_satellite_signed_error": null
+      },
+      "L8": {
+        "matchups": 218,
+        "paired_values": 218,
+        "distinct_gloria_ids": 177,
+        "distinct_scenes": 54,
+        "satellite_nir_gt_0_30": 5,
+        "high_distinct_gloria_ids": 5,
+        "high_distinct_scenes": 3,
+        "field_nir_gt_0_30": 0,
+        "high_satellite_and_high_field": 0,
+        "satellite_nir": {
+          "median": 0.014230567030608654,
+          "q1": 0.0067895506508648396,
+          "q3": 0.030537153594195843
+        },
+        "field_nir": {
+          "median": 0.0009114593654696731,
+          "q1": 0.00020764144940696078,
+          "q3": 0.0023068718587193585
+        },
+        "signed_error": {
+          "median": 0.012938651599530226,
+          "q1": 0.006284849924248621,
+          "q3": 0.02640283795771614
+        },
+        "absolute_error": {
+          "median": 0.012938651599530226,
+          "q1": 0.006284849924248621,
+          "q3": 0.02640283795771614
+        },
+        "high_satellite_field_nir": {
+          "median": 6.26207323131999e-05,
+          "q1": 3.5511254081892156e-05,
+          "q3": 0.0001186815053279133
+        },
+        "high_satellite_signed_error": {
+          "median": 0.7843995821487807,
+          "q1": 0.630859733847719,
+          "q3": 0.7918956517248096
+        }
+      },
+      "S2A": {
+        "matchups": 60,
+        "paired_values": 60,
+        "distinct_gloria_ids": 54,
+        "distinct_scenes": 18,
+        "satellite_nir_gt_0_30": 0,
+        "high_distinct_gloria_ids": 0,
+        "high_distinct_scenes": 0,
+        "field_nir_gt_0_30": 0,
+        "high_satellite_and_high_field": 0,
+        "satellite_nir": {
+          "median": 0.01311977906152606,
+          "q1": 0.007074667839333415,
+          "q3": 0.019855873193591833
+        },
+        "field_nir": {
+          "median": 0.0010834511594003892,
+          "q1": 0.00062828366530668,
+          "q3": 0.003232608253338913
+        },
+        "signed_error": {
+          "median": 0.01010252991660102,
+          "q1": 0.004195495576242378,
+          "q3": 0.015415404365226367
+        },
+        "absolute_error": {
+          "median": 0.01010252991660102,
+          "q1": 0.004195495576242378,
+          "q3": 0.015415404365226367
+        },
+        "high_satellite_field_nir": null,
+        "high_satellite_signed_error": null
+      },
+      "S2B": {
+        "matchups": 48,
+        "paired_values": 48,
+        "distinct_gloria_ids": 37,
+        "distinct_scenes": 21,
+        "satellite_nir_gt_0_30": 3,
+        "high_distinct_gloria_ids": 2,
+        "high_distinct_scenes": 3,
+        "field_nir_gt_0_30": 0,
+        "high_satellite_and_high_field": 0,
+        "satellite_nir": {
+          "median": 0.014848534483462572,
+          "q1": 0.0051483523566275835,
+          "q3": 0.024088077247142792
+        },
+        "field_nir": {
+          "median": 0.0007912266394787714,
+          "q1": 0.00020942797291285552,
+          "q3": 0.0016870902172587978
+        },
+        "signed_error": {
+          "median": 0.013331430514890743,
+          "q1": 0.003882642404383951,
+          "q3": 0.022259019177488813
+        },
+        "absolute_error": {
+          "median": 0.013331430514890743,
+          "q1": 0.003882642404383951,
+          "q3": 0.022259019177488813
+        },
+        "high_satellite_field_nir": {
+          "median": 0.0007194309330507768,
+          "q1": 0.0007194309330507768,
+          "q3": 0.0035963757311920173
+        },
+        "high_satellite_signed_error": {
+          "median": 0.547203835954614,
+          "q1": 0.43505445584897,
+          "q3": 0.5507471234702542
+        }
+      }
+    },
+    "same_day": {
+      "ALL": {
+        "matchups": 481,
+        "paired_values": 481,
+        "distinct_gloria_ids": 341,
+        "distinct_scenes": 117,
+        "satellite_nir_gt_0_30": 11,
+        "high_distinct_gloria_ids": 10,
+        "high_distinct_scenes": 7,
+        "field_nir_gt_0_30": 0,
+        "high_satellite_and_high_field": 0,
+        "satellite_nir": {
+          "median": 0.014361536130309105,
+          "q1": 0.0070969886146485806,
+          "q3": 0.029685750603675842
+        },
+        "field_nir": {
+          "median": 0.0009310452662481881,
+          "q1": 0.00023810607753510548,
+          "q3": 0.0027998757496401536
+        },
+        "signed_error": {
+          "median": 0.012695862036687508,
+          "q1": 0.005854835758266639,
+          "q3": 0.0257089027069417
+        },
+        "absolute_error": {
+          "median": 0.012695862036687508,
+          "q1": 0.005854835758266639,
+          "q3": 0.0257089027069417
+        },
+        "high_satellite_field_nir": {
+          "median": 0.0007194309330507768,
+          "q1": 9.065111882055661e-05,
+          "q3": 0.005633687215196853
+        },
+        "high_satellite_signed_error": {
+          "median": 0.630859733847719,
+          "q1": 0.44501959964491244,
+          "q3": 0.7881476169367951
+        }
+      },
+      "L7": {
+        "matchups": 34,
+        "paired_values": 34,
+        "distinct_gloria_ids": 31,
+        "distinct_scenes": 14,
+        "satellite_nir_gt_0_30": 0,
+        "high_distinct_gloria_ids": 0,
+        "high_distinct_scenes": 0,
+        "field_nir_gt_0_30": 0,
+        "high_satellite_and_high_field": 0,
+        "satellite_nir": {
+          "median": 0.023684458807110786,
+          "q1": 0.0092450559604913,
+          "q3": 0.036931573413312435
+        },
+        "field_nir": {
+          "median": 0.0024510537336513076,
+          "q1": 0.0003590873646111193,
+          "q3": 0.005172903127796374
+        },
+        "signed_error": {
+          "median": 0.019136245280252793,
+          "q1": 0.007859375050446699,
+          "q3": 0.03356532774371741
+        },
+        "absolute_error": {
+          "median": 0.019136245280252793,
+          "q1": 0.007859375050446699,
+          "q3": 0.03356532774371741
+        },
+        "high_satellite_field_nir": null,
+        "high_satellite_signed_error": null
+      },
+      "L8": {
+        "matchups": 296,
+        "paired_values": 296,
+        "distinct_gloria_ids": 241,
+        "distinct_scenes": 61,
+        "satellite_nir_gt_0_30": 8,
+        "high_distinct_gloria_ids": 8,
+        "high_distinct_scenes": 4,
+        "field_nir_gt_0_30": 0,
+        "high_satellite_and_high_field": 0,
+        "satellite_nir": {
+          "median": 0.015352098736912012,
+          "q1": 0.007390261511318386,
+          "q3": 0.03209623508155346
+        },
+        "field_nir": {
+          "median": 0.0009534586610518103,
+          "q1": 0.00026020747587347483,
+          "q3": 0.0026938760971859828
+        },
+        "signed_error": {
+          "median": 0.01421615630801001,
+          "q1": 0.006500207238961535,
+          "q3": 0.030002304779839267
+        },
+        "absolute_error": {
+          "median": 0.01421615630801001,
+          "q1": 0.006500207238961535,
+          "q3": 0.030002304779839267
+        },
+        "high_satellite_field_nir": {
+          "median": 0.00022066241910390528,
+          "q1": 5.584336275537297e-05,
+          "q3": 0.005988473267385627
+        },
+        "high_satellite_signed_error": {
+          "median": 0.7254141931352741,
+          "q1": 0.5588536412195919,
+          "q3": 0.7961443550896492
+        }
+      },
+      "S2A": {
+        "matchups": 78,
+        "paired_values": 78,
+        "distinct_gloria_ids": 62,
+        "distinct_scenes": 20,
+        "satellite_nir_gt_0_30": 0,
+        "high_distinct_gloria_ids": 0,
+        "high_distinct_scenes": 0,
+        "field_nir_gt_0_30": 0,
+        "high_satellite_and_high_field": 0,
+        "satellite_nir": {
+          "median": 0.011858093086630106,
+          "q1": 0.006366726593114436,
+          "q3": 0.01859347615391016
+        },
+        "field_nir": {
+          "median": 0.0008549616216001984,
+          "q1": 0.0002027799847439808,
+          "q3": 0.0027499138947699037
+        },
+        "signed_error": {
+          "median": 0.009456359408813085,
+          "q1": 0.004335236246676951,
+          "q3": 0.015265020216643551
+        },
+        "absolute_error": {
+          "median": 0.009456359408813085,
+          "q1": 0.004335236246676951,
+          "q3": 0.015265020216643551
+        },
+        "high_satellite_field_nir": null,
+        "high_satellite_signed_error": null
+      },
+      "S2B": {
+        "matchups": 73,
+        "paired_values": 73,
+        "distinct_gloria_ids": 54,
+        "distinct_scenes": 22,
+        "satellite_nir_gt_0_30": 3,
+        "high_distinct_gloria_ids": 2,
+        "high_distinct_scenes": 3,
+        "field_nir_gt_0_30": 0,
+        "high_satellite_and_high_field": 0,
+        "satellite_nir": {
+          "median": 0.013075794093310833,
+          "q1": 0.004528337623924017,
+          "q3": 0.02366282045841217
+        },
+        "field_nir": {
+          "median": 0.0007766883091826265,
+          "q1": 6.792848776277372e-05,
+          "q3": 0.001890183598516631
+        },
+        "signed_error": {
+          "median": 0.011964892096201907,
+          "q1": 0.0031309139375306806,
+          "q3": 0.021956581739963985
+        },
+        "absolute_error": {
+          "median": 0.011964892096201907,
+          "q1": 0.0032779560110359793,
+          "q3": 0.021956581739963985
+        },
+        "high_satellite_field_nir": {
+          "median": 0.0007194309330507768,
+          "q1": 0.0007194309330507768,
+          "q3": 0.0035963757311920173
+        },
+        "high_satellite_signed_error": {
+          "median": 0.547203835954614,
+          "q1": 0.43505445584897,
+          "q3": 0.5507471234702542
+        }
+      }
+    },
+    "inclusive_flag": {
+      "ALL": {
+        "matchups": 348,
+        "paired_values": 348,
+        "distinct_gloria_ids": 250,
+        "distinct_scenes": 103,
+        "satellite_nir_gt_0_30": 8,
+        "high_distinct_gloria_ids": 7,
+        "high_distinct_scenes": 6,
+        "field_nir_gt_0_30": 0,
+        "high_satellite_and_high_field": 0,
+        "satellite_nir": {
+          "median": 0.014389208983629942,
+          "q1": 0.007035848451778293,
+          "q3": 0.0285140429623425
+        },
+        "field_nir": {
+          "median": 0.0009393484066297318,
+          "q1": 0.00025934081998539864,
+          "q3": 0.002718211693258212
+        },
+        "signed_error": {
+          "median": 0.012564823820111024,
+          "q1": 0.005809728539991525,
+          "q3": 0.023924659443524433
+        },
+        "absolute_error": {
+          "median": 0.012564823820111024,
+          "q1": 0.005809728539991525,
+          "q3": 0.023924659443524433
+        },
+        "high_satellite_field_nir": {
+          "median": 0.00022066241910390528,
+          "q1": 5.584336275537297e-05,
+          "q3": 0.0007194309330507768
+        },
+        "high_satellite_signed_error": {
+          "median": 0.5925750724168067,
+          "q1": 0.4961117177997632,
+          "q3": 0.7862735995427879
+        }
+      },
+      "L7": {
+        "matchups": 22,
+        "paired_values": 22,
+        "distinct_gloria_ids": 20,
+        "distinct_scenes": 10,
+        "satellite_nir_gt_0_30": 0,
+        "high_distinct_gloria_ids": 0,
+        "high_distinct_scenes": 0,
+        "field_nir_gt_0_30": 0,
+        "high_satellite_and_high_field": 0,
+        "satellite_nir": {
+          "median": 0.03012027218937874,
+          "q1": 0.013527798233553767,
+          "q3": 0.04187565576285124
+        },
+        "field_nir": {
+          "median": 0.0029671079469617877,
+          "q1": 0.0004885871490665152,
+          "q3": 0.00526978441512451
+        },
+        "signed_error": {
+          "median": 0.028815824239346362,
+          "q1": 0.011930705392446655,
+          "q3": 0.035786672126963834
+        },
+        "absolute_error": {
+          "median": 0.028815824239346362,
+          "q1": 0.011930705392446655,
+          "q3": 0.035786672126963834
+        },
+        "high_satellite_field_nir": null,
+        "high_satellite_signed_error": null
+      },
+      "L8": {
+        "matchups": 218,
+        "paired_values": 218,
+        "distinct_gloria_ids": 177,
+        "distinct_scenes": 54,
+        "satellite_nir_gt_0_30": 5,
+        "high_distinct_gloria_ids": 5,
+        "high_distinct_scenes": 3,
+        "field_nir_gt_0_30": 0,
+        "high_satellite_and_high_field": 0,
+        "satellite_nir": {
+          "median": 0.014230567030608654,
+          "q1": 0.0067895506508648396,
+          "q3": 0.030537153594195843
+        },
+        "field_nir": {
+          "median": 0.0009114593654696731,
+          "q1": 0.00020764144940696078,
+          "q3": 0.0023068718587193585
+        },
+        "signed_error": {
+          "median": 0.012938651599530226,
+          "q1": 0.006284849924248621,
+          "q3": 0.02640283795771614
+        },
+        "absolute_error": {
+          "median": 0.012938651599530226,
+          "q1": 0.006284849924248621,
+          "q3": 0.02640283795771614
+        },
+        "high_satellite_field_nir": {
+          "median": 6.26207323131999e-05,
+          "q1": 3.5511254081892156e-05,
+          "q3": 0.0001186815053279133
+        },
+        "high_satellite_signed_error": {
+          "median": 0.7843995821487807,
+          "q1": 0.630859733847719,
+          "q3": 0.7918956517248096
+        }
+      },
+      "S2A": {
+        "matchups": 60,
+        "paired_values": 60,
+        "distinct_gloria_ids": 54,
+        "distinct_scenes": 18,
+        "satellite_nir_gt_0_30": 0,
+        "high_distinct_gloria_ids": 0,
+        "high_distinct_scenes": 0,
+        "field_nir_gt_0_30": 0,
+        "high_satellite_and_high_field": 0,
+        "satellite_nir": {
+          "median": 0.01311977906152606,
+          "q1": 0.007074667839333415,
+          "q3": 0.019855873193591833
+        },
+        "field_nir": {
+          "median": 0.0010834511594003892,
+          "q1": 0.00062828366530668,
+          "q3": 0.003232608253338913
+        },
+        "signed_error": {
+          "median": 0.01010252991660102,
+          "q1": 0.004195495576242378,
+          "q3": 0.015415404365226367
+        },
+        "absolute_error": {
+          "median": 0.01010252991660102,
+          "q1": 0.004195495576242378,
+          "q3": 0.015415404365226367
+        },
+        "high_satellite_field_nir": null,
+        "high_satellite_signed_error": null
+      },
+      "S2B": {
+        "matchups": 48,
+        "paired_values": 48,
+        "distinct_gloria_ids": 37,
+        "distinct_scenes": 21,
+        "satellite_nir_gt_0_30": 3,
+        "high_distinct_gloria_ids": 2,
+        "high_distinct_scenes": 3,
+        "field_nir_gt_0_30": 0,
+        "high_satellite_and_high_field": 0,
+        "satellite_nir": {
+          "median": 0.014848534483462572,
+          "q1": 0.0051483523566275835,
+          "q3": 0.024088077247142792
+        },
+        "field_nir": {
+          "median": 0.0007912266394787714,
+          "q1": 0.00020942797291285552,
+          "q3": 0.0016870902172587978
+        },
+        "signed_error": {
+          "median": 0.013331430514890743,
+          "q1": 0.003882642404383951,
+          "q3": 0.022259019177488813
+        },
+        "absolute_error": {
+          "median": 0.013331430514890743,
+          "q1": 0.003882642404383951,
+          "q3": 0.022259019177488813
+        },
+        "high_satellite_field_nir": {
+          "median": 0.0007194309330507768,
+          "q1": 0.0007194309330507768,
+          "q3": 0.0035963757311920173
+        },
+        "high_satellite_signed_error": {
+          "median": 0.547203835954614,
+          "q1": 0.43505445584897,
+          "q3": 0.5507471234702542
+        }
+      }
+    },
+    "exclusions_first_reason": {
+      "missing_field_nir": 571,
+      "satellite_qc_failed": 364,
+      "no_bandpass_curve": 119,
+      "more_than_3_hours": 133,
+      "eligible": 348
+    }
+  },
+  "interpretation_guardrail": "This is a post hoc, overlapping-archive field measurement comparison, not an untouched holdout or an independently labelled pixel-error study."
+}

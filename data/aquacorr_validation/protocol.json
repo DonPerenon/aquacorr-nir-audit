@@ -1,0 +1,31 @@
+{
+  "title": "Post hoc field-spectrum check of the AquaCorr-Global v1 NIR upper tail",
+  "date": "2026-11-10",
+  "status": "Locally frozen before the first field-versus-satellite outcome comparison; not an external preregistration",
+  "prior_exposure": "The prior AquaCorr numerical audit and its high-NIR outcomes were known. Before this protocol, a format/feasibility scan revealed 1535 GLORIA-labelled matchups and 52 with native satellite NIR >0.30 sr^-1; no field-versus-satellite Rrs comparison had been calculated.",
+  "sources": {
+    "aquacorr": "https://doi.org/10.5281/zenodo.21927415",
+    "gloria": "https://doi.org/10.1594/PANGAEA.948492",
+    "sentinel_2_srf_v4": "https://sentiwiki.copernicus.eu/web/s2-documents",
+    "landsat_8_srf": "https://nwp-saf.eumetsat.int/downloads/rtcoef_info/visir_srf/rtcoef_landsat_8_oli_srf.html",
+    "landsat_7_srf": "https://nwp-saf.eumetsat.int/downloads/rtcoef_info/visir_srf/rtcoef_landsat_7_tm_srf.html"
+  },
+  "primary_eligibility": [
+    "Exact source=GLORIA and valid GLORIA_ID join to the original PANGAEA files",
+    "AquaCorr passed_qc=True and finite native NIR Rrs",
+    "GLORIA Flagged=0; flagged field spectra retained in an inclusive sensitivity analysis",
+    "Same UTC calendar date and at most 3 hours between field measurement and satellite overpass",
+    "Field and AquaCorr coordinates at most 100 m apart, interpreted as a spatial consistency screen rather than exact pixel geolocation",
+    "Published spectral response with at least 99% response area between 350 and 900 nm and finite field spectrum over non-negligible response"
+  ],
+  "primary_sensors": ["L7", "L8", "S2A", "S2B"],
+  "landsat_5_handling": "Exclude from primary bandpass calculation because a suitable public Landsat-5 VNIR response curve was not yet secured; report its count, and do not substitute a single wavelength as if bandpass-convolved.",
+  "bandpass_method": "Piecewise-linear interpolation of 1-nm GLORIA Rrs at sensor-response wavelengths, followed by trapezoidal integration of Rrs(lambda)*RSR(lambda) / integral RSR(lambda), in wavelength units. L7/L8 EUMETSAT response wavenumbers are converted to nm by 1e7 / cm^-1. Sentinel-2A/B uses v4 B8A response; use of 2026 v5 is a sensitivity check.",
+  "outcomes": [
+    "Signed and absolute native NIR Rrs error = AquaCorr satellite minus convolved GLORIA field, units sr^-1",
+    "Counts of high satellite NIR (>0.30 sr^-1) and field-bandpass NIR above the same threshold, among all primary-eligible pairs",
+    "Medians and IQR by sensor, with site/scene distinct counts; descriptive, with no unclustered inferential p-value"
+  ],
+  "sensitivity": ["Same-day without the 3-hour limit", "Include GLORIA Flagged=1 while retaining other filters", "Sentinel-2 SRF v5 versus v4"],
+  "limitations": "GLORIA measurements are external to satellite ACOLITE processing but were already used by the AquaCorr publisher; they are not an untouched holdout. Comparison alone cannot identify contamination mechanism or establish a general-purpose error classifier. GLORIA ends at 900 nm and cannot validate SWIR."
+}

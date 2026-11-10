@@ -1,0 +1,481 @@
+{
+  "status": "Post hoc diagnostics requested by fresh-context reviewer; not in the initial local analysis plan",
+  "pair_csv_sha256": "de60cf6e6e0a722a0b33d9fcf67288514303b80296e7b0c4c6a40e9f030519b2",
+  "arp_input_sha256": "989749b413f4b59f30c937fe8ad97bf54ee67c117b31b155448bdb9f5d6e8499",
+  "screening_first_reason": {
+    "eligible": {
+      "matchups": 348,
+      "satellite_nir_gt_0_30": 8,
+      "by_sensor": {
+        "L8": 218,
+        "L7": 22,
+        "S2A": 60,
+        "S2B": 48
+      }
+    },
+    "missing_field_nir": {
+      "matchups": 571,
+      "satellite_nir_gt_0_30": 34,
+      "by_sensor": {
+        "L7": 139,
+        "L8": 248,
+        "S2A": 76,
+        "S2B": 108
+      }
+    },
+    "more_than_3_hours": {
+      "matchups": 133,
+      "satellite_nir_gt_0_30": 3,
+      "by_sensor": {
+        "L7": 12,
+        "L8": 78,
+        "S2A": 18,
+        "S2B": 25
+      }
+    },
+    "no_bandpass_curve": {
+      "matchups": 119,
+      "satellite_nir_gt_0_30": 2,
+      "by_sensor": {
+        "L5": 119
+      }
+    },
+    "satellite_qc_failed": {
+      "matchups": 364,
+      "satellite_nir_gt_0_30": 5,
+      "by_sensor": {
+        "L7": 151,
+        "L8": 136,
+        "S2B": 34,
+        "S2A": 43
+      }
+    }
+  },
+  "all_gloria_matchups": 1535,
+  "all_gloria_high_satellite_nir": 52,
+  "primary_pairs": 348,
+  "primary_waterbodies": 37,
+  "waterbody_bias_mean": 0.06405230314044422,
+  "waterbody_bias_median": 0.021819258931556406,
+  "waterbody_bias_min": -0.0035281052726776766,
+  "waterbody_bias_max": 0.8232911602615658,
+  "positive_bias_waterbodies": 36,
+  "waterbody_results": [
+    {
+      "waterbody_id": "United Kingdom of Great Britain and Northern Ireland (the)|English Channel",
+      "n_pairs": 2,
+      "n_high_satellite_nir": 2,
+      "mean_signed_bias": 0.8232911602615658,
+      "median_signed_bias": 0.8232911602615658
+    },
+    {
+      "waterbody_id": "Estonia|Lake Kaiavere",
+      "n_pairs": 1,
+      "n_high_satellite_nir": 1,
+      "mean_signed_bias": 0.3428353633352109,
+      "median_signed_bias": 0.3428353633352109
+    },
+    {
+      "waterbody_id": "Australia|Lake Tuggeranong",
+      "n_pairs": 1,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.20262610816281684,
+      "median_signed_bias": 0.20262610816281684
+    },
+    {
+      "waterbody_id": "China|Hou Lake",
+      "n_pairs": 2,
+      "n_high_satellite_nir": 1,
+      "mean_signed_bias": 0.17099373508942972,
+      "median_signed_bias": 0.17099373508942972
+    },
+    {
+      "waterbody_id": "Italy|Maggiore",
+      "n_pairs": 11,
+      "n_high_satellite_nir": 2,
+      "mean_signed_bias": 0.10598943857413366,
+      "median_signed_bias": 0.0030678456213110595
+    },
+    {
+      "waterbody_id": "Viet Nam|Red River",
+      "n_pairs": 17,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.07332950515956614,
+      "median_signed_bias": 0.05782448846729691
+    },
+    {
+      "waterbody_id": "Japan|Shirakaba",
+      "n_pairs": 1,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.07076730380897753,
+      "median_signed_bias": 0.07076730380897753
+    },
+    {
+      "waterbody_id": "Brazil|Mamiraua",
+      "n_pairs": 3,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.06476480633606854,
+      "median_signed_bias": 0.06912413943382903
+    },
+    {
+      "waterbody_id": "Germany|Lake Kummerow",
+      "n_pairs": 34,
+      "n_high_satellite_nir": 2,
+      "mean_signed_bias": 0.05668141029676387,
+      "median_signed_bias": 0.014150189722158358
+    },
+    {
+      "waterbody_id": "China|Taihu",
+      "n_pairs": 6,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.03911869934403949,
+      "median_signed_bias": 0.03660390763267453
+    },
+    {
+      "waterbody_id": "Japan|Lake Kasumigaura",
+      "n_pairs": 18,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.036912021143325674,
+      "median_signed_bias": 0.010324223116216294
+    },
+    {
+      "waterbody_id": "Australia|Lake Pamamaroo",
+      "n_pairs": 2,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.03580491899357342,
+      "median_signed_bias": 0.03580491899357342
+    },
+    {
+      "waterbody_id": "Italy|Como",
+      "n_pairs": 8,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.03354968987030357,
+      "median_signed_bias": 0.035559444262738514
+    },
+    {
+      "waterbody_id": "France|Guiana",
+      "n_pairs": 28,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.031127525970211938,
+      "median_signed_bias": 0.022378432557975177
+    },
+    {
+      "waterbody_id": "Viet Nam|Gulf of Tonkin",
+      "n_pairs": 3,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.026905412096412853,
+      "median_signed_bias": 0.026537127862858577
+    },
+    {
+      "waterbody_id": "Sweden|Lake Vanern",
+      "n_pairs": 3,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.023765362381660583,
+      "median_signed_bias": 0.01587584623436096
+    },
+    {
+      "waterbody_id": "Italy|Iseo",
+      "n_pairs": 13,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.023398467683724437,
+      "median_signed_bias": 0.015790763952576403
+    },
+    {
+      "waterbody_id": "Brazil|Ibitinga Reservoir",
+      "n_pairs": 16,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.021859897668205522,
+      "median_signed_bias": 0.01553787671835476
+    },
+    {
+      "waterbody_id": "China|Wuhan East Lake",
+      "n_pairs": 7,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.021819258931556406,
+      "median_signed_bias": 0.02302023519314419
+    },
+    {
+      "waterbody_id": "Spain|Giribaile",
+      "n_pairs": 1,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.021779064916200817,
+      "median_signed_bias": 0.021779064916200817
+    },
+    {
+      "waterbody_id": "Estonia|Lake Peipsi",
+      "n_pairs": 10,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.02046452063857925,
+      "median_signed_bias": 0.006569542652706015
+    },
+    {
+      "waterbody_id": "Australia|Burrinjuck Dam",
+      "n_pairs": 5,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.017272933657147715,
+      "median_signed_bias": 0.012967334478612019
+    },
+    {
+      "waterbody_id": "China|Liangzi Lake",
+      "n_pairs": 49,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.01248149745666352,
+      "median_signed_bias": 0.011145801883683448
+    },
+    {
+      "waterbody_id": "Brazil|Curuai Lake",
+      "n_pairs": 10,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.011610730384113718,
+      "median_signed_bias": 0.008543877275841775
+    },
+    {
+      "waterbody_id": "China|Poyang Lake",
+      "n_pairs": 19,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.011214745305703527,
+      "median_signed_bias": 0.009700370824794712
+    },
+    {
+      "waterbody_id": "France|English Channel",
+      "n_pairs": 6,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.010693008206259876,
+      "median_signed_bias": 0.0052721494227841795
+    },
+    {
+      "waterbody_id": "Spain|Burguillo",
+      "n_pairs": 2,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.010033600474937999,
+      "median_signed_bias": 0.010033600474937999
+    },
+    {
+      "waterbody_id": "Australia|Lake Hume",
+      "n_pairs": 14,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.009449365967953316,
+      "median_signed_bias": 0.011950092335105095
+    },
+    {
+      "waterbody_id": "Spain|Cijara",
+      "n_pairs": 1,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.007401249422774736,
+      "median_signed_bias": 0.007401249422774736
+    },
+    {
+      "waterbody_id": "Viet Nam|South China Sea",
+      "n_pairs": 8,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.006430962350624338,
+      "median_signed_bias": 0.006228316856566746
+    },
+    {
+      "waterbody_id": "Italy|Mantova",
+      "n_pairs": 19,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.006321730447842068,
+      "median_signed_bias": 0.005754776210260123
+    },
+    {
+      "waterbody_id": "Australia|Lake Jindabyne",
+      "n_pairs": 5,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.0062451987451394,
+      "median_signed_bias": 0.003416486358479453
+    },
+    {
+      "waterbody_id": "Italy|Trasimeno",
+      "n_pairs": 3,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.005742242403187405,
+      "median_signed_bias": 0.003159063342382218
+    },
+    {
+      "waterbody_id": "Japan|Tokyo Bay",
+      "n_pairs": 3,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.005535213503833535,
+      "median_signed_bias": 0.0055859052417690375
+    },
+    {
+      "waterbody_id": "Italy|Garda",
+      "n_pairs": 10,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.0032096856803177226,
+      "median_signed_bias": 0.0025955257417220896
+    },
+    {
+      "waterbody_id": "Lithuania|Curonian Lagoon",
+      "n_pairs": 6,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": 0.002037486800287708,
+      "median_signed_bias": 0.0020306426725602185
+    },
+    {
+      "waterbody_id": "Australia|Lake Bonney",
+      "n_pairs": 1,
+      "n_high_satellite_nir": 0,
+      "mean_signed_bias": -0.0035281052726776766,
+      "median_signed_bias": -0.0035281052726776766
+    }
+  ],
+  "leave_one_waterbody_out": [
+    {
+      "waterbody_id": "United Kingdom of Great Britain and Northern Ireland (the)|English Channel",
+      "mean_without_waterbody": 0.04296233488707972
+    },
+    {
+      "waterbody_id": "Estonia|Lake Kaiavere",
+      "mean_without_waterbody": 0.056308329246145136
+    },
+    {
+      "waterbody_id": "Australia|Lake Tuggeranong",
+      "mean_without_waterbody": 0.060203030778711634
+    },
+    {
+      "waterbody_id": "China|Hou Lake",
+      "mean_without_waterbody": 0.06108170780852795
+    },
+    {
+      "waterbody_id": "Italy|Maggiore",
+      "mean_without_waterbody": 0.06288738271173061
+    },
+    {
+      "waterbody_id": "Viet Nam|Red River",
+      "mean_without_waterbody": 0.0637946030843575
+    },
+    {
+      "waterbody_id": "Japan|Shirakaba",
+      "mean_without_waterbody": 0.06386577534409606
+    },
+    {
+      "waterbody_id": "Brazil|Mamiraua",
+      "mean_without_waterbody": 0.0640325113850102
+    },
+    {
+      "waterbody_id": "Germany|Lake Kummerow",
+      "mean_without_waterbody": 0.06425705016387978
+    },
+    {
+      "waterbody_id": "China|Taihu",
+      "mean_without_waterbody": 0.0647449032458999
+    },
+    {
+      "waterbody_id": "Japan|Lake Kasumigaura",
+      "mean_without_waterbody": 0.06480619986258639
+    },
+    {
+      "waterbody_id": "Australia|Lake Pamamaroo",
+      "mean_without_waterbody": 0.06483695270007951
+    },
+    {
+      "waterbody_id": "Italy|Como",
+      "mean_without_waterbody": 0.06489959795350368
+    },
+    {
+      "waterbody_id": "France|Guiana",
+      "mean_without_waterbody": 0.06496688028406178
+    },
+    {
+      "waterbody_id": "Viet Nam|Gulf of Tonkin",
+      "mean_without_waterbody": 0.06508416122500064
+    },
+    {
+      "waterbody_id": "Sweden|Lake Vanern",
+      "mean_without_waterbody": 0.0651713848281882
+    },
+    {
+      "waterbody_id": "Italy|Iseo",
+      "mean_without_waterbody": 0.06518157634757532
+    },
+    {
+      "waterbody_id": "Brazil|Ibitinga Reservoir",
+      "mean_without_waterbody": 0.06522431440356195
+    },
+    {
+      "waterbody_id": "China|Wuhan East Lake",
+      "mean_without_waterbody": 0.06522544325735775
+    },
+    {
+      "waterbody_id": "Spain|Giribaile",
+      "mean_without_waterbody": 0.0652265597577843
+    },
+    {
+      "waterbody_id": "Estonia|Lake Peipsi",
+      "mean_without_waterbody": 0.06526307487660712
+    },
+    {
+      "waterbody_id": "Australia|Burrinjuck Dam",
+      "mean_without_waterbody": 0.06535173007053578
+    },
+    {
+      "waterbody_id": "China|Liangzi Lake",
+      "mean_without_waterbody": 0.06548482552054923
+    },
+    {
+      "waterbody_id": "Brazil|Curuai Lake",
+      "mean_without_waterbody": 0.06550901349478672
+    },
+    {
+      "waterbody_id": "China|Poyang Lake",
+      "mean_without_waterbody": 0.06552001308029812
+    },
+    {
+      "waterbody_id": "France|English Channel",
+      "mean_without_waterbody": 0.06553450577750489
+    },
+    {
+      "waterbody_id": "Spain|Burguillo",
+      "mean_without_waterbody": 0.06555282265893049
+    },
+    {
+      "waterbody_id": "Australia|Lake Hume",
+      "mean_without_waterbody": 0.06556905139523563
+    },
+    {
+      "waterbody_id": "Spain|Cijara",
+      "mean_without_waterbody": 0.06562594352149059
+    },
+    {
+      "waterbody_id": "Viet Nam|South China Sea",
+      "mean_without_waterbody": 0.06565289594016142
+    },
+    {
+      "waterbody_id": "Italy|Mantova",
+      "mean_without_waterbody": 0.06565593015968316
+    },
+    {
+      "waterbody_id": "Australia|Lake Jindabyne",
+      "mean_without_waterbody": 0.06565805604031379
+    },
+    {
+      "waterbody_id": "Italy|Trasimeno",
+      "mean_without_waterbody": 0.06567202704981245
+    },
+    {
+      "waterbody_id": "Japan|Tokyo Bay",
+      "mean_without_waterbody": 0.06567777785257228
+    },
+    {
+      "waterbody_id": "Italy|Garda",
+      "mean_without_waterbody": 0.06574237584766994
+    },
+    {
+      "waterbody_id": "Lithuania|Curonian Lagoon",
+      "mean_without_waterbody": 0.06577493692767078
+    },
+    {
+      "waterbody_id": "Australia|Lake Bonney",
+      "mean_without_waterbody": 0.06592953670747538
+    }
+  ],
+  "leave_one_out_mean_range": [
+    0.04296233488707972,
+    0.06592953670747538
+  ],
+  "mean_waterbody_bias_after_removing_high_satellite_pairs": 0.026067944153611234,
+  "waterbodies_after_removing_high_satellite_pairs": 35,
+  "limitation": "Waterbody labels are country plus site name; equal-waterbody weighting and leave-one-out are descriptive. The high-pair removal is data-dependent sensitivity analysis."
+}

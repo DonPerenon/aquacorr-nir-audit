@@ -1,0 +1,48 @@
+[
+  {
+    "id": "R001",
+    "kind": "observational_computed_result",
+    "numbers": {
+      "n_pairs": 348,
+      "n_clusters": 37,
+      "mean_cluster_signed_bias": 0.06405230314044422,
+      "median_cluster_signed_bias": 0.021819258931556406,
+      "ci95_low": 0.02683962218561632,
+      "ci95_high": 0.11718762039319482,
+      "excluded": 0
+    },
+    "unit": "mean within-waterbody satellite-minus-field native-band NIR Rrs, averaged equally across named waterbodies, sr^-1",
+    "method": "cluster_mean_bias",
+    "data_sha256": "989749b413f4b59f30c937fe8ad97bf54ee67c117b31b155448bdb9f5d6e8499",
+    "code_sha256": "49509deceb86a27acc49170023f37ba3db81215ef3a001bd9e7829c14d0c394f",
+    "parameters": {
+      "method": "cluster_mean_bias",
+      "id_column": "pair_id",
+      "cluster_column": "waterbody_id",
+      "satellite_column": "satellite_nir",
+      "field_column": "field_nir",
+      "unit": "mean within-waterbody satellite-minus-field native-band NIR Rrs, averaged equally across named waterbodies, sr^-1",
+      "independent_clusters": true,
+      "assumption_rationale": "Each country-plus-waterbody label contributes once to the statistic after averaging all its paired matchups. The bootstrap resamples these 37 named waterbodies as a descriptive conditional approximation. Same-country/spatial dependence, field-method heterogeneity and archive selection may violate independence, so the interval is not a population-wide confidence statement. No null-hypothesis p-value is computed.",
+      "missing": "reject",
+      "seed": 20261110,
+      "resamples": 1999
+    },
+    "exclusions": [],
+    "limitations": [
+      "One locally fixed descriptive outcome; earlier AquaCorr outcomes were already seen.",
+      "The interval resamples named waterbodies as if independent and representative; this is not guaranteed.",
+      "The interval is conditional on a selected archive subset and does not establish population-wide bias.",
+      "Pairing does not remove time, geometry, atmospheric-correction or field-measurement error."
+    ],
+    "dataset_provenance": {
+      "path": "data/aquacorr_validation/primary_pairs_for_arp.csv",
+      "source": "AquaCorr-Global v1 DOI 10.5281/zenodo.21927415 plus original GLORIA DOI 10.1594/PANGAEA.948492; join, spectral convolution and eligibility in data/aquacorr_validation/validate_gloria.py and protocol.json; scene QA in scene_audit.py; prior AquaCorr audit in runs/aquacorr-qc-2026-11-finaldraft",
+      "license": "Both AquaCorr-Global v1 and GLORIA are CC-BY-4.0 according to their publisher records checked 2026-11-10",
+      "kind": "observational",
+      "units_previously_seen": "This is a post hoc follow-up to the prior AquaCorr audit, including known high-NIR results. Before this run was created, the full GLORIA pair comparison, eight high-pair discrepancies and exploratory scene QA findings had already been seen. The local protocol is not an external preregistration.",
+      "snapshot": "inputs/data.csv",
+      "sha256": "989749b413f4b59f30c937fe8ad97bf54ee67c117b31b155448bdb9f5d6e8499"
+    }
+  }
+]

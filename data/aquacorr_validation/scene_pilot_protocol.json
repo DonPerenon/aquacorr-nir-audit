@@ -1,0 +1,12 @@
+{
+  "title": "Deterministic same-scene QA pilot outside GLORIA",
+  "date": "2026-11-10",
+  "status": "Locally fixed before identifying pilot rows or querying their QA; post hoc relative to the prior global NIR audit and the GLORIA scene findings",
+  "prior_exposure": "The full-archive high-NIR prevalence and GLORIA field/scene QA findings were already known. No records or QA results in this non-GLORIA pilot had been selected or inspected when this protocol was written.",
+  "population": "AquaCorr-Global v1 rows with passed_qc=True, exact source other than GLORIA, finite sensor-native NIR Rrs and valid coordinates, excluding coord_centroid=1.",
+  "strata": "Each of the six sensors separately. A case has native NIR >0.30 sr^-1; a control has native NIR between 0 and 0.03 sr^-1 inclusive. Case and control must share exact scene_id and source label.",
+  "sample": "Choose five case-control scene pairs per sensor. Order high candidates by SHA-256 of pilot seed plus matchup_id; keep the first eligible high row per scene and site among candidates with an available same-scene/source low row. Select the control with the lowest deterministic hash. No QA result enters selection. Preserve missing/failed scene lookups.",
+  "qa_interpretation": "For Landsat use same-acquisition USGS Collection 2 QA_PIXEL sampled through Planetary Computer L2: cloud bit 3 and water bit 7; Level-1 QA_PIXEL is carried unchanged into Level-2. Do not use the known problematic Landsat 4-7 clear bit as a decisive water indicator. For Sentinel-2 use L2A SCL, with 6=water, 4=vegetation, and document all other codes. Confirm original scene or tile ID and point containment. QA is algorithmic evidence, not manually adjudicated truth.",
+  "outcomes": "Descriptive counts of QA cloud/water/vegetation and tile mismatch among sampled high and low points, by sensor and overall. No sensitivity/specificity, causal processing diagnosis or population-wide error rate is estimated from this small stratified extreme-tail pilot.",
+  "source": "https://doi.org/10.5281/zenodo.21927415"
+}

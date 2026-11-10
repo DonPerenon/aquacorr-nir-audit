@@ -1,0 +1,444 @@
+{
+  "protocol": {
+    "title": "Post hoc scene QA check for GLORIA high-NIR cases",
+    "date": "2026-11-10",
+    "status": "Exploratory after field-satellite comparison; not blinded or externally preregistered",
+    "prior_exposure": "The eight high-NIR primary field pairs and their field mismatch were known. Before writing this file, one Landsat 8 Lake Kummerow point showed the cloud bit in USGS QA_PIXEL; at Lake Maggiore one high point was classified vegetation and a same-scene lower-NIR point water by Sentinel-2 L2A SCL; the Hou Lake point was found outside the bounding box of its AquaCorr-listed Sentinel-2 tile.",
+    "case_selection": "Audit all primary-eligible GLORIA matchups with AquaCorr native NIR >0.30 sr^-1; do not select solely by the largest differences.",
+    "control_selection": "For Landsat 8, choose one primary-eligible GLORIA matchup with AquaCorr NIR <=0.03 sr^-1 from the same Site_name and a different acquisition, nearest by date; if no such record exists, no Landsat control. For Sentinel-2 Maggiore, use the lower-NIR GLORIA GID_859 in both same-date tiles.",
+    "qa_sources": {
+      "landsat": "USGS Collection 2 QA_PIXEL carried into Planetary Computer's same-acquisition Landsat Level-2 scene; Level-1 product ID is cross-checked in the USGS STAC catalog. Level-2 optical bands are not equivalent to AquaCorr aquatic Rrs.",
+      "sentinel_2": "Sentinel-2 L2A Scene Classification Layer (SCL) sampled at field coordinate and matched to the Level-1C tile/time. SCL is algorithmic evidence, not a manual truth label."
+    },
+    "outputs": "Per-point QA codes, cloud/water/vegetation indicators, item identity, whether the field coordinate is inside the named Level-1C tile, and all failures/unknowns. No pixel-error rate or atmospheric-correction diagnosis is inferred from this convenience sample."
+  },
+  "cases": [
+    {
+      "selection": "high",
+      "matchup_id": "46106",
+      "gloria_id": "GID_3973",
+      "scene_id": "L8_OLI_2016_05_30_10_02_12_193023_L2R",
+      "site_name": "Lake Kummerow",
+      "longitude": 12.87107,
+      "latitude": 53.8291,
+      "satellite_nir_rrs": 0.7844350934028625,
+      "field_nir_rrs": 3.5511254081892156e-05,
+      "scene_check": {
+        "claimed_l1_scene_found": true,
+        "l1_stac_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=12.87097%2C53.82899999999999%2C12.87117%2C53.8292&datetime=2016-05-30T00%3A00%3A00Z%2F2016-05-31T00%3A00%3A00Z&limit=30",
+        "l1_product_id": "LC08_L1TP_193023_20160530_20200906_02_T1",
+        "l2_stac_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=12.87097%2C53.82899999999999%2C12.87117%2C53.8292&datetime=2016-05-30T00%3A00%3A00Z%2F2016-05-31T00%3A00%3A00Z&limit=30",
+        "l2_product_id": "LC08_L2SP_193023_20160530_02_T1",
+        "qa_values": {
+          "qa_pixel": 22280.0,
+          "nir08": 29027.0,
+          "red": 25406.0,
+          "green": 24715.0,
+          "blue": 27586.0,
+          "swir16": 21363.0
+        },
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/12.87107,53.8291?collection=landsat-c2-l2&item=LC08_L2SP_193023_20160530_02_T1&assets=qa_pixel&assets=nir08&assets=red&assets=green&assets=blue&assets=swir16",
+        "qa_pixel_bits": {
+          "cloud": true,
+          "dilated_cloud": false,
+          "cloud_shadow": false,
+          "snow": false,
+          "clear": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "selection": "high",
+      "matchup_id": "46107",
+      "gloria_id": "GID_3974",
+      "scene_id": "L8_OLI_2016_05_30_10_02_12_193023_L2R",
+      "site_name": "Lake Kummerow",
+      "longitude": 12.8925,
+      "latitude": 53.83492,
+      "satellite_nir_rrs": 0.6308754086494446,
+      "field_nir_rrs": 1.5674801725586936e-05,
+      "scene_check": {
+        "claimed_l1_scene_found": true,
+        "l1_stac_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=12.8924%2C53.83481999999999%2C12.8926%2C53.83502&datetime=2016-05-30T00%3A00%3A00Z%2F2016-05-31T00%3A00%3A00Z&limit=30",
+        "l1_product_id": "LC08_L1TP_193023_20160530_20200906_02_T1",
+        "l2_stac_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=12.8924%2C53.83481999999999%2C12.8926%2C53.83502&datetime=2016-05-30T00%3A00%3A00Z%2F2016-05-31T00%3A00%3A00Z&limit=30",
+        "l2_product_id": "LC08_L2SP_193023_20160530_02_T1",
+        "qa_values": {
+          "qa_pixel": 22280.0,
+          "nir08": 28573.0,
+          "red": 22311.0,
+          "green": 22123.0,
+          "blue": 25006.0,
+          "swir16": 21194.0
+        },
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/12.8925,53.83492?collection=landsat-c2-l2&item=LC08_L2SP_193023_20160530_02_T1&assets=qa_pixel&assets=nir08&assets=red&assets=green&assets=blue&assets=swir16",
+        "qa_pixel_bits": {
+          "cloud": true,
+          "dilated_cloud": false,
+          "cloud_shadow": false,
+          "snow": false,
+          "clear": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "selection": "control_different_date",
+      "matchup_id": "759897",
+      "gloria_id": "GID_3969",
+      "scene_id": "L8_OLI_2016_09_10_10_08_33_194022_L2R",
+      "site_name": "Lake Kummerow",
+      "longitude": 12.87428,
+      "latitude": 53.83176,
+      "satellite_nir_rrs": 0.007289811037480831,
+      "field_nir_rrs": 5.06957940742269e-05,
+      "scene_check": {
+        "claimed_l1_scene_found": true,
+        "l1_stac_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=12.87418%2C53.83166%2C12.87438%2C53.831860000000006&datetime=2016-09-10T00%3A00%3A00Z%2F2016-09-11T00%3A00%3A00Z&limit=30",
+        "l1_product_id": "LC08_L1TP_194022_20160910_20200906_02_T1",
+        "l2_stac_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=12.87418%2C53.83166%2C12.87438%2C53.831860000000006&datetime=2016-09-10T00%3A00%3A00Z%2F2016-09-11T00%3A00%3A00Z&limit=30",
+        "l2_product_id": "LC08_L2SP_194022_20160910_02_T1",
+        "qa_values": {
+          "qa_pixel": 21952.0,
+          "nir08": 7481.0,
+          "red": 7565.0,
+          "green": 7944.0,
+          "blue": 7516.0,
+          "swir16": 7376.0
+        },
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/12.87428,53.83176?collection=landsat-c2-l2&item=LC08_L2SP_194022_20160910_02_T1&assets=qa_pixel&assets=nir08&assets=red&assets=green&assets=blue&assets=swir16",
+        "qa_pixel_bits": {
+          "cloud": false,
+          "dilated_cloud": false,
+          "cloud_shadow": false,
+          "snow": false,
+          "clear": true,
+          "water": true
+        }
+      }
+    },
+    {
+      "selection": "high",
+      "matchup_id": "45901",
+      "gloria_id": "GID_2174",
+      "scene_id": "L8_OLI_2017_04_23_10_52_09_201025_L2R",
+      "site_name": "English Channel",
+      "longitude": 0.4341,
+      "latitude": 50.661617,
+      "satellite_nir_rrs": 0.7919582724571228,
+      "field_nir_rrs": 6.26207323131999e-05,
+      "scene_check": {
+        "claimed_l1_scene_found": true,
+        "l1_stac_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=0.434%2C50.661516999999996%2C0.4342%2C50.661717&datetime=2017-04-23T00%3A00%3A00Z%2F2017-04-24T00%3A00%3A00Z&limit=30",
+        "l1_product_id": "LC08_L1TP_201025_20170423_20200904_02_T1",
+        "l2_stac_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=0.434%2C50.661516999999996%2C0.4342%2C50.661717&datetime=2017-04-23T00%3A00%3A00Z%2F2017-04-24T00%3A00%3A00Z&limit=30",
+        "l2_product_id": "LC08_L2SP_201025_20170423_02_T1",
+        "qa_values": {
+          "qa_pixel": 22280.0,
+          "nir08": 29319.0,
+          "red": 29399.0,
+          "green": 29348.0,
+          "blue": 30494.0,
+          "swir16": 24102.0
+        },
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/0.4341,50.661617?collection=landsat-c2-l2&item=LC08_L2SP_201025_20170423_02_T1&assets=qa_pixel&assets=nir08&assets=red&assets=green&assets=blue&assets=swir16",
+        "qa_pixel_bits": {
+          "cloud": true,
+          "dilated_cloud": false,
+          "cloud_shadow": false,
+          "snow": false,
+          "clear": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "selection": "high",
+      "matchup_id": "45902",
+      "gloria_id": "GID_2175",
+      "scene_id": "L8_OLI_2017_04_23_10_52_09_201025_L2R",
+      "site_name": "English Channel",
+      "longitude": 0.16091667,
+      "latitude": 50.699368,
+      "satellite_nir_rrs": 0.8548053503036499,
+      "field_nir_rrs": 0.0001186815053279133,
+      "scene_check": {
+        "claimed_l1_scene_found": true,
+        "l1_stac_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=0.16081667000000002%2C50.699268%2C0.16101667%2C50.699468&datetime=2017-04-23T00%3A00%3A00Z%2F2017-04-24T00%3A00%3A00Z&limit=30",
+        "l1_product_id": "LC08_L1TP_201025_20170423_20200904_02_T1",
+        "l2_stac_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=0.16081667000000002%2C50.699268%2C0.16101667%2C50.699468&datetime=2017-04-23T00%3A00%3A00Z%2F2017-04-24T00%3A00%3A00Z&limit=30",
+        "l2_product_id": "LC08_L2SP_201025_20170423_02_T1",
+        "qa_values": {
+          "qa_pixel": 22280.0,
+          "nir08": 34950.0,
+          "red": 35734.0,
+          "green": 35991.0,
+          "blue": 36541.0,
+          "swir16": 28183.0
+        },
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/0.16091667,50.699368?collection=landsat-c2-l2&item=LC08_L2SP_201025_20170423_02_T1&assets=qa_pixel&assets=nir08&assets=red&assets=green&assets=blue&assets=swir16",
+        "qa_pixel_bits": {
+          "cloud": true,
+          "dilated_cloud": false,
+          "cloud_shadow": false,
+          "snow": false,
+          "clear": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "selection": "control_different_date",
+      "matchup_id": "45982",
+      "gloria_id": "GID_2226",
+      "scene_id": "L8_OLI_2018_04_19_10_45_29_200024_L2R",
+      "site_name": "English Channel",
+      "longitude": 2.2491167,
+      "latitude": 51.180965,
+      "satellite_nir_rrs": 0.0019394675036892295,
+      "field_nir_rrs": 7.445532302639732e-05,
+      "scene_check": {
+        "claimed_l1_scene_found": true,
+        "l1_stac_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=2.2490167%2C51.180865%2C2.2492167000000003%2C51.181065000000004&datetime=2018-04-19T00%3A00%3A00Z%2F2018-04-20T00%3A00%3A00Z&limit=30",
+        "l1_product_id": "LC08_L1TP_200024_20180419_20200901_02_T1",
+        "l2_stac_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=2.2490167%2C51.180865%2C2.2492167000000003%2C51.181065000000004&datetime=2018-04-19T00%3A00%3A00Z%2F2018-04-20T00%3A00%3A00Z&limit=30",
+        "l2_product_id": "LC08_L2SP_200024_20180419_02_T1",
+        "qa_values": {
+          "qa_pixel": 21952.0,
+          "nir08": 7256.0,
+          "red": 7391.0,
+          "green": 7948.0,
+          "blue": 7721.0,
+          "swir16": 7309.0
+        },
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/2.2491167,51.180965?collection=landsat-c2-l2&item=LC08_L2SP_200024_20180419_02_T1&assets=qa_pixel&assets=nir08&assets=red&assets=green&assets=blue&assets=swir16",
+        "qa_pixel_bits": {
+          "cloud": false,
+          "dilated_cloud": false,
+          "cloud_shadow": false,
+          "snow": false,
+          "clear": true,
+          "water": true
+        }
+      }
+    },
+    {
+      "selection": "high",
+      "matchup_id": "46000",
+      "gloria_id": "GID_132",
+      "scene_id": "L8_OLI_2018_05_03_09_16_50_186019_L2R",
+      "site_name": "Lake Kaiavere",
+      "longitude": 26.68855,
+      "latitude": 58.59589,
+      "satellite_nir_rrs": 0.3431580066680908,
+      "field_nir_rrs": 0.0003226433328798972,
+      "scene_check": {
+        "claimed_l1_scene_found": true,
+        "l1_stac_url": "https://landsatlook.usgs.gov/stac-server/search?collections=landsat-c2l1&bbox=26.68845%2C58.595789999999994%2C26.68865%2C58.59599&datetime=2018-05-03T00%3A00%3A00Z%2F2018-05-04T00%3A00%3A00Z&limit=30",
+        "l1_product_id": "LC08_L1TP_186019_20180503_20200901_02_T1",
+        "l2_stac_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=landsat-c2-l2&bbox=26.68845%2C58.595789999999994%2C26.68865%2C58.59599&datetime=2018-05-03T00%3A00%3A00Z%2F2018-05-04T00%3A00%3A00Z&limit=30",
+        "l2_product_id": "LC08_L2SP_186019_20180503_02_T1",
+        "qa_values": {
+          "qa_pixel": 22280.0,
+          "nir08": 19264.0,
+          "red": 13574.0,
+          "green": 12745.0,
+          "blue": 10428.0,
+          "swir16": 19418.0
+        },
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/26.68855,58.59589?collection=landsat-c2-l2&item=LC08_L2SP_186019_20180503_02_T1&assets=qa_pixel&assets=nir08&assets=red&assets=green&assets=blue&assets=swir16",
+        "qa_pixel_bits": {
+          "cloud": true,
+          "dilated_cloud": false,
+          "cloud_shadow": false,
+          "snow": false,
+          "clear": false,
+          "water": false
+        }
+      }
+    },
+    {
+      "selection": "control_same_scene",
+      "matchup_id": "1321483",
+      "gloria_id": "GID_859",
+      "scene_id": "S2B_MSI_2018_06_26_10_28_02_T32TMS_L2R",
+      "site_name": "Maggiore",
+      "longitude": 8.63624,
+      "latitude": 45.97721,
+      "satellite_nir_rrs": 0.021945415064692497,
+      "field_nir_rrs": 0.000728796511077767,
+      "scene_check": {
+        "l1_item_url": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l1c/items/S2B_32TMS_20180626_0_L1C",
+        "l1_item_id": "S2B_32TMS_20180626_0_L1C",
+        "l1_error": null,
+        "claimed_tile": "32TMS",
+        "claimed_tile_bbox": [
+          7.691890112492171,
+          45.95826783231756,
+          9.1282537815538,
+          46.95362834968302
+        ],
+        "field_coordinate_in_claimed_tile_bbox": true,
+        "l2_stac_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=sentinel-2-l2a&bbox=8.636140000000001%2C45.977109999999996%2C8.63634%2C45.97731&datetime=2018-06-26T00%3A00%3A00Z%2F2018-06-27T00%3A00%3A00Z&limit=30",
+        "l2_item_id": "S2B_MSIL2A_20180626T102019_R065_T32TMS_20201012T024612",
+        "other_l2_tiles_at_point": [
+          "S2B_MSIL2A_20180626T102019_R065_T32TMR_20201012T024613"
+        ],
+        "qa_values": {
+          "SCL": 6.0,
+          "B8A": 199.0,
+          "B04": 176.0,
+          "B03": 311.0,
+          "B02": 372.0,
+          "B11": 124.0
+        },
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/8.63624,45.97721?collection=sentinel-2-l2a&item=S2B_MSIL2A_20180626T102019_R065_T32TMS_20201012T024612&assets=SCL&assets=B8A&assets=B04&assets=B03&assets=B02&assets=B11"
+      }
+    },
+    {
+      "selection": "high",
+      "matchup_id": "1321484",
+      "gloria_id": "GID_860",
+      "scene_id": "S2B_MSI_2018_06_26_10_28_02_T32TMS_L2R",
+      "site_name": "Maggiore",
+      "longitude": 8.63495,
+      "latitude": 45.98586,
+      "satellite_nir_rrs": 0.5550098419189453,
+      "field_nir_rrs": 0.0007194309330507768,
+      "scene_check": {
+        "l1_item_url": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l1c/items/S2B_32TMS_20180626_0_L1C",
+        "l1_item_id": "S2B_32TMS_20180626_0_L1C",
+        "l1_error": null,
+        "claimed_tile": "32TMS",
+        "claimed_tile_bbox": [
+          7.691890112492171,
+          45.95826783231756,
+          9.1282537815538,
+          46.95362834968302
+        ],
+        "field_coordinate_in_claimed_tile_bbox": true,
+        "l2_stac_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=sentinel-2-l2a&bbox=8.63485%2C45.98576%2C8.63505%2C45.985960000000006&datetime=2018-06-26T00%3A00%3A00Z%2F2018-06-27T00%3A00%3A00Z&limit=30",
+        "l2_item_id": "S2B_MSIL2A_20180626T102019_R065_T32TMS_20201012T024612",
+        "other_l2_tiles_at_point": [
+          "S2B_MSIL2A_20180626T102019_R065_T32TMR_20201012T024613"
+        ],
+        "qa_values": {
+          "SCL": 4.0,
+          "B8A": 4964.0,
+          "B04": 393.0,
+          "B03": 666.0,
+          "B02": 514.0,
+          "B11": 2122.0
+        },
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/8.63495,45.98586?collection=sentinel-2-l2a&item=S2B_MSIL2A_20180626T102019_R065_T32TMS_20201012T024612&assets=SCL&assets=B8A&assets=B04&assets=B03&assets=B02&assets=B11"
+      }
+    },
+    {
+      "selection": "control_same_scene",
+      "matchup_id": "1321297",
+      "gloria_id": "GID_859",
+      "scene_id": "S2B_MSI_2018_06_26_10_28_16_T32TMR_L2R",
+      "site_name": "Maggiore",
+      "longitude": 8.63624,
+      "latitude": 45.97721,
+      "satellite_nir_rrs": 0.023921756073832512,
+      "field_nir_rrs": 0.000728796511077767,
+      "scene_check": {
+        "l1_item_url": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l1c/items/S2B_32TMR_20180626_0_L1C",
+        "l1_item_id": "S2B_32TMR_20180626_0_L1C",
+        "l1_error": null,
+        "claimed_tile": "32TMR",
+        "claimed_tile_bbox": [
+          7.706964216686898,
+          45.058200810676375,
+          9.126154289791382,
+          46.053495749294726
+        ],
+        "field_coordinate_in_claimed_tile_bbox": true,
+        "l2_stac_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=sentinel-2-l2a&bbox=8.636140000000001%2C45.977109999999996%2C8.63634%2C45.97731&datetime=2018-06-26T00%3A00%3A00Z%2F2018-06-27T00%3A00%3A00Z&limit=30",
+        "l2_item_id": "S2B_MSIL2A_20180626T102019_R065_T32TMR_20201012T024613",
+        "other_l2_tiles_at_point": [
+          "S2B_MSIL2A_20180626T102019_R065_T32TMS_20201012T024612"
+        ],
+        "qa_values": {
+          "SCL": 6.0,
+          "B8A": 166.0,
+          "B04": 169.0,
+          "B03": 306.0,
+          "B02": 373.0,
+          "B11": 121.0
+        },
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/8.63624,45.97721?collection=sentinel-2-l2a&item=S2B_MSIL2A_20180626T102019_R065_T32TMR_20201012T024613&assets=SCL&assets=B8A&assets=B04&assets=B03&assets=B02&assets=B11"
+      }
+    },
+    {
+      "selection": "high",
+      "matchup_id": "1321298",
+      "gloria_id": "GID_860",
+      "scene_id": "S2B_MSI_2018_06_26_10_28_16_T32TMR_L2R",
+      "site_name": "Maggiore",
+      "longitude": 8.63495,
+      "latitude": 45.98586,
+      "satellite_nir_rrs": 0.5479232668876648,
+      "field_nir_rrs": 0.0007194309330507768,
+      "scene_check": {
+        "l1_item_url": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l1c/items/S2B_32TMR_20180626_0_L1C",
+        "l1_item_id": "S2B_32TMR_20180626_0_L1C",
+        "l1_error": null,
+        "claimed_tile": "32TMR",
+        "claimed_tile_bbox": [
+          7.706964216686898,
+          45.058200810676375,
+          9.126154289791382,
+          46.053495749294726
+        ],
+        "field_coordinate_in_claimed_tile_bbox": true,
+        "l2_stac_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=sentinel-2-l2a&bbox=8.63485%2C45.98576%2C8.63505%2C45.985960000000006&datetime=2018-06-26T00%3A00%3A00Z%2F2018-06-27T00%3A00%3A00Z&limit=30",
+        "l2_item_id": "S2B_MSIL2A_20180626T102019_R065_T32TMR_20201012T024613",
+        "other_l2_tiles_at_point": [
+          "S2B_MSIL2A_20180626T102019_R065_T32TMS_20201012T024612"
+        ],
+        "qa_values": {
+          "SCL": 4.0,
+          "B8A": 5068.0,
+          "B04": 400.0,
+          "B03": 688.0,
+          "B02": 543.0,
+          "B11": 2147.0
+        },
+        "point_url": "https://planetarycomputer.microsoft.com/api/data/v1/item/point/8.63495,45.98586?collection=sentinel-2-l2a&item=S2B_MSIL2A_20180626T102019_R065_T32TMR_20201012T024613&assets=SCL&assets=B8A&assets=B04&assets=B03&assets=B02&assets=B11"
+      }
+    },
+    {
+      "selection": "high",
+      "matchup_id": "1504787",
+      "gloria_id": "GID_7201",
+      "scene_id": "S2B_MSI_2021_09_16_03_09_30_T50RKU_L2R",
+      "site_name": "Hou Lake",
+      "longitude": 114.273538,
+      "latitude": 30.7313448,
+      "satellite_nir_rrs": 0.3293783962726593,
+      "field_nir_rrs": 0.006473320529333257,
+      "scene_check": {
+        "l1_item_url": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-l1c/items/S2B_50RKU_20210916_0_L1C",
+        "l1_item_id": "S2B_50RKU_20210916_0_L1C",
+        "l1_error": null,
+        "claimed_tile": "50RKU",
+        "claimed_tile_bbox": [
+          113.86799322919028,
+          29.705882194948455,
+          115.03327607576821,
+          30.71785724249536
+        ],
+        "field_coordinate_in_claimed_tile_bbox": false,
+        "l2_stac_url": "https://planetarycomputer.microsoft.com/api/stac/v1/search?collections=sentinel-2-l2a&bbox=114.273438%2C30.7312448%2C114.273638%2C30.7314448&datetime=2021-09-16T00%3A00%3A00Z%2F2021-09-17T00%3A00%3A00Z&limit=30",
+        "l2_item_id": null,
+        "other_l2_tiles_at_point": [
+          "S2B_MSIL2A_20210916T025539_R032_T50RKV_20210916T115405"
+        ]
+      }
+    }
+  ],
+  "limitations": "Point-level QA only. No georeferenced 3x3 native Level-1 pixel extraction or independent ACOLITE rerun was performed; L2 QA/SCL are algorithmic products and are not ground-truth labels."
+}
