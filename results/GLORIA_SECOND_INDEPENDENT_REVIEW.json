@@ -1,0 +1,51 @@
+{
+  "role": "Independent Reviewer",
+  "review_type": "Fresh-context critical review of the candidate working report; not journal peer review",
+  "ready_for_human_review": true,
+  "overall_assessment": "The checked numerical results, selection flow, and QA summaries agree with the listed evidence. The report clearly restricts its conclusions to selected GLORIA pairs and extreme-tail scene checks, discloses overlap with the publisher’s validation material, and does not infer a population error rate or a single processing cause. It supports a cautious short technical communication for human review, subject to the minor revisions below.",
+  "major_concerns": [],
+  "minor_concerns": [
+    {
+      "issue": "Add a formal GLORIA dataset citation and clear reuse attribution.",
+      "basis": "The PANGAEA record requests the full dataset citation (Lehmann et al., 2022, DOI 10.1594/PANGAEA.948492). The draft currently provides a record link but no formal citation. The AquaCorr release should likewise appear in the reference list.",
+      "suggested_action": "Add full dataset references and preserve source creator credit in any communication."
+    },
+    {
+      "issue": "Confirm author declarations and update report status at handoff.",
+      "basis": "The listed evidence does not independently establish the prospective author’s affiliation, ORCID, funding, or conflicts statement. Once this independent review is incorporated, the sentence saying that no independent review has occurred will be stale.",
+      "suggested_action": "Ask the prospective author to verify the identity and disclosure text; describe this review accurately without implying journal peer review."
+    },
+    {
+      "issue": "Quantify the separation of same-scene pilot controls.",
+      "basis": "Recalculation from the 30 selected high/low pairs gives a median great-circle separation of about 64.5 km; 28 of 30 are more than 10 km apart. The draft says controls are often far away, but a number would make the weak local-control interpretation clearer.",
+      "suggested_action": "Add the distance summary and keep the pilot as an association check rather than a spatially matched validation."
+    },
+    {
+      "issue": "Separate verified results from provenance and reproduction claims.",
+      "basis": "The listed files support the pair and QA counts, but this review did not independently rerun source downloads, the ARP bootstrap, its same-input reproduction, the repository tests, or the temporal ordering of protocol files.",
+      "suggested_action": "Retain the audit trail and avoid describing those process claims as verified by this review."
+    }
+  ],
+  "checks_performed": [
+    "SHA-256 of gloria_nir_pairs.csv matches the field registry and post hoc diagnostics registry.",
+    "Recounted 1,535 GLORIA matchups, first-reason exclusions of 119 no response curve, 364 failed satellite QC, 571 missing field NIR, 133 over three hours, and 348 eligible; high satellite-NIR counts by group match 2, 5, 34, 3, and 8 respectively.",
+    "Recomputed the eligible subset: 348 pairs, 8 satellite NIR values above 0.30 sr^-1, 7 distinct GLORIA IDs, 6 scene IDs, and zero corresponding field values above 0.30 sr^-1. Overall and high-tail medians agree with the report.",
+    "Recomputed 37 waterbody-table means: equal-waterbody mean 0.0640523 sr^-1, median 0.0218193, 36 positive, range -0.0035281 to 0.8232912, and leave-one-waterbody-out mean range 0.0429623 to 0.0659295.",
+    "Checked all eight GLORIA high scene cases: five Landsat 8 QA cloud bits set with water bits unset; two Maggiore Sentinel-2 SCL 4; Hou Lake outside the claimed tile bounding box. The reported controls have the stated QA classes.",
+    "Recomputed the 60 pilot QA records from raw QA_PIXEL integers and SCL classes: 15/20 high Landsat cloud, 16/20 low Landsat water; high Sentinel-2 classes five SCL 9, one SCL 8, four unsampled outside claimed tile; 10/10 low Sentinel-2 SCL 6. Three distinct Sentinel scenes had two agreeing public L2A versions.",
+    "Checked primary source descriptions: AquaCorr Zenodo identifies a GLORIA validation subset and visible-band assessment; PANGAEA describes 1-nm GLORIA spectra over 350-900 nm; USGS confirms QA_PIXEL is carried unchanged from Level 1 to Level 2; the Copernicus specification defines the cited SCL codes."
+  ],
+  "not_independently_verified": [
+    "Raw AquaCorr and GLORIA archive contents and publisher MD5",
+    "Original live scene point-query responses beyond saved URL/value records",
+    "Exact ARP bootstrap interval and same-input reproduction",
+    "Protocol-file chronology and repository test runs",
+    "Human pixel adjudication or ACOLITE rerun"
+  ],
+  "source_urls": [
+    "https://zenodo.org/records/21927415",
+    "https://doi.pangaea.de/10.1594/PANGAEA.948492",
+    "https://www.usgs.gov/landsat-missions/landsat-collection-2-quality-assessment-bands",
+    "https://sentinels.copernicus.eu/documents/d/sentinel/s2-pdgs-cs-di-psd-v15-0"
+  ]
+}
