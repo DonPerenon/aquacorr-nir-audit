@@ -1,0 +1,19 @@
+{
+  "status": "Post hoc diagnostic requested by integrated-manuscript fresh-context reviewer",
+  "pair_csv_sha256": "de60cf6e6e0a722a0b33d9fcf67288514303b80296e7b0c4c6a40e9f030519b2",
+  "gloria_zip_sha256": "f5ad5106d5fd74f0d874085a23e4189302e7409aed9f82d629ae6cdb47d21f14",
+  "unit": "AquaCorr matchup row, not distinct GLORIA field spectrum",
+  "first_exclusion_reason": "missing_field_nir",
+  "matchups": 571,
+  "distinct_gloria_ids": 456,
+  "last_finite_wavelength_categories": {
+    "last_finite_850_to_899_nm": 18,
+    "last_finite_below_800_nm": 74,
+    "last_finite_800_to_849_nm": 479
+  },
+  "high_satellite_nir_gt_0_30_categories": {
+    "last_finite_below_800_nm": 2,
+    "last_finite_800_to_849_nm": 32
+  },
+  "limitation": "This describes the maximum finite wavelength in the original GLORIA spectrum. Field-band availability also depends on sensor response weights; the first-reason screen can conceal other simultaneous exclusions."
+}

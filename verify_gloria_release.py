@@ -3,6 +3,8 @@
 import csv
 import hashlib
 import json
+import math
+import statistics
 from collections import Counter
 from pathlib import Path
 
@@ -56,9 +58,28 @@ def main():
     for record in pilot["checks"]:
         selected = selection["pairs"][record["pair_index"]][record["label"]]
         assert record["matchup_id"] == selected["matchup_id"]
+    distances = json.loads((DATA / "scene_pilot_distance_registry.json").read_text())
+    assert distances["selection_sha256"] == digest(DATA / "scene_pilot_selection.json")
+    assert distances["n_pairs"] == len(selection["pairs"])
+    computed_distances = []
+    for pair in selection["pairs"]:
+        first, second = pair["high"], pair["low"]
+        lat1, lon1 = math.radians(float(first["lat"])), math.radians(float(first["lon"]))
+        lat2, lon2 = math.radians(float(second["lat"])), math.radians(float(second["lon"]))
+        a = math.sin((lat2 - lat1) / 2) ** 2 + math.cos(lat1) * math.cos(lat2) * math.sin((lon2 - lon1) / 2) ** 2
+        computed_distances.append(6371 * 2 * math.asin(min(1, math.sqrt(a))))
+    assert statistics.median(computed_distances) == distances["median_distance_km"]
+    assert sum(value > 10 for value in computed_distances) == distances["pairs_more_than_10_km"]
+    coverage = json.loads((DATA / "field_coverage_registry.json").read_text())
+    assert coverage["pair_csv_sha256"] == digest(DATA / "gloria_nir_pairs.csv")
+    assert coverage["matchups"] == diagnostics["screening_first_reason"]["missing_field_nir"]["matchups"]
+    assert sum(coverage["last_finite_wavelength_categories"].values()) == diagnostics["screening_first_reason"]["missing_field_nir"]["matchups"]
+    assert sum(coverage["high_satellite_nir_gt_0_30_categories"].values()) == diagnostics["screening_first_reason"]["missing_field_nir"]["satellite_nir_gt_0_30"]
     print(json.dumps({"manifest_files_verified": len(manifest["files"]),
                       "gloria_pairs": len(primary), "gloria_high_pairs": len(high),
                       "r001_exact_numbers": True, "pilot_points": len(pilot["checks"]),
+                      "pilot_median_distance_km": statistics.median(computed_distances),
+                      "missing_field_nir": coverage["matchups"],
                       "note": "This verifies published derivatives and same-input computation, not original-scene interpretation or a new field experiment."}, indent=2))
 
 

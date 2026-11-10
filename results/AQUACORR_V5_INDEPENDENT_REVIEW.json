@@ -1,0 +1,43 @@
+{
+  "review_type": "fresh-context internal scientific review of the integrated exploratory Communication",
+  "major_concerns": [],
+  "minor_concerns": [
+    {
+      "location": "Section 4.6, paragraph beginning 'All five high-NIR Landsat 8 GLORIA points'",
+      "observation": "The English Channel low-NIR control is from a different acquisition and is approximately 140–156 km from the two high-NIR English Channel points, although all share the same broad waterbody label.",
+      "why_it_matters": "The phrase 'same named waters' may imply a more local comparison than the saved coordinates support.",
+      "requested_action": "State that the English Channel control is geographically distant, or avoid presenting it as a close spatial control."
+    },
+    {
+      "location": "Section 4.5 and Table 4",
+      "observation": "Field-band NIR is unavailable for 571 GLORIA-labelled records, including 34 of the 52 original satellite-high records. The manuscript reports this important attrition but does not explain the main causes of unavailable NIR spectra in the narrative.",
+      "why_it_matters": "Readers cannot assess how field spectral availability may select the eight satellite-high primary pairs without consulting the code and registry.",
+      "requested_action": "Briefly describe whether absent spectra, nonfinite band wavelengths, or other specific causes dominate this category, if recoverable; retain the current nonrepresentative interpretation."
+    },
+    {
+      "location": "Sections 3.7 and 4.6",
+      "observation": "Scene QA is sampled at one field coordinate from public Level-2 layers, while the AquaCorr value is an ACOLITE window result. The distinction is disclosed in the limitations but is easy to miss beside the point QA counts.",
+      "why_it_matters": "Point classifications are corroborating evidence and cannot by themselves adjudicate the exact source pixels or explain the atmospheric-correction mechanism.",
+      "requested_action": "State this point-versus-window distinction next to the scene results, and specify the sampled SCL or QA pixel scale if available."
+    }
+  ],
+  "checks_performed": [
+    "Read the entire supplied manuscript and the nine evidence files named in the review packet; did not use author dialogue or earlier review verdicts.",
+    "Recomputed Table 1 percentages and Table 3 sensor percentages from AQ001 and AQTAIL001; checked the full-archive and upper-tail totals against those registries.",
+    "Reconciled Table 2 row and site eligibility flows, selected cohort composition, and sensitivity values against AQFLOW001 and the sensitivity registry.",
+    "Checked the reported R001 and GLORIA waterbody estimates and intervals against the cited local public result copies and the additional diagnostics registry.",
+    "Independently counted primary GLORIA pairs, distinct field IDs and scenes, exclusions, high-NIR pairs, and medians from all 1,535 rows of the supplied derived pair CSV; these match the manuscript and G001.",
+    "Decoded the five high-NIR Landsat 8 GLORIA QA_PIXEL values from the saved raw integers, checked GLORIA Sentinel-2 SCL values, and independently counted pilot Landsat cloud/water bits and Sentinel-2 SCL classes from saved row-level checks.",
+    "Recomputed pilot case-control distances from saved coordinates: median 64.49 km and 28 of 30 above 10 km; checked same-scene pairing.",
+    "Consulted the live AquaCorr Zenodo record, GLORIA PANGAEA record, USGS Collection 2 QA documentation and known-issues material, the Copernicus Sentinel-2 product specification, and the cited Jordan et al. primary paper for the central data, QA-class, and optical-context claims."
+  ],
+  "not_verified": [
+    "Did not restream the original 505 MB AquaCorr CSV or independently redownload and checksum the original GLORIA spectra, so source-to-registry calculations were not independently reproduced.",
+    "Did not rerun spectral convolution, the bootstrap calculations, ACOLITE, or raw satellite imagery processing.",
+    "Did not re-query every saved STAC item or point URL; scene QA checks used the supplied recorded raw values and product identifiers.",
+    "Did not verify the claimed order of local protocol creation and first analysis, the fixed public GitHub release contents, the author's identity or approval, or compliance with any eventual journal submission policy.",
+    "Did not assess a representative pixel-error rate, causal mechanism, downstream model impact, or journal acceptance; the design does not supply these quantities."
+  ],
+  "ready_for_human_review": true,
+  "interpretation": "The integrated text is suitable for the named researcher to review as an exploratory working manuscript. The numerical claims checked here are consistent with the supplied registries and derived rows. This verdict is not submission approval or a claim of independent replication."
+}

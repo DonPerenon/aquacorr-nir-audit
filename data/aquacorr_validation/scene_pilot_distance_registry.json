@@ -1,0 +1,191 @@
+{
+  "status": "Post hoc descriptive diagnostic requested by second fresh-context reviewer",
+  "selection_sha256": "be38ffa429e96b236569a8de47c9dff23b74ef6db8c2c7006179113721d5e5b5",
+  "distance_method": "haversine great-circle distance; Earth radius 6371 km",
+  "n_pairs": 30,
+  "median_distance_km": 64.49298917071619,
+  "pairs_more_than_10_km": 28,
+  "pair_distances": [
+    {
+      "sensor": "L5",
+      "high_matchup_id": "531355",
+      "low_matchup_id": "531328",
+      "great_circle_distance_km": 75.62292503734395
+    },
+    {
+      "sensor": "L5",
+      "high_matchup_id": "244034",
+      "low_matchup_id": "244039",
+      "great_circle_distance_km": 63.94188892832298
+    },
+    {
+      "sensor": "L5",
+      "high_matchup_id": "27134",
+      "low_matchup_id": "27108",
+      "great_circle_distance_km": 53.474672237477336
+    },
+    {
+      "sensor": "L5",
+      "high_matchup_id": "557158",
+      "low_matchup_id": "557170",
+      "great_circle_distance_km": 8.635474989521928
+    },
+    {
+      "sensor": "L5",
+      "high_matchup_id": "1223876",
+      "low_matchup_id": "1223863",
+      "great_circle_distance_km": 65.04408941310939
+    },
+    {
+      "sensor": "L7",
+      "high_matchup_id": "811465",
+      "low_matchup_id": "811474",
+      "great_circle_distance_km": 184.88922364890448
+    },
+    {
+      "sensor": "L7",
+      "high_matchup_id": "1644114",
+      "low_matchup_id": "1644135",
+      "great_circle_distance_km": 29.429858339092817
+    },
+    {
+      "sensor": "L7",
+      "high_matchup_id": "380099",
+      "low_matchup_id": "380103",
+      "great_circle_distance_km": 69.1732834012215
+    },
+    {
+      "sensor": "L7",
+      "high_matchup_id": "1789332",
+      "low_matchup_id": "1789368",
+      "great_circle_distance_km": 120.3851386956292
+    },
+    {
+      "sensor": "L7",
+      "high_matchup_id": "679010",
+      "low_matchup_id": "679019",
+      "great_circle_distance_km": 23.875429009873482
+    },
+    {
+      "sensor": "L8",
+      "high_matchup_id": "826770",
+      "low_matchup_id": "826772",
+      "great_circle_distance_km": 30.969858988072975
+    },
+    {
+      "sensor": "L8",
+      "high_matchup_id": "1748090",
+      "low_matchup_id": "1748084",
+      "great_circle_distance_km": 77.93933152484503
+    },
+    {
+      "sensor": "L8",
+      "high_matchup_id": "721560",
+      "low_matchup_id": "721567",
+      "great_circle_distance_km": 114.18670363534082
+    },
+    {
+      "sensor": "L8",
+      "high_matchup_id": "587417",
+      "low_matchup_id": "587452",
+      "great_circle_distance_km": 43.34476775698282
+    },
+    {
+      "sensor": "L8",
+      "high_matchup_id": "677599",
+      "low_matchup_id": "677566",
+      "great_circle_distance_km": 82.07023265063177
+    },
+    {
+      "sensor": "L9",
+      "high_matchup_id": "877916",
+      "low_matchup_id": "877961",
+      "great_circle_distance_km": 167.4591241137761
+    },
+    {
+      "sensor": "L9",
+      "high_matchup_id": "926575",
+      "low_matchup_id": "926580",
+      "great_circle_distance_km": 14.622010531237501
+    },
+    {
+      "sensor": "L9",
+      "high_matchup_id": "902556",
+      "low_matchup_id": "902514",
+      "great_circle_distance_km": 97.21239191098634
+    },
+    {
+      "sensor": "L9",
+      "high_matchup_id": "1161125",
+      "low_matchup_id": "1161132",
+      "great_circle_distance_km": 50.42154609528287
+    },
+    {
+      "sensor": "L9",
+      "high_matchup_id": "1801492",
+      "low_matchup_id": "1801484",
+      "great_circle_distance_km": 105.14854441453154
+    },
+    {
+      "sensor": "S2A",
+      "high_matchup_id": "1291949",
+      "low_matchup_id": "1291933",
+      "great_circle_distance_km": 73.2321218905632
+    },
+    {
+      "sensor": "S2A",
+      "high_matchup_id": "1592951",
+      "low_matchup_id": "1592952",
+      "great_circle_distance_km": 0.3731991867078907
+    },
+    {
+      "sensor": "S2A",
+      "high_matchup_id": "1378683",
+      "low_matchup_id": "1378638",
+      "great_circle_distance_km": 62.95176316873571
+    },
+    {
+      "sensor": "S2A",
+      "high_matchup_id": "1555863",
+      "low_matchup_id": "1555867",
+      "great_circle_distance_km": 109.1372168293645
+    },
+    {
+      "sensor": "S2A",
+      "high_matchup_id": "1551867",
+      "low_matchup_id": "1551865",
+      "great_circle_distance_km": 36.87937536171358
+    },
+    {
+      "sensor": "S2B",
+      "high_matchup_id": "1469173",
+      "low_matchup_id": "1469182",
+      "great_circle_distance_km": 81.17834724438346
+    },
+    {
+      "sensor": "S2B",
+      "high_matchup_id": "1932033",
+      "low_matchup_id": "1932037",
+      "great_circle_distance_km": 31.09753691622989
+    },
+    {
+      "sensor": "S2B",
+      "high_matchup_id": "1364308",
+      "low_matchup_id": "1364309",
+      "great_circle_distance_km": 19.83425521808964
+    },
+    {
+      "sensor": "S2B",
+      "high_matchup_id": "1507931",
+      "low_matchup_id": "1507933",
+      "great_circle_distance_km": 73.51109592345509
+    },
+    {
+      "sensor": "S2B",
+      "high_matchup_id": "1561843",
+      "low_matchup_id": "1561846",
+      "great_circle_distance_km": 43.97580735743027
+    }
+  ],
+  "limitation": "Same-scene controls are often distant and are not local spatial controls; the selected pilot cannot estimate an archive-wide error rate."
+}
