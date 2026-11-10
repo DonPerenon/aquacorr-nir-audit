@@ -1,0 +1,84 @@
+{
+  "id": "AQMANIFEST001",
+  "built_utc": "2026-11-10T08:50:03.270175+00:00",
+  "checks": [
+    "Raw and derived SHA-256 values match descriptive and auxiliary registries.",
+    "All threshold counts reconcile to sensor and source totals.",
+    "Eligibility exclusions reconcile to pre-exclusion and retained cohorts.",
+    "Primary site counts and means match descriptive, flow and sensitivity registries.",
+    "Actual arp reproduce output reports exact same-input rerun with R001 numbers.",
+    "Publisher MD5 matches the downloaded raw table and metadata; Zenodo API reports CC BY 4.0.",
+    "Post-review upper-tail counts reconcile to sensor/source totals and the earlier finite-NIR denominator."
+  ],
+  "files": {
+    "data/aquacorr_global/aquacorr_matchups.csv.gz": {
+      "bytes": 505260901,
+      "sha256": "ea44b8632ee57b6b214410282fa0ab5b6cc16b5b32477f842349552f1d82877c"
+    },
+    "data/aquacorr_global/aquacorr_metadata.json": {
+      "bytes": 3866,
+      "sha256": "c6f038c657ca233beddcd4747dead661861d227129529ba23b743cdd53a1f96b"
+    },
+    "data/aquacorr_global/zenodo_record.json": {
+      "bytes": 13159,
+      "sha256": "b0f86baede0891a9feeb6d4d57e9cb2e75d8caa6ead8e32b6c4bb61b9bb9e737"
+    },
+    "data/aquacorr_audit/audit.py": {
+      "bytes": 6560,
+      "sha256": "758aa29e99a292a1764806a96e66b3ab86f4143be03c1e9401f7d695ffa68b4d"
+    },
+    "data/aquacorr_audit/flow.py": {
+      "bytes": 5827,
+      "sha256": "3f832193e607489a8e4f64e246d849db5e813fdf0a91579b7398f5a7806e5a71"
+    },
+    "data/aquacorr_audit/sensitivity.py": {
+      "bytes": 2452,
+      "sha256": "9eb32b3a2f5971b0b626856cb5cd70db1e3bdcfae7d5b8f15faacd66f37dc247"
+    },
+    "data/aquacorr_audit/tail_check.py": {
+      "bytes": 6429,
+      "sha256": "d2ec259224a72429feea46b7fb991f5202e73ef2dca2ad5f2f56f1d4e9be5acd"
+    },
+    "data/aquacorr_audit/manifest.py": {
+      "bytes": 6328,
+      "sha256": "5250d614ab353721c1409f0d6dd5d500db9e81cc9ff643c348742093e4a93408"
+    },
+    "data/aquacorr_audit/site_highnir_source.csv": {
+      "bytes": 560111,
+      "sha256": "7371169eccc415fe98c0548f7d69bbe3ea94b9ab8485e1a77ef9cab88329396e"
+    },
+    "data/aquacorr_audit/descriptive_results.json": {
+      "bytes": 5570,
+      "sha256": "aa28209196485dc77e895a9578a39f1c37e20591324a00d8fe8dc3e470fffa11"
+    },
+    "data/aquacorr_audit/eligibility_flow.json": {
+      "bytes": 2929,
+      "sha256": "eebd92b3d0cd4e03053faff9e11aaa04780e5865fdc27d50387cbbe2eec88ce1"
+    },
+    "data/aquacorr_audit/sensitivity_results.json": {
+      "bytes": 4103,
+      "sha256": "748fa977a4ccb8d47ac3be85b3da72938fa91d35393c18fc1de8c79d989fc104"
+    },
+    "data/aquacorr_audit/upper_tail_results.json": {
+      "bytes": 38387,
+      "sha256": "e90f6f9867b8196fd9adcc67371fae9e1e3fd22d572d7d9097b0d9333469d332"
+    },
+    "data/aquacorr_audit/reproduce_check.json": {
+      "bytes": 392,
+      "sha256": "7e2a01689f0a78d1f9de1d7b7a26092b12b5a1264a38199c936a0969dd9319c8"
+    },
+    "runs/aquacorr-qc-2026-11-finaldraft/config.json": {
+      "bytes": 3501,
+      "sha256": "8a2c325a4926baec924451cfc81693eafce6bda1f83c16c78da14d96f5a01a36"
+    },
+    "runs/aquacorr-qc-2026-11-finaldraft/registries/results.json": {
+      "bytes": 3184,
+      "sha256": "39f88ec8f81c0c199ef55b1a8e37366f00ac5064323c48350a81eedee8d20549"
+    },
+    "docs/AQUACORR_QC_MANUSCRIPT_EN_V2.md": {
+      "bytes": 24697,
+      "sha256": "65b9bb56378e56f7c327d1a795421b508dd8493d2d9bbfc612524863aad8cc8b"
+    }
+  },
+  "caveat": "The exact rerun uses the same registered engine, data, parameters and seed; it is not independent scientific replication or scene validation."
+}

@@ -4,7 +4,7 @@
   "raw_archive_sha256": "ea44b8632ee57b6b214410282fa0ab5b6cc16b5b32477f842349552f1d82877c",
   "files": {
     ".gitignore": "25e66a2eda2d473e0cca9e5000f2cc0ce067bd2c0e3155644de9936a73da66a6",
-    "README.md": "e8de85ba37d490e4c272ceb8f42d3905663068b023f1c990714f47d7bb503727",
+    "README.md": "c3bc0217be6ca3448d2a23adeb814772f705763a7bcc93d2b954ca944817d2b8",
     "arp/__init__.py": "13e4ad5b916a5eec5d822ce28926918e17d9503db539669c8c29d7addd24ee48",
     "arp/compute.py": "4d6985a8d591f257348cc2a1b44848c2c57123528692b12a8ef773428057fdd3",
     "arp/core.py": "6b61c937b20f720e766f7549eb03d0bf81566cdd55fdf374d18101da897b0dfb",
@@ -12,6 +12,8 @@
     "data/aquacorr_audit/descriptive_results.json": "aa28209196485dc77e895a9578a39f1c37e20591324a00d8fe8dc3e470fffa11",
     "data/aquacorr_audit/eligibility_flow.json": "eebd92b3d0cd4e03053faff9e11aaa04780e5865fdc27d50387cbbe2eec88ce1",
     "data/aquacorr_audit/flow.py": "3f832193e607489a8e4f64e246d849db5e813fdf0a91579b7398f5a7806e5a71",
+    "data/aquacorr_audit/repro_manifest.json": "1e96241b0d6a608d9042d65b2a873985904f474f801d555320f823af0ca76103",
+    "data/aquacorr_audit/reproduce_check.json": "7e2a01689f0a78d1f9de1d7b7a26092b12b5a1264a38199c936a0969dd9319c8",
     "data/aquacorr_audit/sensitivity.py": "9eb32b3a2f5971b0b626856cb5cd70db1e3bdcfae7d5b8f15faacd66f37dc247",
     "data/aquacorr_audit/sensitivity_results.json": "748fa977a4ccb8d47ac3be85b3da72938fa91d35393c18fc1de8c79d989fc104",
     "data/aquacorr_audit/site_highnir_source.csv": "7371169eccc415fe98c0548f7d69bbe3ea94b9ab8485e1a77ef9cab88329396e",

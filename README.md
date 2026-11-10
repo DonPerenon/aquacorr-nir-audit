@@ -1,6 +1,6 @@
 # AquaCorr-Global v1 native NIR audit: code and derived results
 
-This is a public release candidate for an **exploratory, archive-specific numerical audit**. It is not a validated bad-pixel classifier or an independent reprocessing of satellite scenes. The associated manuscript has not been submitted or accepted by a journal.
+This is a public release for an **exploratory, archive-specific numerical audit**. It is not a validated bad-pixel classifier or an independent reprocessing of satellite scenes. The associated manuscript has not been submitted or accepted by a journal.
 
 ## Source and attribution
 
@@ -14,7 +14,7 @@ The analysis files here are derivatives of that source and retain this attributi
 - `data/aquacorr_audit/flow.py`: eligibility and cohort-composition reconciliation.
 - `data/aquacorr_audit/sensitivity.py`: descriptive threshold and same-sensor checks.
 - `data/aquacorr_audit/tail_check.py`: post-review exploratory upper-tail diagnostic.
-- `data/aquacorr_audit/*.json` and `site_highnir_source.csv`: derived results and one-row-per-site analysis data.
+- `data/aquacorr_audit/*.json` and `site_highnir_source.csv`: derived results, the full original calculation manifest and saved same-input reproduction output, and one-row-per-site analysis data. The original manifest also names local run files that are not part of this minimal public repository.
 - `arp/compute.py` and `arp/core.py`: exact Python implementation used for the site-level bootstrap/permutation result `R001`.
 - `results/R001_public.json`: numerical copy of the original `R001` registry. **Only** its local filesystem path was replaced with the repository-relative site-table path. The original registry SHA-256 is recorded in `results/R001_original_sha256.txt`.
 - `verify_release.py`: checks release hashes and recalculates `R001`; with the raw CSV present, also verifies the raw source checksum.
@@ -38,4 +38,4 @@ The first verification checks the published derived files and recalculates `R001
 
 ## Rights and reuse
 
-The original dataset is CC BY 4.0. Reuse of derived data and result tables should credit the AquaCorr-Global creators and the DOI above. The scripts are shared for inspection and reproducibility; no separate software license is granted in this candidate package pending the research owner's licensing decision.
+The original dataset is CC BY 4.0. Reuse of derived data and result tables should credit the AquaCorr-Global creators and the DOI above. The scripts are shared for inspection and reproducibility; no separate software license is granted in this release pending the research owner's licensing decision.
