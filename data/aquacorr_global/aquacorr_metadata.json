@@ -1,0 +1,127 @@
+{
+  "title": "AquaCorr-Global: A Multi-Sensor, Multi-Decadal Water Quality Matchup Dataset for Inland and Coastal Waters",
+  "version": "1.0",
+  "doi": "10.5281/zenodo.XXXXXXX",
+  "license": "CC-BY-4.0",
+  "created": "2026-08-01",
+  "temporal_coverage": {
+    "start": "1984",
+    "end": "2024"
+  },
+  "record_counts": {
+    "total_matchups": 1984387,
+    "passed_qc": 935740,
+    "unique_sites": 202029,
+    "coord_centroid_matchups": 98165
+  },
+  "sensors": {
+    "L7": 663844,
+    "L5": 467730,
+    "L8": 292038,
+    "S2A": 280036,
+    "S2B": 242464,
+    "L9": 38275
+  },
+  "sources": {
+    "AquaMatch": 622894,
+    "ChemLotUS": 603484,
+    "Caravan-Qual": 367129,
+    "AquaSat_v1": 300276,
+    "AquaMatch,AquaSat_v1": 85825,
+    "AquaMatch,ChemLotUS": 3129,
+    "GLORIA": 1535,
+    "SeaBASS": 115
+  },
+  "parameters": {
+    "chla": {
+      "matchups_with_value": 616327,
+      "method_labeled": 551602,
+      "extraction_or_lab": 137815,
+      "in_vivo_or_sensor": 2386,
+      "recommended": 147929
+    },
+    "tss": {
+      "matchups_with_value": 786470,
+      "method_labeled": 448792,
+      "extraction_or_lab": 401835,
+      "in_vivo_or_sensor": 0,
+      "recommended": 401835
+    },
+    "sdd": {
+      "matchups_with_value": 649514,
+      "method_labeled": 448633,
+      "extraction_or_lab": 0,
+      "in_vivo_or_sensor": 0,
+      "recommended": 165
+    },
+    "acdom440": {
+      "matchups_with_value": 1028
+    },
+    "turbidity": {
+      "matchups_with_value": 578178,
+      "method_labeled": 510720,
+      "extraction_or_lab": 0,
+      "in_vivo_or_sensor": 297481,
+      "recommended": 0
+    },
+    "doc": {
+      "matchups_with_value": 152205
+    },
+    "toc": {
+      "matchups_with_value": 316525,
+      "method_labeled": 245433,
+      "extraction_or_lab": 149857,
+      "in_vivo_or_sensor": 0,
+      "recommended": 149857
+    }
+  },
+  "atmospheric_correction": {
+    "processor": "ACOLITE Dark Spectrum Fitting (DSF)",
+    "version": "20221114.0",
+    "rrs_convention": "Rrs = rho_w / pi (Mobley 1999)"
+  },
+  "flags": {
+    "pipeline": [
+      "flag_negative_rrs",
+      "flag_high_cv",
+      "flag_insufficient_pixels",
+      "flag_high_sza",
+      "flag_acolite",
+      "passed_qc"
+    ],
+    "provenance_tier": "quality_tier (A-E)",
+    "source_flags": {
+      "columns": [
+        "chla_srcflag",
+        "sdd_srcflag",
+        "tss_srcflag",
+        "turbidity_srcflag",
+        "toc_srcflag"
+      ],
+      "encoding": "bit-packed; see Supplementary Methods S5",
+      "bits": {
+        "0-1": "method_class: 0 unknown, 1 extraction/lab, 2 in_vivo/sensor, 3 curated",
+        "2-3": "quality_tier: 0 n/a, 1 restrictive, 2 narrowed, 3 inclusive",
+        "4-5": "fraction: 0 n/a, 1 dissolved, 2 total, 3 unknown",
+        "6-7": "depth_type: 0 none, 1 discrete, 2 integrated, 3 mixed",
+        "8": "outlier: 0 ok, 1 flagged",
+        "9": "recommended: 0 no, 1 yes"
+      }
+    },
+    "coord_centroid": "1 = in situ coordinate is a lake centroid (LAGOS-NE via AquaSat v1), not a sampling location"
+  },
+  "files": {
+    "aquacorr_matchups.parquet": "Main matchup table (GeoParquet).",
+    "aquacorr_matchups.csv.gz": "CSV export (gzip) for broad accessibility.",
+    "aquacorr_rrs_spectra.zarr": "N x T x C tensor (sites x time x channels), harmonized 6-band + extra bands + flags.",
+    "aquacorr_gloria_validation.parquet": "GLORIA radiometric validation subset.",
+    "aquacorr_landsr_comparison.parquet": "Three-way ACOLITE vs land-SR vs GLORIA subset.",
+    "aquacorr_insitu_master.parquet": "Harmonized in situ master table (12,504,399 records).",
+    "aquacorr_metadata.json": "This file.",
+    "aquacorr_variables.xlsx": "Column dictionary, units, flag definitions."
+  },
+  "checksums_md5": {
+    "aquacorr_matchups.parquet": "a3a7d63e46b67ac1e43265ca738422e6",
+    "aquacorr_matchups.csv.gz": "b26f8acca092110bcd833d0bfedb33c3"
+  }
+}

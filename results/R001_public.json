@@ -1,0 +1,54 @@
+[
+  {
+    "id": "R001",
+    "kind": "observational_computed_result",
+    "numbers": {
+      "n_a": 8166,
+      "n_b": 1280,
+      "mean_a": 0.25413578694834227,
+      "mean_b": 0.08448146357164252,
+      "sd_a": 0.22625004123855738,
+      "sd_b": 0.1632014854491616,
+      "difference_b_minus_a": -0.16965432337669975,
+      "ci95_low": -0.1797824258669721,
+      "ci95_high": -0.1597045736477153,
+      "p_two_sided": 0.0005,
+      "excluded": 0
+    },
+    "unit": "per-site proportion of AquaCorr matchups with native NIR Rrs > 0.30 sr^-1 among passed_qc, nonempty-chla, finite-NIR observations",
+    "method": "independent_mean_difference",
+    "data_sha256": "7371169eccc415fe98c0548f7d69bbe3ea94b9ab8485e1a77ef9cab88329396e",
+    "code_sha256": "4d6985a8d591f257348cc2a1b44848c2c57123528692b12a8ef773428057fdd3",
+    "parameters": {
+      "method": "independent_mean_difference",
+      "id_column": "unit_id",
+      "group_column": "group",
+      "value_column": "value",
+      "group_a": "AquaMatch",
+      "group_b": "AquaSat_v1",
+      "unit": "per-site proportion of AquaCorr matchups with native NIR Rrs > 0.30 sr^-1 among passed_qc, nonempty-chla, finite-NIR observations",
+      "independent_units": true,
+      "exchangeable_under_null": true,
+      "assumption_rationale": "Each site ID appears once after excluding sites with multiple provenance-source labels; at least five eligible matchups are required per site. Under the narrow null of identical empirical distributions of site-level proportions in the two selected source groups, site-level values are exchangeable for a descriptive permutation comparison. Geographic, temporal, waterbody and field-method confounding prevents any causal source effect or population inference; the p-value is exploratory only and spatial dependence may remain.",
+      "missing": "reject",
+      "seed": 20261110,
+      "resamples": 1999
+    },
+    "exclusions": [],
+    "limitations": [
+      "Single prespecified outcome; no family of tests.",
+      "Percentile bootstrap CI can have poor coverage for small/skewed samples.",
+      "Permutation inference assumes exchangeability; this is declared, not proven by software.",
+      "Association is not causation. Existing-data analysis is exploratory unless independently preregistered."
+    ],
+    "dataset_provenance": {
+      "path": "data/aquacorr_audit/site_highnir_source.csv",
+      "source": "AquaCorr-Global v1, DOI 10.5281/zenodo.21927415, accessed 2026-11-10; downloaded aquacorr_matchups.csv.gz, verified MD5 b26f8acca092110bcd833d0bfedb33c3; derived by data/aquacorr_audit/audit.py",
+      "license": "Creative Commons Attribution 4.0 International (CC-BY-4.0), verified in Zenodo record API metadata on 2026-11-10",
+      "kind": "observational",
+      "units_previously_seen": "Before freezing this local plan, the agent inspected a few records, aggregate high-NIR counts, and preliminary source-level site rates. This is exploratory secondary analysis, not blind external preregistration.",
+      "snapshot": "inputs/data.csv",
+      "sha256": "7371169eccc415fe98c0548f7d69bbe3ea94b9ab8485e1a77ef9cab88329396e"
+    }
+  }
+]
